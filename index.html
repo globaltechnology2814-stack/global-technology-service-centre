@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Technology — Every Service In One Call</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fafafa;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body class="antialiased pb-24">
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-neutral-200 px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="bg-black text-white text-xs font-black px-2 py-1 rounded">gt</span>
+      <span class="font-bold tracking-tight text-neutral-900 text-sm sm:text-base">Global Technology</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs uppercase font-semibold text-neutral-500 tracking-wider">Menu</span>
+      <button class="w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center hover:bg-neutral-100 transition">
+        <svg class="w-4 h-4 text-neutral-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 17h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero / S.01 About Section -->
+  <section class="max-w-2xl mx-auto px-5 pt-8 pb-10">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="text-[11px] font-mono font-bold bg-neutral-200 px-1.5 py-0.5 rounded">S.01</span>
+      <span class="text-[11px] font-bold uppercase tracking-wider text-neutral-600 bg-neutral-100 px-2 py-0.5 rounded">About Us</span>
+    </div>
+
+    <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-snug text-neutral-800 mb-6">
+      Global Technology is a home and office service centre in Hyderabad, looking after the systems and surfaces your spaces rely on.
+    </h1>
+
+    <!-- Image Banner -->
+    <div class="relative rounded-2xl overflow-hidden bg-neutral-200 mb-6 aspect-[16/10]">
+      <img 
+        src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80" 
+        alt="Technician Service" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute bottom-3 left-4 text-[10px] tracking-widest uppercase font-mono text-white/90 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded">
+        Illustrative Stock Photography
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 gap-4 py-4 border-y border-neutral-200 my-6">
+      <div class="flex items-start gap-3">
+        <div class="text-neutral-400 mt-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+        </div>
+        <div>
+          <span class="text-2xl font-black block">6</span>
+          <span class="text-xs uppercase font-medium text-neutral-500 leading-tight">Service Areas</span>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <div class="text-neutral-400 mt-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </div>
+        <div>
+          <span class="text-2xl font-black block">11</span>
+          <span class="text-xs uppercase font-medium text-neutral-500 leading-tight">Specialist Services</span>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <div class="text-neutral-400 mt-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <div>
+          <span class="text-2xl font-black block">1</span>
+          <span class="text-xs uppercase font-medium text-neutral-500 leading-tight">Enquiry For Every Job</span>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <div class="text-neutral-400 mt-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <span class="text-2xl font-black block">HYD</span>
+          <span class="text-xs uppercase font-medium text-neutral-500 leading-tight">Based in Hyderabad</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-base text-neutral-700 leading-relaxed font-medium">
+      From the AC that keeps a room liveable to the marble underfoot and the charger in the driveway, we repair, restore and install. One enquiry starts the conversation; the right specialist finishes the job.
+    </p>
+  </section>
+
+  <!-- S.02 Services Section -->
+  <section class="max-w-2xl mx-auto px-5 py-8 border-t border-neutral-200">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-[11px] font-mono font-bold bg-neutral-200 px-1.5 py-0.5 rounded">S.02</span>
+      <span class="text-[11px] font-bold uppercase tracking-wider text-neutral-600 bg-neutral-100 px-2 py-0.5 rounded">Our Services</span>
+    </div>
+
+    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 leading-tight mb-8">
+      Practical expertise across the systems you use every day and the finishes you live with, so one call can take care of it.
+    </h2>
+
+    <!-- Services Cards List -->
+    <div class="space-y-4">
+
+      <!-- Card 1 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-sm hover:shadow-md transition">
+        <div class="flex justify-between items-start mb-4">
+          <span class="p-2 bg-neutral-100 rounded-lg text-neutral-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+          </span>
+          <span class="text-3xl">🧺</span>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Appliance care</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed">
+          Washing machine repairs, water purifier servicing and everyday appliance faults, diagnosed and put right.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-sm hover:shadow-md transition">
+        <div class="flex justify-between items-start mb-4">
+          <span class="p-2 bg-neutral-100 rounded-lg text-neutral-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 3v18m0-18l3 3m-3-3L9 6m3 15l3-3m-3 3l-3-3M3 12h18m-18 0l3 3m-3-3l3-3m15 0l-3 3m3-3l-3-3"/></svg>
+          </span>
+          <span class="text-3xl">❄️</span>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Cooling & ventilation</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed">
+          AC installation, ducting and maintenance for homes and offices, planned around the room and the load.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-sm hover:shadow-md transition">
+        <div class="flex justify-between items-start mb-4">
+          <span class="p-2 bg-neutral-100 rounded-lg text-neutral-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </span>
+          <span class="text-3xl">⚡</span>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Electrical & EV</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed">
+          EV charger installation and cabling, plus internet and network wiring, routed neatly and safely.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-sm hover:shadow-md transition">
+        <div class="flex justify-between items-start mb-4">
+          <span class="p-2 bg-neutral-100 rounded-lg text-neutral-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </span>
+          <span class="text-3xl">🏛️</span>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Interiors & restoration</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed">
+          Marble grinding, honing and polishing, false ceilings and civil work that bring a space back to its best.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-sm hover:shadow-md transition">
+        <div class="flex justify-between items-start mb-4">
+          <span class="p-2 bg-neutral-100 rounded-lg text-neutral-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </span>
+          <span class="text-3xl">🔧</span>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Plumbing & maintenance</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed">
+          Leaks, fittings and installations, with ongoing property care for the problems that come back.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-sm hover:shadow-md transition">
+        <div class="flex justify-between items-start mb-4">
+          <span class="p-2 bg-neutral-100 rounded-lg text-neutral-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </span>
+          <span class="text-3xl">📦</span>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Loading & unloading</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed">
+          Furniture, appliances and office equipment moved with care, in and out of tight spaces.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- S.03 Equipment Section -->
+  <section class="max-w-2xl mx-auto px-5 py-8 border-t border-neutral-200">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-[11px] font-mono font-bold bg-neutral-200 px-1.5 py-0.5 rounded">S.03</span>
+      <span class="text-[11px] font-bold uppercase tracking-wider text-neutral-6
