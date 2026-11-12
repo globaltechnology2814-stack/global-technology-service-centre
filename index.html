@@ -5,12 +5,20 @@
   <meta name="google-site-verification" content="google9580046f79a9b1c6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#fafafa" />
+  <meta name="description" content="Global Technology Service Centre offers appliance care, cooling, electrical & EV, interiors, plumbing, and loading services in Hyderabad." />
+  <meta property="og:title" content="Global Technology Service Centre" />
+  <meta property="og:description" content="Every service your home and office need, in one call." />
+  <meta property="og:type" content="website" />
   <title>Global Technology Service Centre — Every Service In One Call</title>
-  <script src="https://cdn.tailwindcss.com"></script> https://
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Plus Jakarta Sans", sans-serif;
       background: #fafafa;
@@ -25,7 +33,20 @@
       to { transform: translateX(-50%); }
     }
 
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #0f172a;
+      outline-offset: 2px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto !important;
+      }
+
       *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
@@ -45,21 +66,26 @@
 
   <main id="home">
     <section class="relative isolate overflow-hidden border-b border-neutral-200">
-      `
-      <div class="mx-auto max-w-3xl px-5 pb-12 pt-12 sm:pb-16 sm:pt-16">
+      <canvas id="hero-canvas" class="pointer-events-none absolute inset-0 h-full w-full opacity-60"></canvas>
+
+      <div class="relative mx-auto max-w-3xl px-5 pb-12 pt-12 sm:pb-16 sm:pt-16">
         <div class="mb-5 flex items-center gap-2">
           <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.01</span>
-           us</span>
+          <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Hyderabad home services</span>
         </div>
+
         <h1 class="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-5xl">
           Every service your home and office need, in one call.
         </h1>
+
         <p class="mt-5 max-w-xl text-base font-medium leading-relaxed text-neutral-700 sm:text-lg">
           Based in Hyderabad, we look after the systems and surfaces your spaces rely on. From appliance repairs and AC care to marble restoration and EV charging, the right specialist is one enquiry away.
         </p>
+
         <a href="#services" class="mt-7 inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
           Explore our services <span aria-hidden="true">↓</span>
         </a>
+
         <div class="mt-10 grid grid-cols-2 gap-5 border-y border-neutral-300/80 py-5 sm:grid-cols-4">
           <div><span class="block text-2xl font-black">6</span><span class="text-xs font-medium uppercase text-neutral-500">Service areas</span></div>
           <div><span class="block text-2xl font-black">11</span><span class="text-xs font-medium uppercase text-neutral-500">Specialist services</span></div>
@@ -136,9 +162,11 @@
           <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.03</span>
           <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Service inquiry</span>
         </div>
+
         <h2 class="text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">Tell us what you need.</h2>
         <p class="mt-3 max-w-xl text-sm leading-relaxed text-neutral-600">Choose a service and share a few details. We’ll use them to understand the job and route your enquiry to the right specialist.</p>
-        <form class="mt-7 grid gap-4 sm:grid-cols-2">
+
+        <form class="mt-7 grid gap-4 sm:grid-cols-2" action="https://formspree.io/f/your-form-id" method="POST">
           <label class="grid gap-1.5 text-sm font-semibold text-neutral-700">
             Service
             <select id="service-choice" name="service" required class="rounded-xl border border-neutral-300 bg-white px-3 py-3 font-normal focus:border-neutral-700 focus:outline-none">
@@ -150,20 +178,27 @@
               <option value="loading-unloading">Loading &amp; unloading</option>
             </select>
           </label>
+
           <label class="grid gap-1.5 text-sm font-semibold text-neutral-700">
             Your name
             <input name="name" autocomplete="name" required class="rounded-xl border border-neutral-300 px-3 py-3 font-normal focus:border-neutral-700 focus:outline-none" />
           </label>
+
           <label class="grid gap-1.5 text-sm font-semibold text-neutral-700 sm:col-span-2">
             Phone or email
-            <input name="contact" required class="rounded-xl border border-neutral-300 px-3 py-3 font-normal focus:border-neutral-700 focus:outline-none" />
+            <input type="text" name="contact" required class="rounded-xl border border-neutral-300 px-3 py-3 font-normal focus:border-neutral-700 focus:outline-none" />
           </label>
+
           <label class="grid gap-1.5 text-sm font-semibold text-neutral-700 sm:col-span-2">
             What can we help with?
             <textarea name="details" rows="4" required class="rounded-xl border border-neutral-300 px-3 py-3 font-normal focus:border-neutral-700 focus:outline-none"></textarea>
           </label>
-          <p class="text-xs leading-relaxed text-neutral-500 sm:col-span-2">This static page does not yet have a configured inquiry submission endpoint. Please connect a form service or backend before publishing.</p>
-          <button type="button" disabled class="w-fit cursor-not-allowed rounded-full bg-neutral-300 px-5 py-3 text-sm font-semibold text-neutral-600">Inquiry submission is not configured</button>
+
+          <p class="text-xs leading-relaxed text-neutral-500 sm:col-span-2">Replace the Formspree endpoint with your real form service or backend URL before publishing.</p>
+
+          <button type="submit" class="w-fit rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
+            Send inquiry
+          </button>
         </form>
       </div>
     </section>
@@ -180,6 +215,7 @@
       serviceChoice.value = requestedService;
     }
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script>
     (() => {
@@ -189,8 +225,10 @@
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
       camera.position.z = 8;
+
       const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
       const geometry = new THREE.IcosahedronGeometry(1.7, 1);
       const material = new THREE.MeshBasicMaterial({ color: 0x94a3b8, wireframe: true, transparent: true, opacity: 0.22 });
       const mesh = new THREE.Mesh(geometry, material);
@@ -204,6 +242,7 @@
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
       };
+
       const resizeObserver = new ResizeObserver(resize);
       resizeObserver.observe(canvas);
       resize();
@@ -214,6 +253,7 @@
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
       };
+
       animate();
     })();
   </script>
