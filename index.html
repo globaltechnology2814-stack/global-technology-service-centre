@@ -43,6 +43,14 @@
       }
     }
 
+    .video-scroll {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #e5e5e5;
+    }
+
     a:focus-visible,
     button:focus-visible,
     input:focus-visible,
@@ -171,10 +179,63 @@
       </div>
     </section>
 
+    <section id="work-showcase" class="border-t border-neutral-200 bg-neutral-50">
+      <div class="mx-auto max-w-5xl px-4 py-12 sm:px-5 sm:py-16">
+        <div class="mb-3 flex items-center gap-2">
+          <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.04</span>
+          <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Recent work</span>
+        </div>
+
+        <h2 class="mb-8 text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">Video work that shows what we do.</h2>
+
+        <div class="grid gap-5 md:grid-cols-2">
+          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+            <div class="relative aspect-video bg-neutral-200">
+              <video class="video-scroll" muted playsinline preload="metadata" src="https://example.com/videos/rj45-jack-installation.mp4"></video>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-neutral-900">RJ45 Jack Installation</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">Clean network setup, cable routing, and secure jack installation for homes and offices.</p>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+            <div class="relative aspect-video bg-neutral-200">
+              <video class="video-scroll" muted playsinline preload="metadata" src="https://example.com/videos/website-creation.mp4"></video>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-neutral-900">Website Creation</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">Modern business websites designed for trust, speed, and clear service promotion.</p>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+            <div class="relative aspect-video bg-neutral-200">
+              <video class="video-scroll" muted playsinline preload="metadata" src="https://example.com/videos/loading-unloading.mp4"></video>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-neutral-900">Loading &amp; Unloading</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">Careful handling and safe loading for furniture, appliances, and office equipment.</p>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+            <div class="relative aspect-video bg-neutral-200">
+              <video class="video-scroll" muted playsinline preload="metadata" src="https://example.com/videos/ac-installation.mp4"></video>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-neutral-900">AC Installation</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">Professional AC setup, placement, testing, and cooling performance checks.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="inquiry-form" class="border-t border-neutral-200 bg-white">
       <div class="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
         <div class="mb-3 flex items-center gap-2">
-          <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.03</span>
+          <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.05</span>
           <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Service inquiry</span>
         </div>
 
@@ -229,6 +290,27 @@
     if (serviceChoice && requestedService && [...serviceChoice.options].some(option => option.value === requestedService)) {
       serviceChoice.value = requestedService;
     }
+  </script>
+
+  <script>
+    const videoEls = document.querySelectorAll(".video-scroll");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    videoEls.forEach((video) => observer.observe(video));
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
