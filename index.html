@@ -4,156 +4,207 @@
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="google9580046f79a9b1c6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#fafafa" />
+  <meta name="theme-color" content="#07111f" />
   <meta name="description" content="Global Technology Service Centre offers home and office services in Hyderabad, including EV charger and network installation." />
   <meta property="og:title" content="Global Technology Service Centre" />
   <meta property="og:description" content="Every service your home and office need, in one call." />
   <meta property="og:type" content="website" />
   <title>Global Technology Service Centre — Every Service In One Call</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: "Plus Jakarta Sans", sans-serif; background: #fafafa; color: #0f172a; }
-    .ticker-track { animation: ticker-scroll 28s linear infinite; }
-    @keyframes ticker-scroll { to { transform: translateX(-50%); } }
-    .service-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-    @media (min-width: 640px) { .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    .video-scroll { width: 100%; height: 100%; object-fit: cover; display: block; background: #e5e5e5; }
-    .service-tag { display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid #e5e7eb; background: #f8fafc; padding: .35rem .7rem; font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #475569; }
-    .whatsapp-fixed { position: fixed; top: .75rem; right: 1rem; z-index: 50; }
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid #0f172a; outline-offset: 2px; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto !important; }
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-    }
+    :root{--ink:#07111f;--muted:#9aabc0;--cyan:#5ee7f5;--blue:#6c8cff;--panel:#101d2e;--line:rgba(180,205,235,.14);--white:#f5f8ff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:82px}
+    body{margin:0;background:var(--ink);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+    .container{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font:700 14px 'Space Grotesk',sans-serif;letter-spacing:-.03em}
+    .brand-mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:#06131f;background:linear-gradient(135deg,var(--cyan),#83a1ff);box-shadow:0 6px 24px #5ee7f533;font-size:18px}
+    .nav-links{display:flex;align-items:center;gap:10px}
+    .nav-link,.button{border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:13px;font-weight:700;transition:transform .2s,background .2s,border-color .2s}
+    .nav-link:hover{background:#ffffff0b;border-color:#ffffff44}
+    .button-primary{color:#06131f;background:linear-gradient(110deg,var(--cyan),#a1f2de);border:0;box-shadow:0 10px 28px #5ee7f51c}
+    .button-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px #5ee7f533}
+    .hero{position:relative;overflow:hidden;padding:74px 0 82px;background:radial-gradient(ellipse at 77% 42%,#1d3b5a 0,transparent 38%),radial-gradient(ellipse at 10% 0,#173149 0,transparent 38%),#07111f}
+    .hero:after{content:'';position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,#79d8ec55,transparent)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:36px}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--cyan);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.18em}
+    .eyebrow:before{content:'';width:24px;height:1px;background:currentColor}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-.045em}
+    h1{max-width:640px;margin:18px 0;font-size:clamp(42px,6vw,72px);line-height:1.02}
+    .gradient-text{color:var(--cyan);background:linear-gradient(100deg,#67e5f1,#a6b8ff 75%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-copy{max-width:540px;color:#b1bfd0;font-size:16px;line-height:1.8}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}
+    .hero-actions .button{padding:13px 19px}
+    .button-ghost{background:#ffffff08}
+    .button-ghost:hover{background:#ffffff15;transform:translateY(-2px)}
+    .proof{display:flex;align-items:center;gap:12px;margin-top:25px;color:#a8b8cb;font-size:12px}
+    .proof-dot{width:8px;height:8px;border-radius:50%;background:#64e4a4;box-shadow:0 0 13px #64e4a4}
+    /* Lightweight CSS/SVG scene: dimensional visual, no 3D library required. */
+    .scene-wrap{position:relative;min-height:390px;display:grid;place-items:center;perspective:1000px;isolation:isolate}
+    .scene-glow{position:absolute;width:70%;height:62%;border-radius:50%;background:#4b9fff26;filter:blur(45px);z-index:-1}
+    .scene{position:relative;width:min(100%,490px);height:350px;transform-style:preserve-3d;transform:rotateX(8deg) rotateY(-12deg);animation:scene-float 6s ease-in-out infinite}
+    .platform{position:absolute;left:8%;right:5%;bottom:21px;height:120px;border:1px solid #5de3f155;border-radius:22px;background:linear-gradient(145deg,#142c43,#0a1727 72%);transform:rotateX(62deg) rotateZ(-3deg);box-shadow:0 32px 55px #0008,inset 0 1px #ffffff18}
+    .platform:before{content:'';position:absolute;inset:0;border-radius:inherit;background-image:linear-gradient(#7fe8ff10 1px,transparent 1px),linear-gradient(90deg,#7fe8ff10 1px,transparent 1px);background-size:26px 26px}
+    .house{position:absolute;left:24%;top:26%;width:210px;height:157px;transform-style:preserve-3d;filter:drop-shadow(0 22px 18px #0005)}
+    .house-front{position:absolute;inset:0;background:linear-gradient(145deg,#d9e8f4,#829eb8);clip-path:polygon(0 27%,50% 0,100% 27%,100% 100%,0 100%);transform:translateZ(42px);border:1px solid #e8f5ff}
+    .house-side{position:absolute;top:27%;right:-42px;width:42px;height:73%;background:linear-gradient(180deg,#526c88,#263e58);transform:skewY(-37deg);transform-origin:left top}
+    .house-roof{position:absolute;top:-2px;left:0;width:100%;height:50px;background:linear-gradient(120deg,#88a7c3,#405e7a);clip-path:polygon(50% 0,100% 55%,50% 100%,0 55%);transform:translateZ(46px)}
+    .window{position:absolute;z-index:2;top:57px;left:28px;width:46px;height:42px;border:4px solid #56718c;background:linear-gradient(135deg,#62dcf0,#496fc0);box-shadow:inset 0 0 13px #b8fbff;transform:translateZ(45px)}
+    .door{position:absolute;z-index:2;right:27px;bottom:0;width:38px;height:65px;border-radius:7px 7px 0 0;background:linear-gradient(90deg,#314a65,#58748f);transform:translateZ(45px)}
+    .charger{position:absolute;right:16%;top:31%;width:65px;height:106px;border-radius:12px;background:linear-gradient(110deg,#f7fbff,#a6c0d8);box-shadow:12px 16px 25px #0006;transform:translateZ(54px) rotateY(-7deg)}
+    .charger:before{content:'';position:absolute;top:12px;left:12px;right:12px;height:39px;border-radius:6px;background:linear-gradient(135deg,#163d59,#0b1725);box-shadow:inset 0 0 10px #5ee7f588}
+    .charger:after{content:'⚡';position:absolute;top:16px;left:23px;color:var(--cyan);font-size:18px}
+    .charger-cable{position:absolute;right:22%;top:52%;width:64px;height:80px;border:4px solid #d5e6f4;border-left-color:transparent;border-bottom-color:transparent;border-radius:0 45px 0 0;transform:translateZ(55px) rotate(15deg)}
+    .float-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid #d5faff30;border-radius:14px;background:#10273bdc;backdrop-filter:blur(10px);box-shadow:0 12px 28px #0004;color:#e8f7ff;font-size:11px;font-weight:700;animation:chip-float 4s ease-in-out infinite}
+    .float-chip b{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#5ee7f51c;color:var(--cyan);font-size:15px}
+    .chip-one{top:12%;left:5%}.chip-two{right:1%;bottom:27%;animation-delay:-1.5s}.chip-three{left:10%;bottom:14%;animation-delay:-2.7s}
+    .scene-orbit{position:absolute;width:330px;height:220px;border:1px solid #77e7f52a;border-radius:50%;transform:rotateX(70deg) rotateZ(-18deg);animation:orbit-turn 18s linear infinite}
+    .scene-orbit:after{content:'';position:absolute;top:17px;left:40px;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}
+    @keyframes scene-float{0%,100%{transform:rotateX(8deg) rotateY(-12deg) translateY(0)}50%{transform:rotateX(8deg) rotateY(-12deg) translateY(-10px)}}
+    @keyframes chip-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+    @keyframes orbit-turn{to{transform:rotateX(70deg) rotateZ(342deg)}}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .stat{padding:0 18px;border-right:1px solid var(--line)}.stat:first-child{padding-left:0}.stat:last-child{border:0}
+    .stat strong{display:block;font:700 25px 'Space Grotesk',sans-serif}.stat span{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+    .ticker{overflow:hidden;padding:13px 0;border-bottom:1px solid var(--line);background:#0b1726;color:#bbcadc}
+    .ticker-track{width:max-content;display:flex;gap:28px;white-space:nowrap;animation:ticker 30s linear infinite;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+    .ticker-track span{color:var(--cyan)}@keyframes ticker{to{transform:translateX(-50%)}}
+    .section{padding:88px 0}.section-heading{max-width:700px;margin-bottom:34px}.section-heading h2{margin:12px 0;font-size:clamp(30px,4vw,46px);line-height:1.1}.section-heading p{color:var(--muted);max-width:620px}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service-card{position:relative;min-height:224px;padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#132338,#0d1928);transform-style:preserve-3d;transition:transform .25s,border-color .25s,box-shadow .25s;overflow:hidden}
+    .service-card:hover{transform:translateY(-6px) rotateX(2deg);border-color:#5ee7f566;box-shadow:0 22px 45px #0004}
+    .service-card:after{content:'';position:absolute;width:130px;height:130px;right:-60px;bottom:-75px;border-radius:50%;background:#5ee7f510;filter:blur(2px)}
+    .service-icon{width:48px;height:48px;display:grid;place-items:center;margin-bottom:20px;border:1px solid #82eaf530;border-radius:15px;background:linear-gradient(145deg,#193c53,#12243a);color:var(--cyan);font-size:21px;box-shadow:7px 8px 0 #07111f;transform:translateZ(18px)}
+    .service-card h3{margin:0 0 8px;font-size:19px}.service-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .showcase{background:linear-gradient(180deg,#0a1625,#0d1b2c);border-block:1px solid var(--line)}
+    .showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .showcase-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#101e30}
+    .mini-scene{height:185px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#234869,#101d2e 67%);perspective:500px}
+    .mini-scene:before{content:'';position:absolute;bottom:-54px;width:230px;height:140px;border:1px solid #67e6f02e;border-radius:50%;transform:rotateX(67deg);background:repeating-linear-gradient(0deg,transparent 0 19px,#7ce8f012 20px),repeating-linear-gradient(90deg,transparent 0 19px,#7ce8f012 20px)}
+    .mini-object{position:relative;z-index:1;display:grid;place-items:center;width:80px;height:105px;border:1px solid #d4efff99;border-radius:15px;background:linear-gradient(130deg,#dceaf5,#7897b3);box-shadow:18px 20px 25px #0007;transform:rotateY(-18deg) rotateX(5deg);animation:object-hover 4s ease-in-out infinite}
+    .mini-object:before{content:attr(data-symbol);display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#102b43,#183f5c);color:var(--cyan);font-size:25px;box-shadow:inset 0 0 16px #59e4fa4d}
+    .mini-object:after{content:'';position:absolute;bottom:10px;width:38px;height:4px;border-radius:5px;background:#536d85}
+    .mini-network{width:130px;height:75px;border:0;background:transparent;box-shadow:none;animation-delay:-1s}.mini-network:before{content:'⌘';width:68px;height:68px;border:1px solid #76eaff88;border-radius:50%;font-size:36px}.mini-network:after{content:'';position:absolute;width:130px;height:1px;background:#68e4f488;transform:rotate(-25deg);box-shadow:0 17px #68e4f455,0 -17px #68e4f455}
+    .mini-ac{width:140px;height:56px;border-radius:12px;animation-delay:-2s}.mini-ac:before{content:'❄';width:36px;height:28px;font-size:19px}
+    @keyframes object-hover{0%,100%{translate:0 0}50%{translate:0 -8px}}
+    .showcase-copy{padding:18px}.showcase-copy h3{margin:0 0 6px;font-size:17px}.showcase-copy p{margin:0;color:var(--muted);font-size:12px}
+    .inquiry{background:radial-gradient(ellipse at 0% 40%,#142e43 0,transparent 45%),#07111f}
+    .form-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:start}
+    .form-intro h2{font-size:clamp(30px,4vw,44px);line-height:1.1}.form-intro p{color:var(--muted);font-size:14px;line-height:1.8}
+    .contact-note{margin-top:25px;padding:15px;border:1px solid var(--line);border-radius:14px;color:#c2d0df;font-size:13px}.contact-note a{color:var(--cyan)}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:24px;border:1px solid var(--line);border-radius:22px;background:#101d2edb;box-shadow:0 24px 55px #0003}
+    label{display:grid;gap:7px;color:#d7e1ed;font-size:12px;font-weight:700}label.wide{grid-column:1/-1}
+    input,select,textarea{width:100%;border:1px solid #34465b;border-radius:11px;background:#0a1625;color:#f5f8ff;padding:12px 13px;font-size:13px}
+    input::placeholder,textarea::placeholder{color:#77889c}select{color-scheme:dark}textarea{resize:vertical;min-height:110px}
+    .form-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px}
+    .form-foot button{cursor:pointer}
+    footer{padding:25px 0;border-top:1px solid var(--line);color:#92a3b8;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-inner a{color:#c4d2e2}
+    @media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:10px}.hero{padding-top:55px}.scene-wrap{min-height:330px}.scene{transform:scale(.88) rotateX(8deg) rotateY(-12deg)}.service-grid{grid-template-columns:repeat(2,1fr)}.showcase-grid{grid-template-columns:1fr 1fr}.form-shell{grid-template-columns:1fr;gap:25px}}
+    @media(max-width:560px){.container{width:min(100% - 30px,1120px)}.nav{min-height:66px}.brand{font-size:11px}.brand-mark{width:30px;height:30px}.nav-links{gap:6px}.nav-link,.nav-links .button{padding:8px 10px;font-size:11px}.nav-links .call-link{display:none}.hero{padding:48px 0 60px}h1{font-size:43px}.hero-copy{font-size:14px}.scene-wrap{min-height:290px;overflow:hidden}.scene{width:490px;max-width:none;transform:scale(.72) rotateX(8deg) rotateY(-12deg)}.stats{grid-template-columns:repeat(2,1fr);gap:18px}.stat{padding:0 10px;border:0}.stat:nth-child(odd){padding-left:0}.stat strong{font-size:22px}.section{padding:65px 0}.service-grid,.showcase-grid{grid-template-columns:1fr}.service-card{min-height:190px}.mini-scene{height:170px}form{grid-template-columns:1fr;padding:18px}.form-foot,label.wide{grid-column:1}.form-foot{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
 </head>
-<body class="antialiased">
-  <header class="sticky top-0 z-40 flex items-center justify-between border-b border-neutral-200 bg-white/90 px-4 py-3 pr-32 backdrop-blur-md sm:pr-40">
-    <a class="text-sm font-bold tracking-tight text-neutral-900 sm:text-base" href="#home">Global Technology Service Centre</a>
-    <nav class="flex flex-wrap items-center justify-end gap-2" aria-label="Main navigation">
-      <a class="rounded-full border border-neutral-300 px-3 py-2 text-xs font-semibold transition hover:bg-neutral-100" href="#services">Services</a>
-      <a class="rounded-full border border-neutral-300 px-3 py-2 text-xs font-semibold transition hover:bg-neutral-100" href="tel:08048061672" aria-label="Call IVR number 08048061672">Call IVR</a>
-      <a class="rounded-full bg-amber-500 px-3 py-2 text-xs font-bold text-neutral-900 transition hover:bg-amber-400" href="https://wa.me/9185006187047?text=Hi%2C%20I%20would%20like%20to%20discuss%20sponsorship%20with%20Global%20Technology%20Service%20Centre." target="_blank" rel="noopener">Sponsor</a>
-    </nav>
-    <a class="whatsapp-fixed rounded-full bg-green-600 px-4 py-2 text-xs font-semibold text-white shadow-lg transition hover:bg-green-700" href="https://wa.me/9185006187047?text=Hi%20Global%20Technology%20Service%20Centre%2C%20I%20need%20a%20service." target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">WhatsApp</a>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">✦</span><span>Global Technology<br />Service Centre</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link call-link" href="tel:08048061672" aria-label="Call IVR number 08048061672">Call IVR</a>
+        <a class="button button-primary" href="https://wa.me/9185006187047?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20service." target="_blank" rel="noopener noreferrer">WhatsApp us ↗</a>
+      </nav>
+    </div>
   </header>
 
   <main id="home">
-    <section class="border-b border-neutral-200">
-      <div class="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
-        <p class="mb-4 text-xs font-bold uppercase tracking-wider text-neutral-600">Hyderabad home services</p>
-        <h1 class="text-3xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-5xl">Every service your home and office need, in one call.</h1>
-        <p class="mt-5 max-w-xl text-base leading-relaxed text-neutral-700 sm:text-lg">Based in Hyderabad, we look after the systems and surfaces your spaces rely on. From appliance repairs and AC care to EV charging and network installation, the right specialist is one enquiry away.</p>
-        <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a href="#services" class="rounded-full bg-neutral-900 px-5 py-3 text-center text-sm font-semibold text-white">Explore our services ↓</a>
-          <a href="tel:08048061672" class="rounded-full border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-semibold">Call IVR: 08048061672</a>
-          <a href="tel:85006187047" class="rounded-full border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-semibold">Call 85006187047</a>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Hyderabad · Home &amp; office services</div>
+          <h1>Everything works better <span class="gradient-text">when it works.</span></h1>
+          <p class="hero-copy">One reliable team for the systems and surfaces your spaces depend on. From appliance repairs and AC care to EV charging, network installation, plumbing and more.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#services">Explore services <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="tel:08048061672">Call IVR: 08048061672</a>
+            <a class="button button-ghost" href="tel:85006187047">Call 85006187047</a>
+          </div>
+          <div class="proof"><span class="proof-dot" aria-hidden="true"></span>Local expertise. Practical solutions. One enquiry for every job.</div>
         </div>
-        <div class="mt-10 grid grid-cols-2 gap-5 border-y border-neutral-300/80 py-5 sm:grid-cols-4">
-          <div><span class="block text-2xl font-black">6</span><span class="text-xs font-medium uppercase text-neutral-500">Service areas</span></div>
-          <div><span class="block text-2xl font-black">11</span><span class="text-xs font-medium uppercase text-neutral-500">Specialist services</span></div>
-          <div><span class="block text-2xl font-black">1</span><span class="text-xs font-medium uppercase text-neutral-500">Enquiry for every job</span></div>
-          <div><span class="block text-2xl font-black">HYD</span><span class="text-xs font-medium uppercase text-neutral-500">Based in Hyderabad</span></div>
+        <div class="scene-wrap" role="img" aria-label="Animated 3D illustration of a modern home, EV charger and connected services">
+          <div class="scene-glow"></div><div class="scene-orbit"></div>
+          <div class="scene">
+            <div class="platform"></div>
+            <div class="house"><div class="house-side"></div><div class="house-front"></div><div class="house-roof"></div><div class="window"></div><div class="door"></div></div>
+            <div class="charger"></div><div class="charger-cable"></div>
+            <div class="float-chip chip-one"><b>⌂</b> Home systems</div>
+            <div class="float-chip chip-two"><b>ϟ</b> EV ready</div>
+            <div class="float-chip chip-three"><b>⌘</b> Connected</div>
+          </div>
+        </div>
+      </div>
+      <div class="container stats" aria-label="Business highlights">
+        <div class="stat"><strong>6</strong><span>Service areas</span></div><div class="stat"><strong>11</strong><span>Specialist services</span></div><div class="stat"><strong>1</strong><span>Enquiry for every job</span></div><div class="stat"><strong>HYD</strong><span>Based in Hyderabad</span></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Service highlights"><div class="ticker-track"><div>Appliance care <span>✳</span> Cooling &amp; ventilation <span>✳</span> Electrical &amp; EV <span>✳</span> Interiors &amp; restoration <span>✳</span> Plumbing &amp; maintenance <span>✳</span> Loading &amp; unloading <span>✳</span></div><div aria-hidden="true">Appliance care <span>✳</span> Cooling &amp; ventilation <span>✳</span> Electrical &amp; EV <span>✳</span> Interiors &amp; restoration <span>✳</span> Plumbing &amp; maintenance <span>✳</span> Loading &amp; unloading <span>✳</span></div></div></div>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading"><div class="eyebrow">What we take care of</div><h2>One team for the details that keep life moving.</h2><p>Skilled help for everyday repairs, upgrades and maintenance at home or work.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon" aria-hidden="true">⌁</div><h3>Appliance care</h3><p>Repair and maintenance for the essential appliances you rely on every day.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">❄</div><h3>Cooling &amp; ventilation</h3><p>AC servicing, installation and ventilation support for comfortable spaces.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">ϟ</div><h3>Electrical &amp; EV</h3><p>Electrical work, EV charger installation and careful cable routing.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">◈</div><h3>Interiors &amp; restoration</h3><p>Finishing, repairs and restoration to refresh the spaces you use.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">〰</div><h3>Plumbing &amp; maintenance</h3><p>Practical plumbing fixes and general upkeep for home and office.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">▰</div><h3>Loading &amp; unloading</h3><p>Careful handling and help moving items when you need an extra hand.</p></article>
+        </div>
+        <a class="button button-primary" style="display:inline-flex;margin-top:24px" href="#inquiry-form">Book a service ↗</a>
+      </div>
+    </section>
+
+    <section class="section showcase" id="work-showcase">
+      <div class="container">
+        <div class="section-heading"><div class="eyebrow">Recent work</div><h2>Thoughtful installs. Clean finishes.</h2><p>A closer look at the kind of detail we bring to every job.</p></div>
+        <div class="showcase-grid">
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Animated 3D EV charger illustration"><div class="mini-object" data-symbol="ϟ"></div></div><div class="showcase-copy"><h3>EV charger installation</h3><p>Charger setup, safe cable routing and a clean finish.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Animated 3D network installation illustration"><div class="mini-object mini-network" data-symbol="⌘"></div></div><div class="showcase-copy"><h3>Network installation</h3><p>Neat connections and reliable network points.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Animated 3D air conditioner illustration"><div class="mini-object mini-ac" data-symbol="❄"></div></div><div class="showcase-copy"><h3>Cooling &amp; ventilation</h3><p>AC service and installation for comfortable spaces.</p></div></article>
         </div>
       </div>
     </section>
 
-    <div class="overflow-hidden border-b border-neutral-200 bg-neutral-900 py-3 text-white" aria-label="Service highlights">
-      <div class="ticker-track flex w-max items-center gap-8 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.18em]">
-        <span>Appliance care ✳ Cooling &amp; ventilation ✳ Electrical &amp; EV ✳ Interiors &amp; restoration ✳ Plumbing &amp; maintenance ✳ Loading &amp; unloading ✳ </span>
-        <span aria-hidden="true">Appliance care ✳ Cooling &amp; ventilation ✳ Electrical &amp; EV ✳ Interiors &amp; restoration ✳ Plumbing &amp; maintenance ✳ Loading &amp; unloading ✳ </span>
-      </div>
-    </div>
-
-    <section id="services" class="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
-      <p class="mb-3 text-xs font-bold uppercase tracking-wider text-neutral-600">Our services</p>
-      <h2 class="mb-8 max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-3xl">Practical expertise across the systems you use every day and the finishes you live with.</h2>
-      <div class="service-grid">
-        <article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"><span class="service-tag">Repair · Home</span><h3 class="mt-4 text-xl font-bold">Appliance care</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">Washing machine repairs, water purifier servicing and everyday appliance faults, diagnosed and put right.</p></article>
-        <article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"><span class="service-tag">Cooling · AC</span><h3 class="mt-4 text-xl font-bold">Cooling &amp; ventilation</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">AC installation, ducting and maintenance for homes and offices.</p></article>
-        <article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"><span class="service-tag">EV · Wiring</span><h3 class="mt-4 text-xl font-bold">Electrical &amp; EV</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">EV charger installation and cabling, plus internet and network wiring, routed neatly and safely.</p></article>
-        <article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"><span class="service-tag">Finish · Restoration</span><h3 class="mt-4 text-xl font-bold">Interiors &amp; restoration</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">Marble grinding, honing and polishing, false ceilings and civil work.</p></article>
-        <article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"><span class="service-tag">Plumbing · Maintenance</span><h3 class="mt-4 text-xl font-bold">Plumbing &amp; maintenance</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">Leaks, fittings and installations, with ongoing property care.</p></article>
-        <article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"><span class="service-tag">Move · Handling</span><h3 class="mt-4 text-xl font-bold">Loading &amp; unloading</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">Furniture, appliances and office equipment moved with care.</p></article>
-      </div>
-      <a href="#inquiry-form" class="mt-7 inline-flex rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white">Book a service</a>
-    </section>
-
-    <section id="work-showcase" class="border-t border-neutral-200 bg-neutral-50">
-      <div class="mx-auto max-w-5xl px-4 py-12 sm:px-5 sm:py-16">
-        <p class="mb-3 text-xs font-bold uppercase tracking-wider text-neutral-600">Recent work</p>
-        <h2 class="mb-8 text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">Installation videos</h2>
-        <p class="mb-6 text-sm text-neutral-600">Videos play while they are visible as you scroll and pause when you scroll away.</p>
-        <div class="grid gap-5 md:grid-cols-2">
-          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
-            <div class="relative aspect-video bg-neutral-200"><video class="video-scroll h-full w-full object-cover" muted playsinline preload="metadata" loop aria-label="EV charger installation video" src="https://example.com/videos/ev-charger-installation.mp4"></video></div>
-            <div class="p-4"><h3 class="text-lg font-bold">EV Charger Installation</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">Safe EV charger installation, cable routing and setup for homes and offices.</p></div>
-          </article>
-          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
-            <div class="relative aspect-video bg-neutral-200"><video class="video-scroll h-full w-full object-cover" muted playsinline preload="metadata" loop aria-label="RJ45 jack installation video" src="https://example.com/videos/rj45-jack-installation.mp4"></video></div>
-            <div class="p-4"><h3 class="text-lg font-bold">RJ45 Jack Installation</h3><p class="mt-2 text-sm leading-relaxed text-neutral-600">Clean network setup, cable routing and secure jack installation for homes and offices.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="inquiry-form" class="border-t border-neutral-200 bg-white">
-      <div class="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
-        <p class="mb-3 text-xs font-bold uppercase tracking-wider text-neutral-600">Service inquiry</p>
-        <h2 class="text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">Tell us what you need.</h2>
-        <p class="mt-3 max-w-xl text-sm leading-relaxed text-neutral-600">Share your contact details and the reason for your visit. We’ll route your enquiry to the right specialist.</p>
-        <form class="mt-7 grid gap-4 sm:grid-cols-2" action="https://formspree.io/f/xppdwwab" method="POST">
-          <label class="grid gap-1.5 text-sm font-semibold text-neutral-700">Service
-            <select id="service-choice" name="service" required class="rounded-xl border border-neutral-300 bg-white px-3 py-3 font-normal">
-              <option value="appliance-care">Appliance care</option><option value="cooling-ventilation">Cooling &amp; ventilation</option><option value="electrical-ev">Electrical &amp; EV</option><option value="interiors-restoration">Interiors &amp; restoration</option><option value="plumbing-maintenance">Plumbing &amp; maintenance</option><option value="loading-unloading">Loading &amp; unloading</option>
-            </select>
-          </label>
-          <label class="grid gap-1.5 text-sm font-semibold text-neutral-700">Your name
-            <input name="name" autocomplete="name" required class="rounded-xl border border-neutral-300 px-3 py-3 font-normal" />
-          </label>
-          <label class="grid gap-1.5 text-sm font-semibold text-neutral-700">Customer mobile number
-            <input type="tel" name="mobile" autocomplete="tel" inputmode="tel" required pattern="[+0-9() .-]{7,20}" placeholder="e.g. +91 98765 43210" class="rounded-xl border border-neutral-300 px-3 py-3 font-normal" />
-          </label>
-          <label class="grid gap-1.5 text-sm font-semibold text-neutral-700">Customer email address
-            <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" class="rounded-xl border border-neutral-300 px-3 py-3 font-normal" />
-          </label>
-          <label class="grid gap-1.5 text-sm font-semibold text-neutral-700 sm:col-span-2">Reason for visit / service required
-            <textarea name="reason" rows="4" required placeholder="Please tell us why you need the service and any useful details." class="rounded-xl border border-neutral-300 px-3 py-3 font-normal"></textarea>
-          </label>
-          <p class="text-xs leading-relaxed text-neutral-500 sm:col-span-2">Your enquiry will be sent securely through Formspree.</p>
-          <button type="submit" class="w-fit rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">Send inquiry</button>
+    <section class="section inquiry" id="inquiry-form">
+      <div class="container form-shell">
+        <div class="form-intro"><div class="eyebrow">Service inquiry</div><h2>Tell us what you need.</h2><p>Share your contact details and the reason for your visit. We’ll route your enquiry to the right specialist.</p><div class="contact-note">Prefer to call? <a href="tel:08048061672">IVR 08048061672</a><br />Or message us on <a href="https://wa.me/9185006187047?text=Hi%20Global%20Technology%20Service%20Centre" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></div></div>
+        <form action="https://formspree.io/f/xppdwwab" method="POST">
+          <label>Service<select id="service-choice" name="service" required><option value="appliance-care">Appliance care</option><option value="cooling-ventilation">Cooling &amp; ventilation</option><option value="electrical-ev">Electrical &amp; EV</option><option value="interiors-restoration">Interiors &amp; restoration</option><option value="plumbing-maintenance">Plumbing &amp; maintenance</option><option value="loading-unloading">Loading &amp; unloading</option></select></label>
+          <label>Your name<input name="name" autocomplete="name" required /></label>
+          <label>Customer mobile number<input type="tel" name="mobile" autocomplete="tel" inputmode="tel" required pattern="[+0-9() .-]{7,20}" placeholder="e.g. +91 98765 43210" /></label>
+          <label>Customer email address<input type="email" name="email" autocomplete="email" required placeholder="you@example.com" /></label>
+          <label class="wide">Reason for visit / service required<textarea name="reason" rows="4" required placeholder="Please tell us why you need the service and any useful details."></textarea></label>
+          <div class="form-foot"><span>Your enquiry will be sent securely through Formspree.</span><button class="button button-primary" type="submit">Send inquiry ↗</button></div>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-neutral-200 px-5 py-6 text-center text-xs text-neutral-500">Global Technology Service Centre · Hyderabad · <a href="tel:08048061672" class="underline">IVR 08048061672</a> · 85006187047</footer>
+  <footer><div class="container footer-inner"><span>Global Technology Service Centre · Hyderabad</span><span><a href="tel:08048061672">IVR 08048061672</a> · <a href="tel:85006187047">85006187047</a></span></div></footer>
 
   <script>
-    const serviceChoice = document.getElementById("service-choice");
-    const requestedService = new URLSearchParams(window.location.search).get("service");
+    const serviceChoice = document.getElementById('service-choice');
+    const requestedService = new URLSearchParams(window.location.search).get('service');
     if (serviceChoice && requestedService && [...serviceChoice.options].some(option => option.value === requestedService)) {
       serviceChoice.value = requestedService;
-    }
-
-    const videos = document.querySelectorAll(".video-scroll");
-    if ("IntersectionObserver" in window) {
-      const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-            video.currentTime = 0;
-          }
-        });
-      }, { threshold: 0.5 });
-      videos.forEach(video => videoObserver.observe(video));
     }
   </script>
 </body>
