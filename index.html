@@ -47,7 +47,6 @@
     .button-ghost:hover{background:#ffffff15;transform:translateY(-2px)}
     .proof{display:flex;align-items:center;gap:12px;margin-top:25px;color:#a8b8cb;font-size:12px}
     .proof-dot{width:8px;height:8px;border-radius:50%;background:#64e4a4;box-shadow:0 0 13px #64e4a4}
-    /* Lightweight CSS/SVG scene: dimensional visual, no 3D library required. */
     .scene-wrap{position:relative;min-height:390px;display:grid;place-items:center;perspective:1000px;isolation:isolate}
     .scene-glow{position:absolute;width:70%;height:62%;border-radius:50%;background:#4b9fff26;filter:blur(45px);z-index:-1}
     .scene{position:relative;width:min(100%,490px);height:350px;transform-style:preserve-3d;transform:rotateX(8deg) rotateY(-12deg);animation:scene-float 6s ease-in-out infinite}
@@ -87,14 +86,46 @@
     .showcase{background:linear-gradient(180deg,#0a1625,#0d1b2c);border-block:1px solid var(--line)}
     .showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .showcase-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#101e30}
-    .mini-scene{height:185px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#234869,#101d2e 67%);perspective:500px}
-    .mini-scene:before{content:'';position:absolute;bottom:-54px;width:230px;height:140px;border:1px solid #67e6f02e;border-radius:50%;transform:rotateX(67deg);background:repeating-linear-gradient(0deg,transparent 0 19px,#7ce8f012 20px),repeating-linear-gradient(90deg,transparent 0 19px,#7ce8f012 20px)}
-    .mini-object{position:relative;z-index:1;display:grid;place-items:center;width:80px;height:105px;border:1px solid #d4efff99;border-radius:15px;background:linear-gradient(130deg,#dceaf5,#7897b3);box-shadow:18px 20px 25px #0007;transform:rotateY(-18deg) rotateX(5deg);animation:object-hover 4s ease-in-out infinite}
-    .mini-object:before{content:attr(data-symbol);display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#102b43,#183f5c);color:var(--cyan);font-size:25px;box-shadow:inset 0 0 16px #59e4fa4d}
+    /* Continuously looping CSS 3D service scenes (no external video files required). */
+    .mini-scene{height:190px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#234869,#101d2e 67%);perspective:600px;isolation:isolate}
+    .mini-scene:before{content:'';position:absolute;z-index:-1;bottom:-56px;width:270px;height:150px;border:1px solid #67e6f02e;border-radius:50%;transform:rotateX(67deg);background:repeating-linear-gradient(0deg,transparent 0 19px,#7ce8f012 20px),repeating-linear-gradient(90deg,transparent 0 19px,#7ce8f012 20px)}
+    .mini-scene:after{content:'';position:absolute;top:18px;left:18px;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan);animation:status-blink 1.8s ease-in-out infinite}
+    .mini-object{position:relative;z-index:1;display:grid;place-items:center;width:78px;height:106px;border:1px solid #d4efff99;border-radius:13px;background:linear-gradient(130deg,#dceaf5,#7897b3);box-shadow:18px 20px 25px #0007;transform:rotateY(-18deg) rotateX(5deg);animation:object-hover 3.8s ease-in-out infinite}
+    .mini-object:before{content:attr(data-symbol);display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#102b43,#183f5c);color:var(--cyan);font-size:25px;box-shadow:inset 0 0 16px #59e4fa4d}
     .mini-object:after{content:'';position:absolute;bottom:10px;width:38px;height:4px;border-radius:5px;background:#536d85}
-    .mini-network{width:130px;height:75px;border:0;background:transparent;box-shadow:none;animation-delay:-1s}.mini-network:before{content:'⌘';width:68px;height:68px;border:1px solid #76eaff88;border-radius:50%;font-size:36px}.mini-network:after{content:'';position:absolute;width:130px;height:1px;background:#68e4f488;transform:rotate(-25deg);box-shadow:0 17px #68e4f455,0 -17px #68e4f455}
-    .mini-ac{width:140px;height:56px;border-radius:12px;animation-delay:-2s}.mini-ac:before{content:'❄';width:36px;height:28px;font-size:19px}
-    @keyframes object-hover{0%,100%{translate:0 0}50%{translate:0 -8px}}
+    .scene-caption{position:absolute;right:14px;top:12px;color:#d9e7f5;font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .mini-ev:before{content:'ϟ';font-size:33px}
+    .mini-ev:after{content:'';position:absolute;right:-27px;bottom:-18px;width:42px;height:57px;border:3px solid #d8efff;border-left-color:transparent;border-top-color:transparent;border-radius:0 0 30px 0;transform:rotate(12deg);animation:cable-pulse 2.4s ease-in-out infinite}
+    .mini-ac{width:148px;height:56px;border-radius:12px;animation-delay:-.8s}
+    .mini-ac:before{content:'❄';width:38px;height:32px;font-size:20px;animation:fan-spin 5s linear infinite}
+    .mini-ac:after{content:'〰 〰 〰';position:absolute;bottom:-35px;width:100%;height:auto;background:none;color:#7ce7f5;font-size:13px;letter-spacing:5px;animation:air-flow 1.4s ease-in-out infinite}
+    .tile-floor{position:absolute;bottom:30px;width:190px;height:93px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4px;transform:rotateX(58deg) rotateZ(-12deg);transform-style:preserve-3d}
+    .tile-floor i{display:block;border:1px solid #d7efff88;border-radius:3px;background:linear-gradient(135deg,#d3e2ef,#7691a9);box-shadow:3px 4px 0 #304c66;animation:tile-shine 3.6s ease-in-out infinite}
+    .tile-floor i:nth-child(2){animation-delay:.3s}.tile-floor i:nth-child(3){animation-delay:.6s}.tile-floor i:nth-child(4){animation-delay:.9s}.tile-floor i:nth-child(5){animation-delay:1.2s}.tile-floor i:nth-child(6){animation-delay:1.5s}
+    .tile-tool{position:absolute;z-index:2;top:58px;left:calc(50% - 82px);width:100px;height:8px;border-radius:8px;background:linear-gradient(90deg,#f5c76d,#fff1b1);box-shadow:0 4px 8px #0007;transform:rotate(-25deg);animation:tool-slide 3.6s ease-in-out infinite}
+    .plumbing-pipe{position:relative;width:150px;height:98px;border:12px solid transparent;border-right-color:#8ec4df;border-top-color:#c5e1ef;border-radius:0 25px 0 0;filter:drop-shadow(7px 9px 5px #0006);transform:rotateY(-18deg);animation:pipe-bob 3s ease-in-out infinite}
+    .plumbing-pipe:before{content:'';position:absolute;top:-17px;right:-17px;width:25px;height:22px;border-radius:5px;background:linear-gradient(135deg,#d8ecf5,#7096ac);border:1px solid #e8f9ff}
+    .water-drop{position:absolute;top:75px;left:calc(50% + 48px);width:10px;height:14px;border-radius:70% 30% 65% 35%;background:#50dff4;box-shadow:0 0 14px #50dff4;animation:drop-fall 1.5s ease-in infinite}
+    .wiring-board{position:relative;width:104px;height:112px;border:5px solid #9db4c9;border-radius:12px;background:linear-gradient(145deg,#253d54,#0b1725);box-shadow:15px 20px 25px #0007;transform:rotateY(-15deg);animation:object-hover 3.2s ease-in-out infinite}
+    .wiring-board:before{content:'⚡';position:absolute;inset:17px 25px;display:grid;place-items:center;border:1px solid #70e9f277;border-radius:50%;color:var(--cyan);font-size:27px;box-shadow:0 0 18px #5ee7f522}
+    .wire{position:absolute;width:70px;height:42px;border:3px solid #52dfef;border-left-color:transparent;border-bottom-color:transparent;border-radius:0 28px 0 0;top:42px;left:calc(50% + 34px);transform:rotate(10deg);animation:wire-glow 2s ease-in-out infinite}
+    .marble-slab{position:absolute;width:166px;height:100px;display:grid;place-items:center;border:2px solid #f4f3ef;border-radius:8px;background:linear-gradient(135deg,#f1eee8,#9aa9b6 45%,#e0ddd5);box-shadow:18px 22px 25px #0007;transform:rotateX(56deg) rotateZ(-12deg);animation:slab-float 4s ease-in-out infinite}
+    .marble-slab:before{content:'';position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(125deg,transparent 0 18px,#ffffff80 19px 21px,transparent 22px 38px);opacity:.7}
+    .polisher{position:absolute;z-index:2;top:52px;left:calc(50% - 8px);width:54px;height:58px;border-radius:12px 12px 7px 7px;background:linear-gradient(120deg,#d9e7f0,#637f97);box-shadow:9px 12px 18px #0008;transform:rotateY(-15deg);animation:polish-pass 3.6s ease-in-out infinite}
+    .polisher:before{content:'';position:absolute;left:19px;bottom:-12px;width:27px;height:16px;border-radius:50%;background:#52e2f1;box-shadow:0 0 18px #52e2f1;animation:polish-glow 1s ease-in-out infinite alternate}
+    @keyframes object-hover{0%,100%{translate:0 0}50%{translate:0 -9px}}
+    @keyframes status-blink{0%,100%{opacity:.45}50%{opacity:1}}
+    @keyframes cable-pulse{0%,100%{filter:drop-shadow(0 0 0 #5ee7f5)}50%{filter:drop-shadow(0 0 7px #5ee7f5)}}
+    @keyframes fan-spin{to{transform:rotate(360deg)}}
+    @keyframes air-flow{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(8px);opacity:1}}
+    @keyframes tile-shine{0%,100%{filter:brightness(.82)}50%{filter:brightness(1.3)}}
+    @keyframes tool-slide{0%,100%{transform:translate(0,0) rotate(-25deg)}50%{transform:translate(45px,18px) rotate(-25deg)}}
+    @keyframes pipe-bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+    @keyframes drop-fall{0%{transform:translateY(0) scale(.8);opacity:0}25%{opacity:1}100%{transform:translateY(40px) scale(1.1);opacity:0}}
+    @keyframes wire-glow{0%,100%{filter:drop-shadow(0 0 1px #52dfef)}50%{filter:drop-shadow(0 0 8px #52dfef)}}
+    @keyframes slab-float{0%,100%{translate:0 0}50%{translate:0 -5px}}
+    @keyframes polish-pass{0%,100%{translate:-35px 0}50%{translate:35px 0}}
+    @keyframes polish-glow{to{filter:brightness(1.8);box-shadow:0 0 25px #52e2f1}}
     .showcase-copy{padding:18px}.showcase-copy h3{margin:0 0 6px;font-size:17px}.showcase-copy p{margin:0;color:var(--muted);font-size:12px}
     .inquiry{background:radial-gradient(ellipse at 0% 40%,#142e43 0,transparent 45%),#07111f}
     .form-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:start}
@@ -107,8 +138,8 @@
     .form-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px}
     .form-foot button{cursor:pointer}
     footer{padding:25px 0;border-top:1px solid var(--line);color:#92a3b8;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-inner a{color:#c4d2e2}
-    @media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:10px}.hero{padding-top:55px}.scene-wrap{min-height:330px}.scene{transform:scale(.88) rotateX(8deg) rotateY(-12deg)}.service-grid{grid-template-columns:repeat(2,1fr)}.showcase-grid{grid-template-columns:1fr 1fr}.form-shell{grid-template-columns:1fr;gap:25px}}
-    @media(max-width:560px){.container{width:min(100% - 30px,1120px)}.nav{min-height:66px}.brand{font-size:11px}.brand-mark{width:30px;height:30px}.nav-links{gap:6px}.nav-link,.nav-links .button{padding:8px 10px;font-size:11px}.nav-links .call-link{display:none}.hero{padding:48px 0 60px}h1{font-size:43px}.hero-copy{font-size:14px}.scene-wrap{min-height:290px;overflow:hidden}.scene{width:490px;max-width:none;transform:scale(.72) rotateX(8deg) rotateY(-12deg)}.stats{grid-template-columns:repeat(2,1fr);gap:18px}.stat{padding:0 10px;border:0}.stat:nth-child(odd){padding-left:0}.stat strong{font-size:22px}.section{padding:65px 0}.service-grid,.showcase-grid{grid-template-columns:1fr}.service-card{min-height:190px}.mini-scene{height:170px}form{grid-template-columns:1fr;padding:18px}.form-foot,label.wide{grid-column:1}.form-foot{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:10px}.hero{padding-top:55px}.scene-wrap{min-height:330px}.scene{transform:scale(.88) rotateX(8deg) rotateY(-12deg)}.service-grid{grid-template-columns:repeat(2,1fr)}.showcase-grid{grid-template-columns:repeat(2,1fr)}.form-shell{grid-template-columns:1fr;gap:25px}}
+    @media(max-width:560px){.container{width:min(100% - 30px,1120px)}.nav{min-height:66px}.brand{font-size:11px}.brand-mark{width:30px;height:30px}.nav-links{gap:6px}.nav-link,.nav-links .button{padding:8px 10px;font-size:11px}.nav-links .call-link{display:none}.hero{padding:48px 0 60px}h1{font-size:43px}.hero-copy{font-size:14px}.scene-wrap{min-height:290px;overflow:hidden}.scene{width:490px;max-width:none;transform:scale(.72) rotateX(8deg) rotateY(-12deg)}.stats{grid-template-columns:repeat(2,1fr);gap:18px}.stat{padding:0 10px;border:0}.stat:nth-child(odd){padding-left:0}.stat strong{font-size:22px}.section{padding:65px 0}.service-grid,.showcase-grid{grid-template-columns:1fr}.service-card{min-height:190px}.mini-scene{height:180px}form{grid-template-columns:1fr;padding:18px}.form-foot,label.wide{grid-column:1}.form-foot{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
 </head>
@@ -174,11 +205,14 @@
 
     <section class="section showcase" id="work-showcase">
       <div class="container">
-        <div class="section-heading"><div class="eyebrow">Recent work</div><h2>Thoughtful installs. Clean finishes.</h2><p>A closer look at the kind of detail we bring to every job.</p></div>
+        <div class="section-heading"><div class="eyebrow">Looping 3D service animations</div><h2>See the services in motion.</h2><p>These lightweight animated scenes keep playing continuously as you browse—no sound or video download needed.</p></div>
         <div class="showcase-grid">
-          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Animated 3D EV charger illustration"><div class="mini-object" data-symbol="ϟ"></div></div><div class="showcase-copy"><h3>EV charger installation</h3><p>Charger setup, safe cable routing and a clean finish.</p></div></article>
-          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Animated 3D network installation illustration"><div class="mini-object mini-network" data-symbol="⌘"></div></div><div class="showcase-copy"><h3>Network installation</h3><p>Neat connections and reliable network points.</p></div></article>
-          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Animated 3D air conditioner illustration"><div class="mini-object mini-ac" data-symbol="❄"></div></div><div class="showcase-copy"><h3>Cooling &amp; ventilation</h3><p>AC service and installation for comfortable spaces.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Looping 3D animation of EV charger installation"><span class="scene-caption">Always playing · 3D</span><div class="mini-object mini-ev" data-symbol=""></div></div><div class="showcase-copy"><h3>EV charger installation</h3><p>Charger setup and safe cable routing.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Looping 3D animation of AC repair"><span class="scene-caption">Always playing · 3D</span><div class="mini-object mini-ac" data-symbol=""></div></div><div class="showcase-copy"><h3>AC repair &amp; servicing</h3><p>Cooling service and airflow maintenance.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Looping 3D animation of tile installation"><span class="scene-caption">Always playing · 3D</span><div class="tile-floor" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="tile-tool" aria-hidden="true"></div></div><div class="showcase-copy"><h3>Tile installation</h3><p>Neat alignment and careful tile finishing.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Looping 3D animation of plumbing installation"><span class="scene-caption">Always playing · 3D</span><div class="plumbing-pipe" aria-hidden="true"></div><span class="water-drop" aria-hidden="true"></span></div><div class="showcase-copy"><h3>Plumbing installation</h3><p>Pipe fitting, connections and maintenance.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Looping 3D animation of electrical installation"><span class="scene-caption">Always playing · 3D</span><div class="wiring-board" aria-hidden="true"></div><div class="wire" aria-hidden="true"></div></div><div class="showcase-copy"><h3>Electrical installation</h3><p>Reliable wiring and fixture installation.</p></div></article>
+          <article class="showcase-card"><div class="mini-scene" role="img" aria-label="Looping 3D animation of marble polishing"><span class="scene-caption">Always playing · 3D</span><div class="marble-slab" aria-hidden="true"></div><div class="polisher" aria-hidden="true"></div></div><div class="showcase-copy"><h3>Marble polishing</h3><p>Surface polishing for a clean, renewed finish.</p></div></article>
         </div>
       </div>
     </section>
