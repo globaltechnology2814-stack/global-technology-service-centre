@@ -15,9 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Plus Jakarta Sans", sans-serif;
@@ -33,6 +31,18 @@
       to { transform: translateX(-50%); }
     }
 
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     a:focus-visible,
     button:focus-visible,
     input:focus-visible,
@@ -43,10 +53,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto !important;
-      }
-
+      html { scroll-behavior: auto !important; }
       *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
@@ -68,7 +75,7 @@
     <section class="relative isolate overflow-hidden border-b border-neutral-200">
       <canvas id="hero-canvas" class="pointer-events-none absolute inset-0 h-full w-full opacity-60"></canvas>
 
-      <div class="relative mx-auto max-w-3xl px-5 pb-12 pt-12 sm:pb-16 sm:pt-16">
+      <div class="relative mx-auto max-w-3xl px-4 pb-12 pt-10 sm:px-5 sm:pb-16 sm:pt-16">
         <div class="mb-5 flex items-center gap-2">
           <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.01</span>
           <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Hyderabad home services</span>
@@ -82,9 +89,14 @@
           Based in Hyderabad, we look after the systems and surfaces your spaces rely on. From appliance repairs and AC care to marble restoration and EV charging, the right specialist is one enquiry away.
         </p>
 
-        <a href="#services" class="mt-7 inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
-          Explore our services <span aria-hidden="true">↓</span>
-        </a>
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="#services" class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
+            Explore our services <span aria-hidden="true">↓</span>
+          </a>
+          <a href="tel:85006187047" class="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-100">
+            Call 85006187047
+          </a>
+        </div>
 
         <div class="mt-10 grid grid-cols-2 gap-5 border-y border-neutral-300/80 py-5 sm:grid-cols-4">
           <div><span class="block text-2xl font-black">6</span><span class="text-xs font-medium uppercase text-neutral-500">Service areas</span></div>
@@ -102,7 +114,7 @@
       </div>
     </div>
 
-    <section id="services" class="mx-auto max-w-3xl px-5 py-12 sm:py-16">
+    <section id="services" class="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
       <div class="mb-3 flex items-center gap-2">
         <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.02</span>
         <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Our services</span>
@@ -111,7 +123,7 @@
         Practical expertise across the systems you use every day and the finishes you live with.
       </h2>
 
-      <div class="grid gap-4 sm:grid-cols-2">
+      <div class="service-grid">
         <article class="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
           <div class="mb-4 flex items-start justify-between"><span class="rounded-lg bg-neutral-100 p-2 text-xl" aria-hidden="true">🧺</span><span class="text-3xl" aria-hidden="true">01</span></div>
           <h3 class="mb-2 text-xl font-bold text-neutral-900">Appliance care</h3>
@@ -157,7 +169,7 @@
     </section>
 
     <section id="inquiry-form" class="border-t border-neutral-200 bg-white">
-      <div class="mx-auto max-w-3xl px-5 py-12 sm:py-16">
+      <div class="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
         <div class="mb-3 flex items-center gap-2">
           <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.03</span>
           <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Service inquiry</span>
@@ -194,7 +206,7 @@
             <textarea name="details" rows="4" required class="rounded-xl border border-neutral-300 px-3 py-3 font-normal focus:border-neutral-700 focus:outline-none"></textarea>
           </label>
 
-          <p class="text-xs leading-relaxed text-neutral-500 sm:col-span-2">Replace the Formspree endpoint with your real form service or backend URL before publishing.</p>
+          <p class="text-xs leading-relaxed text-neutral-500 sm:col-span-2">Replace the Formspree endpoint with your real form ID before publishing.</p>
 
           <button type="submit" class="w-fit rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
             Send inquiry
