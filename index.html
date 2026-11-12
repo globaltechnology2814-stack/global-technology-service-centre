@@ -51,6 +51,129 @@
       background: #e5e5e5;
     }
 
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 9999px;
+      border: 1px solid #e5e7eb;
+      background: #f8fafc;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #475569;
+    }
+
+    .spec-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid #d4d4d8;
+      background: #fff;
+      padding: 0.625rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #111827;
+      transition: all 0.2s ease;
+    }
+
+    .spec-btn:hover {
+      background: #111827;
+      border-color: #111827;
+      color: #fff;
+    }
+
+    .spec-btn[aria-expanded="true"] {
+      background: #111827;
+      border-color: #111827;
+      color: #fff;
+    }
+
+    .service-specs {
+      margin-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 0.9rem;
+    }
+
+    .service-specs ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .service-specs li {
+      position: relative;
+      padding-left: 1rem;
+      color: #475569;
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .service-specs li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .service-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .all-categories-btn,
+    .primary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      padding: 0.75rem 1.15rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+
+    .all-categories-btn {
+      border: 1px solid #d4d4d8;
+      background: #fff;
+      color: #111827;
+    }
+
+    .all-categories-btn:hover,
+    .primary-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .primary-cta {
+      background: #111827;
+      color: #fff;
+    }
+
     a:focus-visible,
     button:focus-visible,
     input:focus-visible,
@@ -130,6 +253,18 @@
         <span class="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-[11px] font-bold">S.02</span>
         <span class="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600">Our services</span>
       </div>
+
+      <div class="service-actions">
+        <div class="category-actions" aria-label="Service categories">
+          <button type="button" class="all-categories-btn" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })">All categories</button>
+          <span class="service-tag">Home</span>
+          <span class="service-tag">Office</span>
+          <span class="service-tag">Apartment</span>
+        </div>
+
+        <a href="#inquiry-form" class="primary-cta">Book a service</a>
+      </div>
+
       <h2 class="mb-8 max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-3xl">
         Practical expertise across the systems you use every day and the finishes you live with.
       </h2>
@@ -137,44 +272,128 @@
       <div class="service-grid">
         <article class="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
           <div class="mb-4 flex items-start justify-between"><span class="rounded-lg bg-neutral-100 p-2 text-xl" aria-hidden="true">🧺</span><span class="text-3xl" aria-hidden="true">01</span></div>
+          <div class="service-tags">
+            <span class="service-tag">Repair</span>
+            <span class="service-tag">Home</span>
+          </div>
           <h3 class="mb-2 text-xl font-bold text-neutral-900">Appliance care</h3>
           <p class="mb-5 text-sm leading-relaxed text-neutral-600">Washing machine repairs, water purifier servicing and everyday appliance faults, diagnosed and put right.</p>
-          <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=appliance-care#inquiry-form">Request service</a>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="button" class="spec-btn" aria-expanded="false" aria-controls="spec-appliance" data-target="spec-appliance">Key specification</button>
+            <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=appliance-care#inquiry-form">Request service</a>
+          </div>
+          <div id="spec-appliance" class="service-specs hidden">
+            <ul>
+              <li>Diagnosis for washing machines, purifiers and kitchen appliances.</li>
+              <li>On-site checks and repair planning for daily-use household breakdowns.</li>
+              <li>Fast service for urgent appliance issues at home or office.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
           <div class="mb-4 flex items-start justify-between"><span class="rounded-lg bg-neutral-100 p-2 text-xl" aria-hidden="true">❄️</span><span class="text-3xl" aria-hidden="true">02</span></div>
+          <div class="service-tags">
+            <span class="service-tag">Cooling</span>
+            <span class="service-tag">AC</span>
+          </div>
           <h3 class="mb-2 text-xl font-bold text-neutral-900">Cooling &amp; ventilation</h3>
           <p class="mb-5 text-sm leading-relaxed text-neutral-600">AC installation, ducting and maintenance for homes and offices, planned around the room and the load.</p>
-          <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=cooling-ventilation#inquiry-form">Request service</a>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="button" class="spec-btn" aria-expanded="false" aria-controls="spec-cooling" data-target="spec-cooling">Key specification</button>
+            <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=cooling-ventilation#inquiry-form">Request service</a>
+          </div>
+          <div id="spec-cooling" class="service-specs hidden">
+            <ul>
+              <li>AC installation, servicing, ducting and airflow balancing.</li>
+              <li>Room-wise planning for better cooling efficiency and comfort.</li>
+              <li>Affordable maintenance for homes, apartments and commercial spaces.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
           <div class="mb-4 flex items-start justify-between"><span class="rounded-lg bg-neutral-100 p-2 text-xl" aria-hidden="true">⚡</span><span class="text-3xl" aria-hidden="true">03</span></div>
+          <div class="service-tags">
+            <span class="service-tag">EV</span>
+            <span class="service-tag">Wiring</span>
+          </div>
           <h3 class="mb-2 text-xl font-bold text-neutral-900">Electrical &amp; EV</h3>
           <p class="mb-5 text-sm leading-relaxed text-neutral-600">EV charger installation and cabling, plus internet and network wiring, routed neatly and safely.</p>
-          <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=electrical-ev#inquiry-form">Request service</a>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="button" class="spec-btn" aria-expanded="false" aria-controls="spec-electrical" data-target="spec-electrical">Key specification</button>
+            <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=electrical-ev#inquiry-form">Request service</a>
+          </div>
+          <div id="spec-electrical" class="service-specs hidden">
+            <ul>
+              <li>Safe EV charger fittings and cable routing for homes and offices.</li>
+              <li>Internet and network wiring for reliable connectivity and neat finish.</li>
+              <li>Electrical upgrades planned with safety and performance in mind.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
           <div class="mb-4 flex items-start justify-between"><span class="rounded-lg bg-neutral-100 p-2 text-xl" aria-hidden="true">🏛️</span><span class="text-3xl" aria-hidden="true">04</span></div>
+          <div class="service-tags">
+            <span class="service-tag">Finish</span>
+            <span class="service-tag">Restoration</span>
+          </div>
           <h3 class="mb-2 text-xl font-bold text-neutral-900">Interiors &amp; restoration</h3>
           <p class="mb-5 text-sm leading-relaxed text-neutral-600">Marble grinding, honing and polishing, false ceilings and civil work that bring a space back to its best.</p>
-          <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=interiors-restoration#inquiry-form">Request service</a>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="button" class="spec-btn" aria-expanded="false" aria-controls="spec-interiors" data-target="spec-interiors">Key specification</button>
+            <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=interiors-restoration#inquiry-form">Request service</a>
+          </div>
+          <div id="spec-interiors" class="service-specs hidden">
+            <ul>
+              <li>Marble honing, polishing, grinding and touch-up restoration services.</li>
+              <li>False ceiling and civil finishing for homes, offices and commercial spaces.</li>
+              <li>Surface refresh work that improves look, feel and long-term durability.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
           <div class="mb-4 flex items-start justify-between"><span class="rounded-lg bg-neutral-100 p-2 text-xl" aria-hidden="true">🔧</span><span class="text-3xl" aria-hidden="true">05</span></div>
+          <div class="service-tags">
+            <span class="service-tag">Plumbing</span>
+            <span class="service-tag">Maintenance</span>
+          </div>
           <h3 class="mb-2 text-xl font-bold text-neutral-900">Plumbing &amp; maintenance</h3>
           <p class="mb-5 text-sm leading-relaxed text-neutral-600">Leaks, fittings and installations, with ongoing property care for the problems that come back.</p>
-          <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=plumbing-maintenance#inquiry-form">Request service</a>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="button" class="spec-btn" aria-expanded="false" aria-controls="spec-plumbing" data-target="spec-plumbing">Key specification</button>
+            <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=plumbing-maintenance#inquiry-form">Request service</a>
+          </div>
+          <div id="spec-plumbing" class="service-specs hidden">
+            <ul>
+              <li>Leak detection, fittings, pipe work and small installation jobs.</li>
+              <li>Routine upkeep for long-term plumbing reliability in properties.</li>
+              <li>Maintenance support for recurring water and sanitation issues.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
           <div class="mb-4 flex items-start justify-between"><span class="rounded-lg bg-neutral-100 p-2 text-xl" aria-hidden="true">📦</span><span class="text-3xl" aria-hidden="true">06</span></div>
+          <div class="service-tags">
+            <span class="service-tag">Move</span>
+            <span class="service-tag">Handling</span>
+          </div>
           <h3 class="mb-2 text-xl font-bold text-neutral-900">Loading &amp; unloading</h3>
           <p class="mb-5 text-sm leading-relaxed text-neutral-600">Furniture, appliances and office equipment moved with care, in and out of tight spaces.</p>
-          <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=loading-unloading#inquiry-form">Request service</a>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="button" class="spec-btn" aria-expanded="false" aria-controls="spec-loading" data-target="spec-loading">Key specification</button>
+            <a class="inline-flex rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold transition hover:bg-neutral-900 hover:text-white" href="?service=loading-unloading#inquiry-form">Request service</a>
+          </div>
+          <div id="spec-loading" class="service-specs hidden">
+            <ul>
+              <li>Safe loading and unloading for appliances, furniture and office items.</li>
+              <li>Careful handling for narrow stairs, lifts and tight entry points.</li>
+              <li>Support for home moves, office shifts and regular equipment handling.</li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
@@ -290,6 +509,21 @@
     if (serviceChoice && requestedService && [...serviceChoice.options].some(option => option.value === requestedService)) {
       serviceChoice.value = requestedService;
     }
+  </script>
+
+  <script>
+    document.querySelectorAll(".spec-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.dataset.target;
+        const panel = document.getElementById(targetId);
+
+        if (!panel) return;
+
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        panel.classList.toggle("hidden", isExpanded);
+      });
+    });
   </script>
 
   <script>
