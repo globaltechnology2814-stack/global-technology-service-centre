@@ -1,324 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL TECHNOLOGY SERVICE CENTRE | 3D Corporate & Technical Solutions</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #090d16;
-            --bg-card: rgba(255, 255, 255, 0.04);
-            --border-glass: rgba(255, 255, 255, 0.12);
-            --primary-glow: #3b82f6;
-            --accent-cyan: #06b6d4;
-            --accent-gold: #f59e0b;
-            --whatsapp: #10b981;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Technology Service Centre | Home & Office Services Hyderabad</title>
+  <meta name="description" content="Professional home and workplace maintenance in Hyderabad. Browse services, get instant quotes, or request a callback." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #16181d;
+      --bg-dark-elevated: #1f2229;
+      --bg-light: #f4f4f1;
+      --card-light: #ffffff;
+      --accent-beige: #dcc8a9;
+      --accent-beige-hover: #e8d7bd;
+      --text-light: #f8f8f6;
+      --text-muted-dark: #a1a6b3;
+      --text-dark: #181a1f;
+      --text-muted-light: #5c6270;
+      --border-dark: rgba(255, 255, 255, 0.12);
+      --border-light: rgba(24, 26, 31, 0.1);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
-        }
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
-        /* 3D Floating Glass Header */
-        header {
-            position: sticky;
-            top: 12px;
-            z-index: 1000;
-            max-width: 1280px;
-            margin: 12px auto;
-            padding: 14px 24px;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(22, 24, 29, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 16px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            color: #fff;
-        }
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .logo-3d {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.2rem;
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5), inset 0 2px 2px rgba(255,255,255,0.4);
-            transform: rotate(-4deg);
-        }
+    .brand-title {
+      color: var(--text-light);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
 
-        .brand-text h1 {
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
+    .brand-sub {
+      color: var(--accent-beige);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
-        .brand-text span {
-            font-size: 0.72rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
 
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
 
-        /* 3D Push Buttons */
-        .btn-3d {
-            padding: 10px 18px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
 
-        .btn-blue {
-            background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
-            color: #fff;
-            box-shadow: 0 5px 0 #1d4ed8, 0 10px 20px rgba(37, 99, 235, 0.4);
-        }
+    .nav-links a:hover {
+      color: var(--accent-beige);
+    }
 
-        .btn-blue:active {
-            transform: translateY(4px);
-            box-shadow: 0 1px 0 #1d4ed8;
-        }
+    .btn-header {
+      background: var(--accent-beige);
+      color: var(--bg-dark);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
 
-        .btn-green {
-            background: linear-gradient(180deg, #10b981 0%, #059669 100%);
-            color: #fff;
-            box-shadow: 0 5px 0 #047857, 0 10px 20px rgba(16, 185, 129, 0.35);
-        }
+    .btn-header:hover {
+      background: var(--accent-beige-hover);
+      transform: translateY(-1px);
+    }
 
-        .btn-green:active {
-            transform: translateY(4px);
-            box-shadow: 0 1px 0 #047857;
-        }
+    /* HERO SECTION */
+    .hero {
+      background: radial-gradient(circle at 75% 45%, #262a34 0%, var(--bg-dark) 65%);
+      color: var(--text-light);
+      padding: 70px 6% 50px;
+      border-bottom: 1px solid var(--border-dark);
+    }
 
-        .btn-glass {
-            background: rgba(255,255,255,0.08);
-            color: #fff;
-            border: 1px solid var(--border-glass);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+    .hero-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 40px;
+    }
 
-        .btn-glass:hover {
-            background: rgba(255,255,255,0.15);
-        }
+    .hero-tag {
+      display: inline-block;
+      color: var(--accent-beige);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
 
-        /* 3D Hero Section */
-        .hero {
-            max-width: 1280px;
-            margin: 30px auto;
-            padding: 50px 24px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            gap: 40px;
-        }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
 
-        .hero-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 50px;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.4);
-            color: var(--accent-cyan);
-            font-size: 0.78rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
+    .hero p {
+      color: var(--text-muted-dark);
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
 
-        .hero h2 {
-            font-size: 3.1rem;
-            font-weight: 800;
-            line-height: 1.12;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
 
-        .hero h2 span {
-            background: linear-gradient(135deg, #38bdf8, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .btn-primary {
+      background: var(--accent-beige);
+      color: var(--bg-dark);
+      padding: 14px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--accent-beige);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
 
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 32px;
-            max-width: 560px;
-        }
+    .btn-primary:hover {
+      background: var(--accent-beige-hover);
+      transform: translateY(-2px);
+    }
 
-        .hero-btns {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-light);
+      padding: 14px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      transition: all 0.25s ease;
+    }
 
-        /* 3D Floating Cube/Hub Visual */
-        .hero-3d-stage {
-            perspective: 1000px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .btn-outline:hover {
+      border-color: var(--accent-beige);
+      color: var(--accent-beige);
+      background: rgba(220, 200, 169, 0.06);
+    }
 
-        .floating-3d-card {
-            width: 310px;
-            padding: 28px;
-            border-radius: 24px;
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 
-                20px 25px 50px rgba(0, 0, 0, 0.6),
-                inset 0 1px 1px rgba(255, 255, 255, 0.25);
-            transform: rotateY(-12deg) rotateX(8deg);
-            animation: float3D 5s ease-in-out infinite;
-        }
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted-dark);
+      margin-bottom: 48px;
+    }
 
-        @keyframes float3D {
-            0%, 100% { transform: rotateY(-12deg) rotateX(8deg) translateY(0px); }
-            50% { transform: rotateY(-6deg) rotateX(4deg) translateY(-14px); }
-        }
+    .hero-highlights span {
+      color: var(--text-light);
+    }
 
-        .stat-row {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px;
-            background: rgba(255,255,255,0.04);
-            border-radius: 14px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(255,255,255,0.06);
-        }
+    /* 3D ROTATING HOME SHOWCASE */
+    .house-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      min-height: 280px;
+    }
 
-        .stat-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(59, 130, 246, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
+    .house-3d-wrapper {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      transform-style: preserve-3d;
+      animation: rotate3dHouse 9s ease-in-out infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        /* Category Filter Pills */
-        .filter-wrap {
-            max-width: 1280px;
-            margin: 20px auto;
-            padding: 0 24px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    .house-glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(220, 200, 169, 0.28) 0%, rgba(220, 200, 169, 0) 70%);
+      border-radius: 50%;
+      filter: blur(18px);
+      z-index: 0;
+    }
 
-        .pill-btn {
-            padding: 9px 18px;
-            border-radius: 30px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-glass);
-            color: var(--text-muted);
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.25s;
-        }
+    .house-svg {
+      width: 190px;
+      height: 190px;
+      z-index: 2;
+      filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.55));
+    }
 
-        .pill-btn.active, .pill-btn:hover {
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-            color: #fff;
-            border-color: transparent;
-            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
-        }
+    @keyframes rotate3dHouse {
+      0% {
+        transform: rotateY(-22deg) rotateX(6deg) translateY(0px);
+      }
+      50% {
+        transform: rotateY(22deg) rotateX(-4deg) translateY(-12px);
+      }
+      100% {
+        transform: rotateY(-22deg) rotateX(6deg) translateY(0px);
+      }
+    }
 
-        /* 3D Interactive Services Grid */
-        .grid-3d {
-            max-width: 1280px;
-            margin: 25px auto 70px;
-            padding: 0 24px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            perspective: 1200px;
-        }
+    /* HERO BOTTOM META BAR */
+    .hero-meta-bar {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-dark);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
 
-        .card-3d {
-            background: linear-gradient(160deg, rgba(30, 41, 59, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.12);
-        }
+    .meta-item h4 {
+      color: var(--accent-beige);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
 
-        .card-3d:hover {
-            transform: translateY(-8px) rotateX(3deg) rotateY(-2deg);
-            border-color: rgba(56, 189, 248, 0.5);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55), 0 0 25px rgba(59, 130, 246, 0.2);
-        }
+    .meta-item p {
+      color: var(--text-muted-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0;
+    }
 
-        .card-top-3d {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
-        }
+    /* MARQUEE TICKER */
+    .marquee-bar {
+      background: #e9e8e3;
+      border-bottom: 1px solid var(--border-light);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
-        .icon-orb-3d {
-            width: 52px;
-            height: 52px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(6,182,212,0.25));
-            border: 1px solid rgba(56, 189, 248, 0.35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+    .marquee-track {
+      display: inline-block;
+      animation: marqueeScroll 28s linear infinite;
+    }
+
+    .marquee-track span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      color: var(--text-muted-light);
+      text-transform: uppercase;
+      margin: 0 18px;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* CATALOGUE SECTION */
+    .catalogue {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 70px 6%;
+    }
+
+    .catalogue-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--text-muted-light);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .catalogue h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .catalogue-desc {
+      font-size: 16px;
+      color: var(--text-muted-light);
+      max-width: 720px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    /* SEARCH & FILTERS */
+    .controls-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 38px;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 520px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--card-light);
+      font-size: 15px;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-box:focus {
+      border-color: var(--bg-dark);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: var(--card-light);
+      color: var(--text-dark);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover, .pill.active {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border-color: var(--bg-dark);
+    }
+
+    /* 3D SERVICE CARDS GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      perspective: 1200px;
+    }
+
+    .service-card {
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+      transform-style: preserve-3d;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+      box-shadow: 0 22px 40px rgba(22, 24, 29, 0.12);
+    }
+
+    .card-visual {
+      position: relative;
+      height: 190px;
+      background: linear-gradient(145deg, #1b1e24, #2b303a);
+      overflow: hidden;
+    }
+
+    .card-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.92);
+    }
+
+    .service-card:hover .card-visual img {
+      transform: scale(1.08);
+    }
+
+    .card-3d-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(22, 24, 29, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--accent-beige);
+      border: 1px solid rgba(220, 200, 169, 0.35);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      transform: translateZ(20px);
+    }
+
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-cat {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text-muted-light);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-muted-light);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .card-quote-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted-light);
+      margin-bottom: 12px;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-card-dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 11px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-card-dark:hover {
+      background: #2c303a;
+    }
+
+    .btn-card-light {
+      background: var(--card-light);
+      color: var(--text-dark);
+      border: 1px solid var(--border-light);
+      text-align: center;
+      padding: 11px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-card-light:hover {
+      border-color: var(--bg-dark);
+      background: #f8f8f6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 55px 6% 35px;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .footer-info h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent-beige);
+      margin-bottom: 6px;
+    }
+
+    .footer-info p {
+      font-size: 14px;
+      color: var(--text-muted-dark);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 22px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted-dark);
+    }
+
+    /* FLOATING WHATSAPP */
+    .wa-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25d366;
+      color: #fff;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+      z-index: 999;
+      transition: transform 0.2s;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .house-stage {
+        min-height: 220px;
+      }
+      .hero-meta-bar {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <span class="brand-title">Global Technology</span>
+      <span class="brand-sub">Service Centre</span>
+    </div>
+    <div class="nav-actions">
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="tel:08048061672">Call IVR</a>
+      </nav>
+      <a href="https://wa.me/918500618707?text=Hello%20Global%20Technology%20Service%20Centre,%20I%20would%20like%20to%20request%20a%20callback." target="_blank" class="btn-header">Request a callback</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-tag">Hyderabad • Home & Office Services</span>
+        <h1>Professional service.<br>One clear next step.</h1>
+        <p>Practical help for home and workplace maintenance. Browse services, then get a callback from our team.</p>
+        
+        <div class="hero-buttons">
+          <a href="#services" class="btn-primary">Browse services</a>
+          <a href="https://wa.me/918500618707?text=Hello%20Global%20Technology%20Service%20Centre,%20please%20call%20me%20back." target="_blank" class="btn-outline">Request a callback</a>
+          <a href="tel:08048061672" class="btn-outline">Call IVR 08048061672</a>
+        </div>
+
+        <div class="hero-highlights">
+          <span>Professional standards</span> • 
+          <span>Clear communication</span> • 
+          <span>Hyderabad service team</span>
+        </div>
+      </div>
+
+      <!-- 3D ROTATING HOME -->
+      <div class="house-stage">
+        <div class="house-3d-wrapper">
+          <div class="house-glow"></div>
+          <svg class="house-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Roof -->
+            <path d="M100 28L24 88H176L100 28Z" fill="#E8D7BD"/>
+            <!-- Main House Body -->
+            <rect x="42" y="88" width="116" height="84" rx="4" fill="#DCC8A9"/>
+            <!-- 3D Side Depth -->
+            <path d="M158 88L174 96V166L158 172V88Z" fill="#B59F7E"/>
+            <!-- Door Frame -->
+            <rect x="82" y="114" width="36" height="58" rx="2" fill="#1F2229" stroke="#FFFFFF" stroke-width="3"/>
+            <!-- Door Handle -->
+            <circle cx="110" cy="144" r="2.5" fill="#DCC8A9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-meta-bar">
+      <div class="meta-item">
+        <h4>19+ Services</h4>
+        <p>Browse and Enquire</p>
+      </div>
+      <div class="meta-item">
+        <h4>Hyderabad</h4>
+        <p>Service Location</p>
+      </div>
+      <div class="meta-item">
+        <h4>Direct Contact</h4>
+        <p>Phone or WhatsApp</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCROLLING SERVICE MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>APPLIANCE CARE</span> •
+      <span>AC SERVICE</span> •
+      <span>EV CHARGER</span> •
+      <span>ELECTRICAL</span> •
+      <span>TILES</span> •
+      <span>PLUMBING</span> •
+      <span>MARBLE POLISHING</span> •
+      <span>OFFICE MAINTENANCE</span> •
+      <span>APPLIANCE CARE</span> •
+      <span>AC SERVICE</span> •
+      <span>EV CHARGER</span> •
+      <span>ELECTRICAL</span> •
+      <span>TILES</span> •
+      <span>PLUMBING</span> •
+      <span>MARBLE POLISHING</span> •
+      <span>OFFICE MAINTENANCE</span> •
+    </div>
+  </div>
+
+  <!-- SERVICE CATALOGUE -->
+  <section class="catalogue" id="services">
+    <div class="catalogue-tag">Service Catalogue</div>
+    <h2>Choose what you need help with.</h2>
+    <p class="catalogue-desc">Search or filter the catalogue. Each card previews our service standards; exact prices are confirmed after inspection or callback.</p>
+
+    <div class="controls-wrapper">
+      <input type="text" id="searchInput" class="search-box" placeholder="Search a service or keyword (e.g., AC, EV Charger, Plumbing)..." onkeyup="filterServices()" />
+      
+      <div class="filter-pills">
+        <button class="pill active" onclick="filterCategory('all', this)">All Services</button>
+        <button class="pill" onclick="filterCategory('Appliance care', this)">Appliance care</button>
+        <button class="pill" onclick="filterCategory('Cooling & ventilation', this)">Cooling & ventilation</button>
+        <button class="pill" onclick="filterCategory('Electrical & EV', this)">Electrical & EV</button>
+        <button class="pill" onclick="filterCategory('Tiles & interiors', this)">Tiles & interiors</button>
+      </div>
+    </div>
+
+    <div class="services-grid" id="servicesGrid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h3>Global Technology Service Centre</h3>
+        <p>Hyderabad, Telangana • Call IVR: 08048061672 • Direct: +91 8500618707</p>
+      </div>
+      <div>
+        <a href="https://wa.me/918500618707" target="_blank" class="btn-primary">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Global Technology Service Centre. All rights reserved.</span>
+      <span>Trusted Home & Commercial Maintenance Since 2011</span>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/918500618707?text=Hello%20Global%20Technology%20Service%20Centre,%20I%20need%20help%20with%20a%20service." target="_blank" class="wa-float">WhatsApp</a>
+
+  <script>
+    const servicesData = [
+      {
+        title: "AC Installation & Service",
+        category: "Cooling & ventilation",
+        desc: "Split & window air conditioner installation, gas refilling, jet pump servicing, and fault diagnosis.",
+        img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "EV Charger Installation",
+        category: "Electrical & EV",
+        desc: "3.3 kW, 7.4 kW, 11 kW, and 22 kW home & commercial EV charger setup with dedicated MCB & earthing.",
+        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Electrical Works & Wiring",
+        category: "Electrical & EV",
+        desc: "Complete house wiring, DB box dressing, inverter setup, fault tracing, and lighting installation.",
+        img: "https://images.unsplash.com/photo-1558402529-d2638a7023e9?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Refrigerator Repair",
+        category: "Appliance care",
+        desc: "Single door, double door, and side-by-side fridge cooling repair, compressor check, and maintenance.",
+        img: "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Microwave & Geyser Repair",
+        category: "Appliance care",
+        desc: "Microwave heating issue repair, instant & storage water heater servicing, and thermostat replacement.",
+        img: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Plumbing & Sanitary Works",
+        category: "Tiles & interiors",
+        desc: "Leakage repair, concealed pipe fitting, bathroom fittings, motor pump installation, and tank cleaning.",
+        img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Marble & Granite Polishing",
+        category: "Tiles & interiors",
+        desc: "Diamond pad mirror polishing, floor grinding, stain removal, and tile grouting for homes & offices.",
+        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Tiles & False Ceiling",
+        category: "Tiles & interiors",
+        desc: "Floor & wall tile laying, gypsum & PVC designer false ceiling, and commercial interior partitions.",
+        img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "CCTV & Security Systems",
+        category: "Electrical & EV",
+        desc: "HD & IP camera installation, NVR/DVR configuration, mobile live view setup, and biometric access.",
+        img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    let currentCategory = 'all';
+
+    function renderServices() {
+      const grid = document.getElementById('servicesGrid');
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      grid.innerHTML = '';
+
+      const filtered = servicesData.filter(service => {
+        const matchesCategory = currentCategory === 'all' || service.category === currentCategory;
+        const matchesSearch = service.title.toLowerCase().includes(query) || 
+                              service.desc.toLowerCase().includes(query) ||
+                              service.category.toLowerCase().includes(query);
+        return matchesCategory && matchesSearch;
+      });
+
+      filtered.forEach(service => {
+        const waMsg = encodeURIComponent(`Hello Global Technology Service Centre, I want to request a quote for: ${service.title}`);
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.innerHTML = `
+          <div class="card-visual">
+            <img src="${service.img}" alt="${service.title}" loading="lazy" />
+            <span class="card-3d-badge">Verified Service</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-cat">${service.category}</div>
+              <h3 class="card-title">${service.title}</h3>
+              <p class="card-desc">${service.desc}</p>
+            </div>
+            <div>
+              <div class="card-quote-label">Request a quote</div>
+              <div class="card-actions">
+                <a href="https://wa.me/918500618707?text=${waMsg}" target="_blank" class="btn-card-dark">Request callback</a>
+                <a href="https://wa.me/918500618707?text=${waMsg}" target="_blank" class="btn-card-light">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterCategory(category, btn) {
+      currentCategory = category;
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      renderServices();
+    }
+
+    function filterServices() {
+      renderServices();
+    }
+
+    // Initial load
+    renderServices();
+  </script>
+</body>
+</html>
