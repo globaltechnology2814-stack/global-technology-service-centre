@@ -1,1084 +1,641 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PureCare Service Centre | RO Purifier, Washing Machine & Fridge Repair</title>
+    <title>Global Technology Service Centre | RO, Washing Machine & Fridge Repair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-dark: #1A1D20;
             --bg-darker: #131518;
-            --bg-card-dark: #22262A;
-            --bg-light: #F5F4F0;
             --copper: #C89B6E;
             --copper-light: #DFB78C;
             --copper-dark: #9E744B;
-            --text-dark: #1A1D20;
-            --text-muted: #9CA3AF;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --card-bg: #F6F5F2;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-dark);
             color: #FFFFFF;
-            line-height: 1.5;
             overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button {
-            font-family: inherit;
-            cursor: pointer;
-            border: none;
-            outline: none;
-        }
-
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Top Copper Strip */
-        .top-strip {
-            height: 4px;
-            background: linear-gradient(90deg, #9E744B, #DFB78C, #C89B6E);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-        }
-
-        /* Header */
-        header {
-            position: sticky;
-            top: 4px;
-            z-index: 90;
-            background: rgba(26, 29, 32, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .nav-inner {
-            height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: rgba(200, 155, 110, 0.15);
-            border: 1px solid rgba(200, 155, 110, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--copper);
-            font-weight: 800;
-            font-size: 18px;
-        }
-
-        .brand-title {
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .brand-title span {
-            color: var(--copper);
-        }
-
-        .brand-sub {
-            font-size: 10px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav-link {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #E5E7EB;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover {
-            color: var(--copper);
-        }
-
-        .btn-copper {
-            background: var(--copper);
-            color: #141618;
-            font-weight: 700;
-            font-size: 13px;
-            padding: 11px 18px;
-            border-radius: 6px;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .btn-copper:hover {
-            background: var(--copper-light);
-            transform: translateY(-1px);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 60px 0 80px;
-            background: linear-gradient(180deg, #1A1D20 0%, #1F2327 50%, #16181B 100%);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 0.8fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .badge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(200, 155, 110, 0.35);
-            color: var(--copper);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--copper);
-            animation: pulse 1.8s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.3); }
-        }
-
-        .hero h1 {
-            font-size: clamp(34px, 5vw, 56px);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--copper);
-        }
-
-        .hero-desc {
-            font-size: 16px;
-            color: #D1D5DB;
-            max-width: 600px;
-            margin-bottom: 28px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .btn-white {
-            background: #FFFFFF;
-            color: #141618;
-            font-weight: 700;
-            font-size: 14px;
-            padding: 13px 22px;
-            border-radius: 6px;
-            transition: background 0.2s;
-        }
-
-        .btn-white:hover {
-            background: #E5E7EB;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #FFFFFF;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            font-weight: 600;
-            font-size: 14px;
-            padding: 13px 20px;
-            border-radius: 6px;
-            transition: border-color 0.2s;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--copper);
-        }
-
-        .trust-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 13px;
-            color: #D1D5DB;
-            padding-bottom: 28px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .trust-row span b {
-            color: var(--copper);
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            padding-top: 24px;
-            max-width: 520px;
-        }
-
-        .stat-title {
-            font-size: 15px;
-            font-weight: 700;
-        }
-
-        .stat-title.copper {
-            color: var(--copper);
-        }
-
-        .stat-sub {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        /* 3D Rotating House */
-        .house-stage {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        /* 3D Rotating House Animation */
+        .scene-3d {
+            width: 240px;
+            height: 240px;
             perspective: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .house-3d-wrapper {
+            width: 170px;
+            height: 170px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: floatAndRotate 9s ease-in-out infinite;
+        }
+
+        @keyframes floatAndRotate {
+            0% { transform: rotateY(-22deg) rotateX(8deg) translateY(0px); }
+            50% { transform: rotateY(22deg) rotateX(-5deg) translateY(-14px); }
+            100% { transform: rotateY(-22deg) rotateX(8deg) translateY(0px); }
         }
 
         .house-glow {
             position: absolute;
-            width: 240px;
-            height: 240px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(200, 155, 110, 0.35) 0%, rgba(26, 29, 32, 0) 70%);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(200, 155, 110, 0.35) 0%, transparent 70%);
-            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 4s infinite alternate;
         }
 
-        .house-3d {
-            width: 190px;
-            height: 190px;
-            transform-style: preserve-3d;
-            animation: rotate3DHouse 8s ease-in-out infinite;
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
-        @keyframes rotate3DHouse {
-            0% { transform: rotateY(-24deg) rotateX(8deg) translateY(0px); }
-            50% { transform: rotateY(24deg) rotateX(-6deg) translateY(-14px); }
-            100% { transform: rotateY(-24deg) rotateX(8deg) translateY(0px); }
-        }
-
-        .house-caption {
-            font-size: 11px;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--copper);
-            margin-top: 10px;
-            font-weight: 700;
-        }
-
-        /* Running Timeline Marquee */
-        .marquee-bar {
-            background: #EAE8E3;
-            color: #1A1D20;
-            padding: 14px 0;
+        /* Running Marquee / Timeline */
+        .marquee-container {
             overflow: hidden;
             white-space: nowrap;
-            border-top: 1px solid rgba(200, 155, 110, 0.5);
+            background: #EAE8E3;
+            color: #2B2E33;
+            border-top: 1px solid rgba(200, 155, 110, 0.4);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .marquee-track {
             display: inline-flex;
-            animation: scrollMarquee 28s linear infinite;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
+            animation: marqueeScroll 32s linear infinite;
         }
 
-        .marquee-track span {
-            margin: 0 24px;
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
         }
 
-        .marquee-track span.accent {
-            color: var(--copper-dark);
-        }
-
-        @keyframes scrollMarquee {
+        @keyframes marqueeScroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* Catalogue Section */
-        .catalogue-section {
-            background: var(--bg-light);
-            color: var(--text-dark);
-            padding: 72px 0;
-        }
-
-        .sec-kicker {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--copper-dark);
-        }
-
-        .sec-title {
-            font-size: clamp(28px, 4vw, 44px);
-            font-weight: 800;
-            margin-top: 8px;
-            letter-spacing: -0.02em;
-        }
-
-        .sec-sub {
-            color: #4B5563;
-            font-size: 15px;
-            max-width: 680px;
-            margin-top: 10px;
-        }
-
-        /* Search & Filter */
-        .controls-wrap {
-            margin-top: 28px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .search-box {
-            max-width: 540px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 14px 16px 14px 42px;
-            border-radius: 8px;
-            border: 1px solid #D1D5DB;
-            background: #FFFFFF;
-            font-size: 14px;
-            color: #111827;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--copper);
-            box-shadow: 0 0 0 3px rgba(200, 155, 110, 0.2);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9CA3AF;
-            font-size: 15px;
-        }
-
-        .filter-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .filter-btn {
-            padding: 9px 16px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 700;
-            background: #FFFFFF;
-            color: #374151;
-            border: 1px solid #D1D5DB;
-            transition: all 0.2s;
-        }
-
-        .filter-btn.active {
-            background: #1A1D20;
-            color: #FFFFFF;
-            border-color: #1A1D20;
-        }
-
-        /* Service Grid & Cards */
-        .services-grid {
-            margin-top: 36px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 24px;
-        }
-
+        /* Service Cards 3D Hover Effects */
         .service-card {
             background: #FFFFFF;
             border: 1px solid #E5E2DC;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-style: preserve-3d;
         }
 
         .service-card:hover {
             transform: translateY(-6px);
             border-color: var(--copper);
-            box-shadow: 0 18px 32px -10px rgba(0, 0, 0, 0.14);
+            box-shadow: 0 20px 35px -10px rgba(26, 29, 32, 0.14);
         }
 
-        .card-stage {
-            height: 155px;
-            background: linear-gradient(145deg, #23272B, #16181B);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .icon-stage-3d {
+            background: linear-gradient(145deg, #23272B, #17191C);
             position: relative;
+            overflow: hidden;
         }
 
-        .card-badge-3d {
-            width: 66px;
-            height: 66px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(200, 155, 110, 0.25), rgba(200, 155, 110, 0.06));
-            border: 1px solid rgba(200, 155, 110, 0.5);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover .card-badge-3d {
-            transform: scale(1.12) rotateY(18deg);
-        }
-
-        .card-num {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #D1D5DB;
-        }
-
-        .card-body {
-            padding: 22px 22px 14px;
-        }
-
-        .card-cat {
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--copper-dark);
-        }
-
-        .card-title {
-            font-size: 19px;
-            font-weight: 800;
-            color: #1A1D20;
-            margin-top: 6px;
-        }
-
-        .card-desc {
-            font-size: 14px;
-            color: #4B5563;
-            margin-top: 8px;
-        }
-
-        .card-footer {
-            padding: 14px 22px 22px;
-            border-top: 1px solid #F3F4F6;
-        }
-
-        .quote-note {
-            font-size: 12px;
-            color: #9CA3AF;
-            margin-bottom: 10px;
-        }
-
-        .card-btns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .btn-dark-sm {
-            background: #22262A;
-            color: #FFFFFF;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 10px 12px;
-            border-radius: 6px;
-            text-align: center;
-            transition: background 0.2s;
-        }
-
-        .btn-dark-sm:hover {
-            background: #111315;
-        }
-
-        .btn-wa-sm {
-            background: #FFFFFF;
-            color: #1A1D20;
-            border: 1px solid #D1D5DB;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 10px 12px;
-            border-radius: 6px;
-            text-align: center;
-            transition: all 0.2s;
-        }
-
-        .btn-wa-sm:hover {
-            border-color: var(--copper);
-            background: rgba(200, 155, 110, 0.1);
-        }
-
-        /* Workflow Timeline Section */
-        .workflow-section {
-            padding: 72px 0;
-            background: #1A1D20;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .steps-grid {
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .step-card {
-            background: #22262A;
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .step-pill {
-            display: inline-block;
-            background: var(--copper);
-            color: #141618;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-
-        .step-card h3 {
-            font-size: 18px;
-            margin-top: 14px;
-        }
-
-        .step-card p {
-            font-size: 14px;
-            color: #9CA3AF;
-            margin-top: 8px;
-        }
-
-        /* Footer */
-        footer {
-            background: #121417;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: #9CA3AF;
-            font-size: 13px;
-        }
-
-        .footer-inner {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-        }
-
-        /* Modal */
-        .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.78);
-            backdrop-filter: blur(4px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            z-index: 200;
-        }
-
-        .modal-backdrop.open {
-            display: flex;
-        }
-
-        .modal-box {
-            background: #1E2226;
+        .icon-badge-3d {
+            background: linear-gradient(135deg, rgba(200, 155, 110, 0.22), rgba(200, 155, 110, 0.05));
             border: 1px solid rgba(200, 155, 110, 0.45);
-            border-radius: 16px;
-            max-width: 420px;
-            width: 100%;
-            padding: 28px;
-            position: relative;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: transparent;
-            color: #9CA3AF;
-            font-size: 22px;
+        .service-card:hover .icon-badge-3d {
+            transform: scale(1.12) rotateY(15deg) rotateX(10deg);
+            border-color: var(--copper-light);
         }
 
-        .form-group {
-            margin-top: 14px;
+        .btn-copper {
+            background-color: var(--copper);
+            color: #16181A;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+        .btn-copper:hover {
+            background-color: var(--copper-light);
+            transform: translateY(-1px);
         }
 
-        .form-label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #D1D5DB;
-            margin-bottom: 6px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 11px 14px;
-            border-radius: 6px;
-            background: #141619;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #FFFFFF;
-            font-size: 14px;
-        }
-
-        .form-input.readonly {
-            color: var(--copper);
-            border-color: rgba(200, 155, 110, 0.4);
-            font-weight: 700;
-        }
-
-        @media (max-width: 860px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: left;
-            }
-            .hide-mobile {
-                display: none;
-            }
+        .top-copper-strip {
+            height: 4px;
+            background: linear-gradient(90deg, #9E744B, #DFB78C, #C89B6E);
         }
     </style>
 </head>
-<body>
+<body class="antialiased selection:bg-[#C89B6E] selection:text-black">
 
-    <div class="top-strip"></div>
+    <div class="top-copper-strip w-full fixed top-0 z-50"></div>
 
-    <!-- Header -->
-    <header>
-        <div class="container nav-inner">
-            <a href="#" class="brand">
-                <div class="brand-icon">PC</div>
+    <!-- Navigation Header -->
+    <header class="sticky top-1 z-40 bg-[#1A1D20]/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo with GTS Box -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-10 rounded-lg bg-gradient-to-br from-[#23272B] to-[#141619] border border-[#C89B6E]/60 flex items-center justify-center text-[#C89B6E] font-black tracking-wider text-lg shadow-lg group-hover:border-[#C89B6E] transition">
+                    GTS
+                </div>
                 <div>
-                    <div class="brand-title">PURECARE <span>SERVICE</span></div>
-                    <div class="brand-sub">RO • Washing Machine • Fridge</div>
+                    <span class="block text-sm sm:text-base font-extrabold tracking-wider uppercase text-white">
+                        GLOBAL TECHNOLOGY <span class="text-[#C89B6E]">SERVICE CENTRE</span>
+                    </span>
+                    <span class="block text-[10px] tracking-[0.2em] uppercase text-gray-400">
+                        Authorized Doorstep Appliance Experts • Hyderabad
+                    </span>
                 </div>
             </a>
 
-            <nav class="nav-links">
-                <a href="#services-catalogue" class="nav-link">Services</a>
-                <a href="tel:+919876543210" class="nav-link hide-mobile">Call IVR</a>
-                <button onclick="openModal('General Service Inquiry')" class="btn-copper">Request a callback</button>
+            <!-- Navigation Links -->
+            <nav class="flex items-center gap-4 sm:gap-8">
+                <a href="#services-catalogue" class="text-xs sm:text-sm font-semibold tracking-wider uppercase text-gray-200 hover:text-[#C89B6E] transition">
+                    Services
+                </a>
+                <a href="tel:+919876543210" class="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold tracking-wider uppercase text-gray-200 hover:text-[#C89B6E] transition">
+                    <i data-lucide="phone-call" class="w-4 h-4 text-[#C89B6E]"></i>
+                    Call IVR
+                </a>
+                <button onclick="openBookingModal('General Service Inquiry')" class="btn-copper px-4 py-2.5 rounded text-xs sm:text-sm tracking-wide shadow-lg">
+                    Request a callback
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div>
-                <div class="badge-pill">
-                    <span class="pulse-dot"></span>
-                    Doorstep Appliance Care Specialists
-                </div>
-
-                <h1>
-                    Professional service.<br>
-                    <span>One clear next step.</span>
-                </h1>
-
-                <p class="hero-desc">
-                    Expert doorstep installation, membrane replacement, and repair for <strong>RO Water Purifiers, Washing Machines, and Refrigerators</strong>. Browse 45+ specialized services, then book a technician in seconds.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#services-catalogue" class="btn-white">Browse services</a>
-                    <button onclick="openModal('Priority Callback Request')" class="btn-copper">Request a callback</button>
-                    <a href="tel:+919876543210" class="btn-outline">Call IVR 080-4806-1672</a>
-                </div>
-
-                <div class="trust-row">
-                    <span><b>•</b> Genuine Spare Parts</span>
-                    <span><b>•</b> 90-Day Service Warranty</span>
-                    <span><b>•</b> Same-Day Doorstep Team</span>
-                </div>
-
-                <div class="hero-stats">
-                    <div>
-                        <div class="stat-title">45+ Services</div>
-                        <div class="stat-sub">Filter &amp; Enquire</div>
+    <section class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 bg-gradient-to-b from-[#1A1D20] via-[#1E2226] to-[#17191C]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#C89B6E]/30 text-[#C89B6E] text-xs font-semibold tracking-widest uppercase">
+                        <span class="w-2 h-2 rounded-full bg-[#C89B6E] animate-ping"></span>
+                        Trusted Hyderabad Service Partner Since 2011
                     </div>
-                    <div>
-                        <div class="stat-title copper">Doorstep Visit</div>
-                        <div class="stat-sub">60 Mins Express</div>
-                    </div>
-                    <div>
-                        <div class="stat-title">Direct Contact</div>
-                        <div class="stat-sub">Phone or WhatsApp</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 3D Rotating House -->
-            <div class="house-stage">
-                <div class="house-glow"></div>
-                <div class="house-3d">
-                    <svg viewBox="0 0 220 220" width="100%" height="100%">
-                        <defs>
-                            <linearGradient id="cRoof" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#E5C29F"/>
-                                <stop offset="50%" stop-color="#C89B6E"/>
-                                <stop offset="100%" stop-color="#8C6239"/>
-                            </linearGradient>
-                            <linearGradient id="cWall" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#D7AE84"/>
-                                <stop offset="100%" stop-color="#9A7047"/>
-                            </linearGradient>
-                        </defs>
-                        <polygon points="155,85 182,98 182,175 155,185" fill="#6E4D2E"/>
-                        <polygon points="45,88 110,42 162,88 162,185 45,185" fill="url(#cWall)"/>
-                        <polygon points="30,94 110,32 176,94 166,104 110,50 40,104" fill="url(#cRoof)"/>
-                        <rect x="86" y="114" width="36" height="71" rx="3" fill="#1A1D20" stroke="#F3D6B6" stroke-width="3.5"/>
-                        <circle cx="104" cy="148" r="5" fill="#C89B6E"/>
-                    </svg>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
+                        Professional service. <br>
+                        <span class="text-[#C89B6E]">One clear next step.</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+                        Expert doorstep installation, membrane replacement, and repair for <strong class="text-white">RO Water Purifiers, Washing Machines, and Refrigerators</strong>. Browse 45+ specialized services, then book a technician in seconds.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#services-catalogue" class="px-6 py-3.5 rounded bg-white text-black font-bold text-sm hover:bg-gray-200 transition shadow-md">
+                            Browse services
+                        </a>
+                        <button onclick="openBookingModal('Callback Request')" class="btn-copper px-6 py-3.5 rounded text-sm shadow-md">
+                            Request a callback
+                        </button>
+                        <a href="tel:+919876543210" class="px-5 py-3.5 rounded border border-white/25 hover:border-[#C89B6E] text-white text-sm font-semibold transition flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-[#C89B6E]"></i>
+                            Call IVR 080-4806-1672
+                        </a>
+                    </div>
+
+                    <!-- Trust Strip -->
+                    <div class="pt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-gray-300 font-medium">
+                        <span class="flex items-center gap-1.5"><span class="text-[#C89B6E]">•</span> Genuine Spare Parts</span>
+                        <span class="flex items-center gap-1.5"><span class="text-[#C89B6E]">•</span> 90-Day Service Warranty</span>
+                        <span class="flex items-center gap-1.5"><span class="text-[#C89B6E]">•</span> Same-Day Doorstep Team</span>
+                    </div>
+
+                    <!-- Hero Metadata Columns -->
+                    <div class="pt-8 mt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-xl">
+                        <div>
+                            <p class="text-sm font-bold text-white">45+ Services</p>
+                            <p class="text-[11px] uppercase tracking-wider text-gray-400 mt-0.5">Filter & Enquire</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-[#C89B6E]">Hyderabad</p>
+                            <p class="text-[11px] uppercase tracking-wider text-gray-400 mt-0.5">Rapid Dispatch</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Direct Contact</p>
+                            <p class="text-[11px] uppercase tracking-wider text-gray-400 mt-0.5">Phone or WhatsApp</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="house-caption">3D Home Appliance Hub</div>
+
+                <!-- Right Side: 3D Rotating House -->
+                <div class="lg:col-span-4 flex flex-col items-center justify-center relative">
+                    <div class="house-glow"></div>
+                    <div class="scene-3d relative z-10">
+                        <div class="house-3d-wrapper flex items-center justify-center">
+                            <svg viewBox="0 0 220 220" class="w-full h-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.65)]">
+                                <defs>
+                                    <linearGradient id="copperRoof" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#E5C29F" />
+                                        <stop offset="50%" stop-color="#C89B6E" />
+                                        <stop offset="100%" stop-color="#8C6239" />
+                                    </linearGradient>
+                                    <linearGradient id="copperWall" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#D7AE84" />
+                                        <stop offset="100%" stop-color="#9A7047" />
+                                    </linearGradient>
+                                    <linearGradient id="wallSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#7D5836" />
+                                        <stop offset="100%" stop-color="#593D23" />
+                                    </linearGradient>
+                                </defs>
+                                <polygon points="155,85 182,98 182,175 155,185" fill="url(#wallSide)" />
+                                <polygon points="110,32 188,82 175,92 110,48" fill="#6E4D2E" />
+                                <polygon points="45,88 110,42 162,88 162,185 45,185" fill="url(#copperWall)" rx="6" />
+                                <polygon points="30,94 110,32 176,94 166,104 110,50 40,104" fill="url(#copperRoof)" />
+                                <rect x="86" y="114" width="36" height="71" rx="3" fill="#1A1D20" stroke="#F3D6B6" stroke-width="3.5" />
+                                <circle cx="104" cy="148" r="5" fill="#C89B6E" />
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-[11px] uppercase tracking-[0.25em] text-[#C89B6E]/80 mt-2 font-semibold">
+                        GTS 3D Appliance Ecosystem
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Running Timeline Marquee -->
-    <div class="marquee-bar">
-        <div class="marquee-track">
-            <span>✦ RO WATER PURIFIER INSTALLATION</span>
-            <span class="accent">✦ MEMBRANE &amp; UV FILTER REPLACEMENT</span>
-            <span>✦ FRONT &amp; TOP LOAD WASHING MACHINE REPAIR</span>
-            <span class="accent">✦ SINGLE &amp; DOUBLE DOOR FRIDGE GAS CHARGING</span>
-            <span>✦ INVERTER PCB &amp; COMPRESSOR SERVICE</span>
-            <span class="accent">✦ COMMERCIAL RO PLANT AMC</span>
-            <span>✦ RO WATER PURIFIER INSTALLATION</span>
-            <span class="accent">✦ MEMBRANE &amp; UV FILTER REPLACEMENT</span>
-            <span>✦ FRONT &amp; TOP LOAD WASHING MACHINE REPAIR</span>
-            <span class="accent">✦ SINGLE &amp; DOUBLE DOOR FRIDGE GAS CHARGING</span>
-            <span>✦ INVERTER PCB &amp; COMPRESSOR SERVICE</span>
-            <span class="accent">✦ COMMERCIAL RO PLANT AMC</span>
+    <!-- Running Professional Timeline / Marquee Strip -->
+    <div class="marquee-container py-3.5 select-none">
+        <div class="marquee-track text-xs sm:text-sm font-bold tracking-widest uppercase">
+            <span class="mx-6">✦ RO WATER PURIFIER INSTALLATION</span>
+            <span class="mx-6 text-[#8C6239]">✦ MEMBRANE & UV FILTER REPLACEMENT</span>
+            <span class="mx-6">✦ FRONT & TOP LOAD WASHING MACHINE REPAIR</span>
+            <span class="mx-6 text-[#8C6239]">✦ SINGLE & DOUBLE DOOR FRIDGE GAS CHARGING</span>
+            <span class="mx-6">✦ INVERTER PCB & COMPRESSOR SERVICE</span>
+            <span class="mx-6 text-[#8C6239]">✦ COMMERCIAL RO PLANT AMC</span>
+            <span class="mx-6">✦ DRUM & SPIN MOTOR REPLACEMENT</span>
+            <span class="mx-6">✦ RO WATER PURIFIER INSTALLATION</span>
+            <span class="mx-6 text-[#8C6239]">✦ MEMBRANE & UV FILTER REPLACEMENT</span>
+            <span class="mx-6">✦ FRONT & TOP LOAD WASHING MACHINE REPAIR</span>
+            <span class="mx-6 text-[#8C6239]">✦ SINGLE & DOUBLE DOOR FRIDGE GAS CHARGING</span>
+            <span class="mx-6">✦ INVERTER PCB & COMPRESSOR SERVICE</span>
+            <span class="mx-6 text-[#8C6239]">✦ COMMERCIAL RO PLANT AMC</span>
+            <span class="mx-6">✦ DRUM & SPIN MOTOR REPLACEMENT</span>
         </div>
     </div>
 
-    <!-- Services Catalogue -->
-    <section id="services-catalogue" class="catalogue-section">
-        <div class="container">
-            <div class="sec-kicker">Service Catalogue • <span id="serviceCount">45</span> Services Available</div>
-            <h2 class="sec-title">Choose what you need help with.</h2>
-            <p class="sec-sub">Search or filter the catalogue below. The 3D-style icons represent specialized appliance categories; prices are confirmed after quick doorstep inspection.</p>
+    <!-- Main Service Catalogue Section -->
+    <section id="services-catalogue" class="py-16 sm:py-24 bg-[#F5F4F0] text-[#1A1D20]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="max-w-3xl">
+                <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#9E744B]">
+                    Service Catalogue • <span id="service-counter">45</span> Services Available
+                </p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1A1D20] mt-2">
+                    Choose what you need help with.
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base mt-3 leading-relaxed">
+                    Search or filter the catalogue below. The 3D-style icons represent specialized appliance categories; transparent prices are confirmed after quick doorstep inspection.
+                </p>
+            </div>
 
-            <div class="controls-wrap">
-                <div class="search-box">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="searchInput" class="search-input" onkeyup="filterServices()" placeholder="Search by service or keyword (e.g., RO membrane, fridge gas, drum)...">
+            <!-- Search & Category Filter Controls -->
+            <div class="mt-8 space-y-4">
+                <!-- Search Input -->
+                <div class="relative max-w-xl">
+                    <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        onkeyup="filterServices()"
+                        placeholder="Search by service or keyword (e.g., RO membrane, fridge gas, drum, spin)..." 
+                        class="w-full pl-12 pr-4 py-3.5 rounded-lg bg-white border border-gray-300 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#C89B6E] focus:ring-2 focus:ring-[#C89B6E]/20 shadow-sm"
+                    >
                 </div>
 
-                <div class="filter-row">
-                    <button class="filter-btn active" data-cat="ALL" onclick="setCategory('ALL')">All Services (45)</button>
-                    <button class="filter-btn" data-cat="RO WATER PURIFIER" onclick="setCategory('RO WATER PURIFIER')">💧 RO Water Purifier (15)</button>
-                    <button class="filter-btn" data-cat="WASHING MACHINE" onclick="setCategory('WASHING MACHINE')">🧺 Washing Machine (15)</button>
-                    <button class="filter-btn" data-cat="REFRIGERATOR CARE" onclick="setCategory('REFRIGERATOR CARE')">❄️ Refrigerator / Fridge (15)</button>
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap gap-2.5 pt-1" id="categoryFilters">
+                    <button onclick="setCategory('ALL')" data-cat="ALL" class="filter-btn active px-4 py-2 rounded-md text-xs sm:text-sm font-bold bg-[#1A1D20] text-white transition">
+                        All Services (45)
+                    </button>
+                    <button onclick="setCategory('RO WATER PURIFIER')" data-cat="RO WATER PURIFIER" class="filter-btn px-4 py-2 rounded-md text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-700 hover:border-[#C89B6E] transition">
+                        💧 RO Water Purifier (15)
+                    </button>
+                    <button onclick="setCategory('WASHING MACHINE')" data-cat="WASHING MACHINE" class="filter-btn px-4 py-2 rounded-md text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-700 hover:border-[#C89B6E] transition">
+                        🧺 Washing Machine (15)
+                    </button>
+                    <button onclick="setCategory('REFRIGERATOR CARE')" data-cat="REFRIGERATOR CARE" class="filter-btn px-4 py-2 rounded-md text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-700 hover:border-[#C89B6E] transition">
+                        ❄️ Refrigerator / Fridge (15)
+                    </button>
                 </div>
             </div>
 
-            <div id="servicesGrid" class="services-grid"></div>
+            <!-- 3D Service Cards Grid -->
+            <div id="servicesGrid" class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamically injected -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="noResults" class="hidden text-center py-16 bg-white rounded-xl border border-gray-200 mt-8">
+                <p class="text-lg font-bold text-gray-800">No matching service found</p>
+                <p class="text-sm text-gray-500 mt-1">Try searching another keyword or click "All Services".</p>
+                <button onclick="resetFilters()" class="mt-4 btn-copper px-5 py-2.5 rounded text-xs uppercase tracking-wider">
+                    Reset Search
+                </button>
+            </div>
+
         </div>
     </section>
 
-    <!-- Workflow Timeline -->
-    <section id="how-it-works" class="workflow-section">
-        <div class="container">
-            <div class="sec-kicker" style="color: var(--copper);">Seamless Workflow</div>
-            <h2 class="sec-title">How Our Service Timeline Works</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <span class="step-pill">STEP 01</span>
-                    <h3>Select Service</h3>
-                    <p>Choose your RO, Washing Machine, or Fridge issue and click Callback or WhatsApp.</p>
+    <!-- Professional Process Timeline Section -->
+    <section id="how-it-works" class="py-16 sm:py-24 bg-[#1A1D20] text-white border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#C89B6E]">Seamless Workflow</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">How Our Service Timeline Works</h2>
+                <p class="text-gray-400 text-sm mt-3">From your first click to complete appliance restoration, every step is transparent.</p>
+            </div>
+
+            <div class="mt-14 grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
+                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 01</span>
+                    <h3 class="text-lg font-bold mt-4">Select Service</h3>
+                    <p class="text-gray-400 text-sm mt-2">Choose your RO, Washing Machine, or Fridge issue and click Callback or WhatsApp.</p>
                 </div>
-                <div class="step-card">
-                    <span class="step-pill">STEP 02</span>
-                    <h3>Technician Assigned</h3>
-                    <p>Nearest certified specialist calls within 10 minutes to confirm your preferred slot.</p>
+                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
+                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 02</span>
+                    <h3 class="text-lg font-bold mt-4">Technician Assigned</h3>
+                    <p class="text-gray-400 text-sm mt-2">Nearest certified specialist calls within 10 minutes to confirm your preferred slot.</p>
                 </div>
-                <div class="step-card">
-                    <span class="step-pill">STEP 03</span>
-                    <h3>Inspection &amp; Quote</h3>
-                    <p>Digital TDS/fault checkup with upfront spare part pricing before starting work.</p>
+                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
+                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 03</span>
+                    <h3 class="text-lg font-bold mt-4">Inspection & Quote</h3>
+                    <p class="text-gray-400 text-sm mt-2">Digital TDS/fault checkup with upfront spare part pricing before starting work.</p>
                 </div>
-                <div class="step-card">
-                    <span class="step-pill">STEP 04</span>
-                    <h3>Repair &amp; Warranty</h3>
-                    <p>Genuine parts installed, performance tested, and 90-day service warranty issued.</p>
+                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
+                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 04</span>
+                    <h3 class="text-lg font-bold mt-4">Repair & 90-Day Warranty</h3>
+                    <p class="text-gray-400 text-sm mt-2">Genuine parts installed, performance tested, and digital warranty receipt issued.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer-inner">
+    <footer class="bg-[#121417] text-gray-400 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
-                <strong style="color:#FFF;">PURECARE <span style="color:var(--copper);">SERVICE CENTRE</span></strong>
-                <div>RO Water Purifier • Washing Machine • Refrigerator Specialists</div>
+                <p class="text-white font-extrabold tracking-wider uppercase text-sm">
+                    GLOBAL TECHNOLOGY <span class="text-[#C89B6E]">SERVICE CENTRE</span>
+                </p>
+                <p class="text-xs text-gray-500 mt-1">Hyderabad's Trusted RO, Washing Machine & Fridge Specialists</p>
             </div>
-            <div>© 2026 PureCare Service Centre. All rights reserved.</div>
+            <div class="flex flex-wrap gap-6 text-xs font-semibold uppercase tracking-wider">
+                <a href="#services-catalogue" class="hover:text-[#C89B6E]">Services</a>
+                <a href="#how-it-works" class="hover:text-[#C89B6E]">Process</a>
+            </div>
+            <p class="text-xs text-gray-500">© 2026 Global Technology Service Centre. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Callback Modal -->
-    <div id="bookingModal" class="modal-backdrop">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeModal()">✕</button>
-            <div class="sec-kicker" style="color:var(--copper);">Instant Doorstep Dispatch</div>
-            <h3 style="font-size:22px; margin-top:4px;">Request a Callback</h3>
-            <p style="font-size:13px; color:#9CA3AF; margin-top:4px;">Our technician will call you within 10 minutes.</p>
+    <!-- Interactive Callback Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+        <div class="bg-[#1E2226] border border-[#C89B6E]/40 rounded-2xl max-w-md w-full p-6 sm:p-8 text-white shadow-2xl relative animate-[fadeIn_0.2s_ease-out]">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
 
-            <form id="bookingForm" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label class="form-label">Selected Service</label>
-                    <input type="text" id="modalService" class="form-input readonly" readonly>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#C89B6E]">Instant Doorstep Dispatch</span>
+            <h3 class="text-2xl font-extrabold mt-1">Request a Callback</h3>
+            <p class="text-xs text-gray-400 mt-1">Our service engineer will call you within 10 minutes.</p>
+
+            <form onsubmit="submitBooking(event)" class="mt-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Selected Service</label>
+                    <input type="text" id="modalServiceName" readonly class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-[#C89B6E]/40 text-[#C89B6E] text-sm font-semibold">
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Your Name *</label>
-                    <input type="text" required placeholder="Enter full name" class="form-input">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Your Name *</label>
+                    <input type="text" id="custName" required placeholder="Enter your full name" class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-white/15 text-white text-sm focus:border-[#C89B6E] focus:outline-none">
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Mobile Number *</label>
-                    <input type="tel" required placeholder="10-digit mobile number" class="form-input">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Mobile Number *</label>
+                    <input type="tel" id="custPhone" required placeholder="Enter 10-digit mobile number" class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-white/15 text-white text-sm focus:border-[#C89B6E] focus:outline-none">
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Area / Locality</label>
-                    <input type="text" placeholder="e.g., Yousufguda, Madhapur, Kukatpally" class="form-input">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Area / Locality</label>
+                    <input type="text" id="custArea" placeholder="e.g., Kukatpally, Madhapur, Banjara Hills" class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-white/15 text-white text-sm focus:border-[#C89B6E] focus:outline-none">
                 </div>
-                <button type="submit" class="btn-copper" style="width:100%; margin-top:18px; padding:13px;">Confirm Callback Request</button>
+                <button type="submit" class="w-full btn-copper py-3 rounded-lg text-sm uppercase tracking-wider mt-2 shadow-lg">
+                    Confirm Callback Request
+                </button>
             </form>
 
-            <div id="successMsg" style="display:none; text-align:center; padding:24px 0;">
-                <div style="font-size:36px;">✅</div>
-                <h4 style="font-size:19px; margin-top:8px;">Request Received!</h4>
-                <p style="font-size:13px; color:#D1D5DB; margin-top:6px;">Our technician will call you shortly.</p>
-                <button onclick="closeModal()" class="btn-outline" style="margin-top:16px; padding:8px 20px;">Done</button>
+            <div id="bookingSuccess" class="hidden text-center py-6 space-y-3">
+                <div class="w-12 h-12 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto">
+                    <i data-lucide="check-circle-2" class="w-7 h-7"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Request Received!</h4>
+                <p class="text-sm text-gray-300">Thank you! Our senior technician has received your request and will call you shortly.</p>
+                <button onclick="closeBookingModal()" class="mt-2 px-6 py-2 rounded bg-white/10 hover:bg-white/20 text-xs font-bold uppercase tracking-wider">
+                    Done
+                </button>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript Data & Logic for 45 Services -->
     <script>
-        const WHATSAPP_NUMBER = "919876543210";
+        const WHATSAPP_NUMBER = "919876543210"; // Apna WhatsApp Number Yahan Dalein
 
         const servicesData = [
-            // 15 RO WATER PURIFIER
-            { id: 1, category: "RO WATER PURIFIER", emoji: "💧", title: "RO Purifier New Installation", desc: "Complete wall mounting, inlet valve setup, and TDS calibration for all RO/UV brands." },
-            { id: 2, category: "RO WATER PURIFIER", emoji: "📦", title: "RO Uninstallation & Shifting", desc: "Safe dismantling, pipe sealing, and re-installation at your new home or office." },
-            { id: 3, category: "RO WATER PURIFIER", emoji: "🔬", title: "RO Membrane Replacement", desc: "Genuine high-rejection TFC membrane replacement for pure, sweet-tasting water." },
-            { id: 4, category: "RO WATER PURIFIER", emoji: "🧪", title: "Complete Filter Kit Service", desc: "Sediment, Pre-Carbon, Post-Carbon, and UF filter replacement with tank sanitization." },
-            { id: 5, category: "RO WATER PURIFIER", emoji: "⚙️", title: "RO Booster Pump Repair", desc: "Low water flow or high-pressure pump noise diagnosis and motor replacement." },
-            { id: 6, category: "RO WATER PURIFIER", emoji: "💡", title: "UV Lamp & Choke Replacement", desc: "Replacement of fused UV barrel lamp and electronic ballast for 100% germ protection." },
-            { id: 7, category: "RO WATER PURIFIER", emoji: "⚡", title: "SMPS Power Adapter Repair", desc: "24V/36V DC power supply troubleshooting and genuine SMPS replacement." },
-            { id: 8, category: "RO WATER PURIFIER", emoji: "🔧", title: "Water Leakage & Elbow Fix", desc: "Fixing dripping taps, auto-shutoff valves, float switches, and pipe connectors." },
-            { id: 9, category: "RO WATER PURIFIER", emoji: "🥉", title: "Copper & Alkaline Mineralizer", desc: "Adding copper/alkaline mineral cartridge and balancing ideal drinking TDS levels." },
-            { id: 10, category: "RO WATER PURIFIER", emoji: "🚰", title: "Solenoid Valve (SV) Replacement", desc: "Fixing continuous waste water drain issue caused by faulty solenoid valve." },
-            { id: 11, category: "RO WATER PURIFIER", emoji: "✨", title: "RO Storage Tank Deep Clean", desc: "Food-grade anti-bacterial sanitization of internal storage tank and faucet." },
-            { id: 12, category: "RO WATER PURIFIER", emoji: "🔄", title: "Pre-Filter Housing & Spun Change", desc: "External pre-filter bowl cleaning and fresh PP spun candle installation." },
-            { id: 13, category: "RO WATER PURIFIER", emoji: "🏠", title: "Under-Sink RO System Setup", desc: "Concealed kitchen counter RO setup with dedicated pressure tank and tap." },
-            { id: 14, category: "RO WATER PURIFIER", emoji: "🏢", title: "Commercial RO Plant Service", desc: "25 LPH to 500 LPH commercial RO servicing for offices, clinics, and restaurants." },
-            { id: 15, category: "RO WATER PURIFIER", emoji: "🛡️", title: "RO Annual Maintenance (AMC)", desc: "1-year worry-free plan covering scheduled filter changes and unlimited breakdown visits." },
+            // --- 15 RO WATER PURIFIER SERVICES ---
+            { id: 1, category: "RO WATER PURIFIER", title: "RO Purifier New Installation", desc: "Complete wall mounting, inlet valve setup, and TDS calibration for all RO/UV brands.", icon: "droplets" },
+            { id: 2, category: "RO WATER PURIFIER", title: "RO Uninstallation & Shifting", desc: "Safe dismantling, pipe sealing, and re-installation at your new home or office.", icon: "move" },
+            { id: 3, category: "RO WATER PURIFIER", title: "RO Membrane Replacement", desc: "Genuine high-rejection TFC membrane replacement for pure, sweet-tasting water.", icon: "layers" },
+            { id: 4, category: "RO WATER PURIFIER", title: "Complete Filter Kit Service", desc: "Sediment, Pre-Carbon, Post-Carbon, and UF filter replacement with tank sanitization.", icon: "filter" },
+            { id: 5, category: "RO WATER PURIFIER", title: "RO Booster Pump Repair", desc: "Low water flow or high-pressure pump noise diagnosis and motor replacement.", icon: "gauge" },
+            { id: 6, category: "RO WATER PURIFIER", title: "UV Lamp & Choke Replacement", desc: "Replacement of fused UV barrel lamp and electronic ballast for 100% germ protection.", icon: "sun" },
+            { id: 7, category: "RO WATER PURIFIER", title: "SMPS Power Adapter Repair", desc: "24V/36V DC power supply troubleshooting and genuine SMPS replacement.", icon: "zap" },
+            { id: 8, category: "RO WATER PURIFIER", title: "Water Leakage & Elbow Fix", desc: "Fixing dripping taps, auto-shutoff valves, float switches, and pipe connectors.", icon: "wrench" },
+            { id: 9, category: "RO WATER PURIFIER", title: "TDS Controller & Mineralizer", desc: "Adding copper/alkaline mineral cartridge and balancing ideal drinking TDS levels.", icon: "sliders" },
+            { id: 10, category: "RO WATER PURIFIER", title: "Solenoid Valve (SV) Replacement", desc: "Fixing continuous waste water drain issue caused by faulty solenoid valve.", icon: "settings" },
+            { id: 11, category: "RO WATER PURIFIER", title: "RO Storage Tank Deep Clean", desc: "Food-grade anti-bacterial sanitization of internal storage tank and dispensing faucet.", icon: "sparkles" },
+            { id: 12, category: "RO WATER PURIFIER", title: "Pre-Filter Housing & Spun Change", desc: "External pre-filter bowl cleaning and fresh PP spun candle installation.", icon: "refresh-cw" },
+            { id: 13, category: "RO WATER PURIFIER", title: "Under-Sink RO System Setup", desc: "Concealed kitchen counter RO setup with dedicated pressure tank and gooseneck tap.", icon: "home" },
+            { id: 14, category: "RO WATER PURIFIER", title: "Commercial RO Plant Service", desc: "25 LPH to 500 LPH commercial RO servicing for offices, clinics, and restaurants.", icon: "building-2" },
+            { id: 15, category: "RO WATER PURIFIER", title: "RO Annual Maintenance (AMC)", desc: "1-year worry-free plan covering scheduled filter changes and unlimited breakdown visits.", icon: "shield-check" },
 
-            // 15 WASHING MACHINE
-            { id: 16, category: "WASHING MACHINE", emoji: "🧺", title: "Front Load Washing Machine Repair", desc: "Complete diagnostics, error code reset, and repair for all front-load models." },
-            { id: 17, category: "WASHING MACHINE", emoji: "🌀", title: "Top Load Automatic Repair", desc: "Water level sensor, wash cycle, and pulsator troubleshooting at your doorstep." },
-            { id: 18, category: "WASHING MACHINE", emoji: "🎛️", title: "Semi-Automatic Washer Repair", desc: "Wash timer, spin timer, buzzer, and dual-tub selector switch repair." },
-            { id: 19, category: "WASHING MACHINE", emoji: "🔩", title: "Washing Machine Installation", desc: "Anti-vibration leveling, inlet hose coupling, and drain pipe setup." },
-            { id: 20, category: "WASHING MACHINE", emoji: "🌊", title: "Drain Pump & Blockage Fix", desc: "Fixing water not draining issues, clogged coin traps, and drain motor replacement." },
-            { id: 21, category: "WASHING MACHINE", emoji: "⚙️", title: "Drum Bearing & Spider Arm", desc: "Heavy noise during spin cycle fixed with precision drum bearing and seal replacement." },
-            { id: 22, category: "WASHING MACHINE", emoji: "🖥️", title: "Inverter PCB Board Repair", desc: "Chip-level repair and replacement for dead display or unresponsive control panels." },
-            { id: 23, category: "WASHING MACHINE", emoji: "🔒", title: "Door Lock & Gasket Rubber Change", desc: "Front-load door latch error fix and mold-free rubber door boot replacement." },
-            { id: 24, category: "WASHING MACHINE", emoji: "💨", title: "Spin Dryer Motor Replacement", desc: "High-speed spin motor rewinding or replacement for wet clothes issue." },
-            { id: 25, category: "WASHING MACHINE", emoji: "💧", title: "Water Inlet Valve Replacement", desc: "Solving slow water filling or continuous water overflow inside the drum." },
-            { id: 26, category: "WASHING MACHINE", emoji: "🛠️", title: "Gearbox & Clutch Assembly", desc: "Top-load agitator gearbox replacement for smooth, noise-free wash rotation." },
-            { id: 27, category: "WASHING MACHINE", emoji: "📉", title: "Shock Absorber & Suspension", desc: "Fixing excessive machine shaking and walking during high-RPM spin cycles." },
-            { id: 28, category: "WASHING MACHINE", emoji: "🌡️", title: "Heater Element & Thermostat", desc: "Hot wash water heating failure diagnosis and heating coil replacement." },
-            { id: 29, category: "WASHING MACHINE", emoji: "✨", title: "Drum Descaling & Deep Wash", desc: "Removal of detergent limescale, lint buildup, and bad odor from inner tub." },
-            { id: 30, category: "WASHING MACHINE", emoji: "🎗️", title: "Belt & Pulley Replacement", desc: "V-belt tension adjustment and worn drive belt replacement." },
+            // --- 15 WASHING MACHINE SERVICES ---
+            { id: 16, category: "WASHING MACHINE", title: "Front Load Washing Machine Repair", desc: "Complete diagnostics, error code reset, and repair for all front-load models.", icon: "disc" },
+            { id: 17, category: "WASHING MACHINE", title: "Top Load Automatic Repair", desc: "Water level sensor, wash cycle, and pulsator troubleshooting at your doorstep.", icon: "refresh-ccw" },
+            { id: 18, category: "WASHING MACHINE", title: "Semi-Automatic Washer Repair", desc: "Wash timer, spin timer, buzzer, and dual-tub selector switch repair.", icon: "sliders-horizontal" },
+            { id: 19, category: "WASHING MACHINE", title: "Washing Machine Installation", desc: "Anti-vibration leveling, inlet hose coupling, and drain pipe setup.", icon: "settings-2" },
+            { id: 20, category: "WASHING MACHINE", title: "Drain Pump & Water Blockage Fix", desc: "Fixing water not draining issues, clogged coin traps, and drain motor replacement.", icon: "arrow-down-circle" },
+            { id: 21, category: "WASHING MACHINE", title: "Drum Bearing & Spider Arm", desc: "Heavy noise during spin cycle fixed with precision drum bearing and seal replacement.", icon: "cog" },
+            { id: 22, category: "WASHING MACHINE", title: "Inverter PCB Board Repair", desc: "Chip-level repair and replacement for dead display or unresponsive control panels.", icon: "cpu" },
+            { id: 23, category: "WASHING MACHINE", title: "Door Lock & Gasket Rubber Change", desc: "Front-load door latch error fix and mold-free rubber door boot replacement.", icon: "lock" },
+            { id: 24, category: "WASHING MACHINE", title: "Spin Dryer Motor Replacement", desc: "High-speed spin motor rewinding or replacement for wet clothes issue.", icon: "wind" },
+            { id: 25, category: "WASHING MACHINE", title: "Water Inlet Valve Replacement", desc: "Solving slow water filling or continuous water overflow inside the drum.", icon: "droplet" },
+            { id: 26, category: "WASHING MACHINE", title: "Gearbox & Clutch Assembly", desc: "Top-load agitator gearbox replacement for smooth, noise-free wash rotation.", icon: "wrench" },
+            { id: 27, category: "WASHING MACHINE", title: "Shock Absorber & Suspension", desc: "Fixing excessive machine shaking and walking during high-RPM spin cycles.", icon: "activity" },
+            { id: 28, category: "WASHING MACHINE", title: "Heater Element & Thermostat", desc: "Hot wash water heating failure diagnosis and heating coil replacement.", icon: "thermometer" },
+            { id: 29, category: "WASHING MACHINE", title: "Drum Descaling & Deep Wash", desc: "Removal of detergent limescale, lint buildup, and bad odor from inner tub.", icon: "sparkles" },
+            { id: 30, category: "WASHING MACHINE", title: "Belt & Pulley Replacement", desc: "V-belt tension adjustment and worn drive belt replacement.", icon: "circle-dot" },
 
-            // 15 REFRIGERATOR CARE
-            { id: 31, category: "REFRIGERATOR CARE", emoji: "❄️", title: "Single Door Fridge Repair", desc: "Cooling loss, thermostat calibration, and freezer ice buildup repair." },
-            { id: 32, category: "REFRIGERATOR CARE", emoji: "🧊", title: "Double Door Frost-Free Repair", desc: "Air damper, defrost heater, and multi-airflow cooling restoration." },
-            { id: 33, category: "REFRIGERATOR CARE", emoji: "🚪", title: "Side-by-Side Luxury Fridge Care", desc: "Specialized diagnostics for smart inverter side-by-side and French door models." },
-            { id: 34, category: "REFRIGERATOR CARE", emoji: "🔥", title: "Fridge Gas Charging (R134a/R600a)", desc: "Vacuum pressure testing, leak brazing, and genuine refrigerant gas refill." },
-            { id: 35, category: "REFRIGERATOR CARE", emoji: "⚡", title: "Inverter Compressor Replacement", desc: "Genuine energy-efficient compressor installation with overload relay setup." },
-            { id: 36, category: "REFRIGERATOR CARE", emoji: "🌡️", title: "Fridge Not Cooling Diagnosis", desc: "Complete thermodynamic and airflow checkup to restore rapid chilling." },
-            { id: 37, category: "REFRIGERATOR CARE", emoji: "💧", title: "Water Leakage Inside Fridge", desc: "Clearing blocked defrost drain tubes and fixing water tray overflow." },
-            { id: 38, category: "REFRIGERATOR CARE", emoji: "⏱️", title: "Defrost Timer, Coil & Bi-Metal", desc: "Fixing heavy frost accumulation blocking cold air vents in frost-free fridges." },
-            { id: 39, category: "REFRIGERATOR CARE", emoji: "🧲", title: "Door Gasket Magnetic Seal Change", desc: "Replacing torn or loose door rubber seals to stop cool air escape." },
-            { id: 40, category: "REFRIGERATOR CARE", emoji: "🖥️", title: "Fridge Main PCB Control Repair", desc: "Digital temperature display and inverter motherboard repair/replacement." },
-            { id: 41, category: "REFRIGERATOR CARE", emoji: "🌀", title: "Condenser & Evaporator Fan Motor", desc: "Quiet fan motor replacement to eliminate humming noise and uneven cooling." },
-            { id: 42, category: "REFRIGERATOR CARE", emoji: "🔌", title: "Relay & OLP Starter Replacement", desc: "Fixing compressor clicking sound and start-up tripping problems." },
-            { id: 43, category: "REFRIGERATOR CARE", emoji: "🥤", title: "Ice Maker & Water Dispenser Fix", desc: "Door water dispenser valve and automatic ice maker tray repair." },
-            { id: 44, category: "REFRIGERATOR CARE", emoji: "🏪", title: "Deep Freezer & Visi Cooler Service", desc: "Commercial chest freezer and beverage cooler repair for shops and homes." },
-            { id: 45, category: "REFRIGERATOR CARE", emoji: "✨", title: "Fridge Condenser Coil Cleaning", desc: "Dust removal and coil tune-up for faster cooling and lower electricity bills." }
+            // --- 15 REFRIGERATOR / FRIDGE SERVICES ---
+            { id: 31, category: "REFRIGERATOR CARE", title: "Single Door Fridge Repair", desc: "Cooling loss, thermostat calibration, and freezer ice buildup repair.", icon: "snowflake" },
+            { id: 32, category: "REFRIGERATOR CARE", title: "Double Door Frost-Free Repair", desc: "Air damper, defrost heater, and multi-airflow cooling restoration.", icon: "columns" },
+            { id: 33, category: "REFRIGERATOR CARE", title: "Side-by-Side Luxury Fridge Care", desc: "Specialized diagnostics for smart inverter side-by-side and French door models.", icon: "layout-grid" },
+            { id: 34, category: "REFRIGERATOR CARE", title: "Fridge Gas Charging (R134a / R600a)", desc: "Vacuum pressure testing, leak brazing, and genuine refrigerant gas refill.", icon: "flame" },
+            { id: 35, category: "REFRIGERATOR CARE", title: "Inverter Compressor Replacement", desc: "Genuine energy-efficient compressor installation with overload relay setup.", icon: "cpu" },
+            { id: 36, category: "REFRIGERATOR CARE", title: "Fridge Not Cooling Diagnosis", desc: "Complete thermodynamic and airflow checkup to restore rapid chilling.", icon: "thermometer-snowflake" },
+            { id: 37, category: "REFRIGERATOR CARE", title: "Water Leakage Inside Fridge", desc: "Clearing blocked defrost drain tubes and fixing water tray overflow.", icon: "droplets" },
+            { id: 38, category: "REFRIGERATOR CARE", title: "Defrost Timer, Coil & Bi-Metal", desc: "Fixing heavy frost accumulation blocking cold air vents in frost-free fridges.", icon: "timer" },
+            { id: 39, category: "REFRIGERATOR CARE", title: "Door Gasket Magnetic Seal Change", desc: "Replacing torn or loose door rubber seals to stop cool air escape and power waste.", icon: "square" },
+            { id: 40, category: "REFRIGERATOR CARE", title: "Fridge Main PCB Control Repair", desc: "Digital temperature display and inverter motherboard repair/replacement.", icon: "circuit-board" },
+            { id: 41, category: "REFRIGERATOR CARE", title: "Condenser & Evaporator Fan Motor", desc: "Quiet fan motor replacement to eliminate humming noise and uneven cooling.", icon: "fan" },
+            { id: 42, category: "REFRIGERATOR CARE", title: "Relay & OLP Starter Replacement", desc: "Fixing compressor clicking sound and start-up tripping problems.", icon: "zap" },
+            { id: 43, category: "REFRIGERATOR CARE", title: "Ice Maker & Water Dispenser Fix", desc: "Door water dispenser valve and automatic ice maker tray repair.", icon: "glass-water" },
+            { id: 44, category: "REFRIGERATOR CARE", title: "Deep Freezer & Visi Cooler Service", desc: "Commercial chest freezer and beverage cooler repair for shops and homes.", icon: "box" },
+            { id: 45, category: "REFRIGERATOR CARE", title: "Fridge Condenser Coil Cleaning", desc: "Dust removal and coil tune-up for faster cooling and lower electricity bills.", icon: "sparkles" }
         ];
 
-        let currentCat = "ALL";
+        let activeCategory = "ALL";
 
-        function renderCards(items) {
+        function renderServices(list) {
             const grid = document.getElementById("servicesGrid");
-            document.getElementById("serviceCount").textContent = items.length;
-            if (!items.length) {
-                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; background:#FFF; border-radius:12px;"><strong>No matching service found.</strong></div>`;
+            const noResults = document.getElementById("noResults");
+            const counter = document.getElementById("service-counter");
+
+            counter.textContent = list.length;
+            grid.innerHTML = "";
+
+            if (list.length === 0) {
+                noResults.classList.remove("hidden");
                 return;
+            } else {
+                noResults.classList.add("hidden");
             }
-            grid.innerHTML = items.map(item => {
-                const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I need service for: " + item.title + " (" + item.category + ")")}`;
-                return `
-                    <div class="service-card">
+
+            list.forEach(item => {
+                const whatsappMsg = encodeURIComponent(`Hello! I want to book: *${item.title}* (${item.category}). Please share technician availability.`);
+                const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
+
+                const card = `
+                    <div class="service-card rounded-xl overflow-hidden flex flex-col justify-between shadow-md">
                         <div>
-                            <div class="card-stage">
-                                <div class="card-badge-3d">${item.emoji}</div>
-                                <span class="card-num">#${String(item.id).padStart(2, "0")}</span>
+                            <div class="icon-stage-3d h-44 flex items-center justify-center">
+                                <div class="icon-badge-3d w-16 h-16 rounded-2xl flex items-center justify-center text-[#C89B6E]">
+                                    <i data-lucide="${item.icon}" class="w-8 h-8"></i>
+                                </div>
+                                <span class="absolute top-3 right-3 text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded bg-white/10 text-gray-300 backdrop-blur-sm">
+                                    #${String(item.id).padStart(2, '0')}
+                                </span>
                             </div>
-                            <div class="card-body">
-                                <div class="card-cat">${item.category}</div>
-                                <h3 class="card-title">${item.title}</h3>
-                                <p class="card-desc">${item.desc}</p>
+                            <div class="p-6">
+                                <span class="text-[11px] font-extrabold tracking-[0.18em] uppercase text-[#9E744B]">
+                                    ${item.category}
+                                </span>
+                                <h3 class="text-xl font-extrabold text-[#1A1D20] mt-1.5">
+                                    ${item.title}
+                                </h3>
+                                <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                                    ${item.desc}
+                                </p>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="quote-note">Request a quote • Doorstep inspection</div>
-                            <div class="card-btns">
-                                <button class="btn-dark-sm" onclick="openModal('${item.title}')">Request callback</button>
-                                <a href="${waUrl}" target="_blank" class="btn-wa-sm">💬 WhatsApp</a>
+                        <div class="px-6 pb-6 pt-3 border-t border-gray-100 bg-[#FAFAFA]">
+                            <p class="text-xs font-medium text-gray-400 mb-3">Request a quote • Doorstep inspection</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="openBookingModal('${item.title}')" class="py-2.5 px-3 rounded bg-[#23272B] hover:bg-[#141619] text-white text-xs font-bold tracking-wide transition text-center shadow">
+                                    Request callback
+                                </button>
+                                <a href="${whatsappUrl}" target="_blank" class="py-2.5 px-3 rounded border border-gray-300 hover:border-[#C89B6E] hover:bg-[#C89B6E]/10 text-[#1A1D20] text-xs font-bold tracking-wide transition text-center flex items-center justify-center gap-1.5">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-green-600"></i>
+                                    WhatsApp
+                                </a>
                             </div>
                         </div>
                     </div>
                 `;
-            }).join("");
+                grid.innerHTML += card;
+            });
+            lucide.createIcons();
         }
 
         function setCategory(cat) {
-            currentCat = cat;
+            activeCategory = cat;
             document.querySelectorAll(".filter-btn").forEach(btn => {
-                btn.classList.toggle("active", btn.getAttribute("data-cat") === cat);
+                if (btn.getAttribute("data-cat") === cat) {
+                    btn.classList.remove("bg-white", "text-gray-700", "border", "border-gray-300");
+                    btn.classList.add("bg-[#1A1D20]", "text-white");
+                } else {
+                    btn.classList.add("bg-white", "text-gray-700", "border", "border-gray-300");
+                    btn.classList.remove("bg-[#1A1D20]", "text-white");
+                }
             });
             filterServices();
         }
 
         function filterServices() {
-            const q = document.getElementById("searchInput").value.toLowerCase().trim();
-            const filtered = servicesData.filter(s => {
-                const catOk = currentCat === "ALL" || s.category === currentCat;
-                const searchOk = s.title.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q) || s.category.toLowerCase().includes(q);
-                return catOk && searchOk;
+            const query = document.getElementById("searchInput").value.toLowerCase().trim();
+            const filtered = servicesData.filter(item => {
+                const matchesCat = activeCategory === "ALL" || item.category === activeCategory;
+                const matchesSearch = item.title.toLowerCase().includes(query) || 
+                                      item.desc.toLowerCase().includes(query) || 
+                                      item.category.toLowerCase().includes(query);
+                return matchesCat && matchesSearch;
             });
-            renderCards(filtered);
+            renderServices(filtered);
         }
 
-        function openModal(serviceName) {
-            document.getElementById("modalService").value = serviceName;
-            document.getElementById("bookingForm").style.display = "block";
-            document.getElementById("successMsg").style.display = "none";
-            document.getElementById("bookingModal").classList.add("open");
+        function resetFilters() {
+            document.getElementById("searchInput").value = "";
+            setCategory("ALL");
         }
 
-        function closeModal() {
-            document.getElementById("bookingModal").classList.remove("open");
+        function openBookingModal(serviceTitle) {
+            const modal = document.getElementById("bookingModal");
+            const form = modal.querySelector("form");
+            const successBox = document.getElementById("bookingSuccess");
+
+            document.getElementById("modalServiceName").value = serviceTitle;
+            form.classList.remove("hidden");
+            successBox.classList.add("hidden");
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
         }
 
-        function submitForm(e) {
+        function closeBookingModal() {
+            const modal = document.getElementById("bookingModal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        function submitBooking(e) {
             e.preventDefault();
-            document.getElementById("bookingForm").style.display = "none";
-            document.getElementById("successMsg").style.display = "block";
+            const modal = document.getElementById("bookingModal");
+            modal.querySelector("form").classList.add("hidden");
+            document.getElementById("bookingSuccess").classList.remove("hidden");
         }
 
-        renderCards(servicesData);
+        document.addEventListener("DOMContentLoaded", () => {
+            renderServices(servicesData);
+            lucide.createIcons();
+        });
     </script>
 </body>
 </html>
