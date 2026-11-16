@@ -1,681 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="google9580046f79a9b1c6.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#09090b" />
-  <meta name="description" content="Global Technology Service Centre in Hyderabad — AC installation, appliance repair, EV charger setup, electrical, CCTV, plumbing, tiling, and marble polishing. Call 08048061672 or WhatsApp 85006 18707." />
-  <meta property="og:title" content="Global Technology Service Centre | Hyderabad Home & Office Services" />
-  <meta property="og:description" content="45+ home and office services in Hyderabad. Browse service photos, request a callback, or contact us directly on WhatsApp." />
-  <meta property="og:type" content="website" />
-  <title>Global Technology Service Centre | Hyderabad Home Services</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Global Technology Service Centre",
-    "url": "https://www.globaltechnologyservicecentre.com/",
-    "telephone": "+918500618707",
-    "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJKeDON3WRyzsRBbC0YY152Kk",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Feroz Pasha, Sriram Nagar Rd, Sri Ram Nagar, Yousufguda",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana",
-      "postalCode": "500114",
-      "addressCountry": "IN"
-    }
-  }
-  </script>
-  <style>
-    :root {
-      --bg: #08080c;
-      --surface: #111118;
-      --surface-2: #181822;
-      --gold: #d4af37;
-      --gold-bright: #f7d96b;
-      --gold-soft: rgba(212, 175, 55, 0.16);
-      --border: rgba(212, 175, 55, 0.24);
-      --text: #f5f3ee;
-      --muted: #b4b0a6;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', 'Manrope', system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at 15% 0%, rgba(212, 175, 55, 0.12), transparent 42%), var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1220px, 92%); margin: 0 auto; }
-
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 40;
-      background: rgba(8, 8, 12, 0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-wrap {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 14px 0; flex-wrap: wrap;
-    }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.02em; }
-    .brand-badge {
-      width: 40px; height: 40px; border-radius: 12px;
-      display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-      color: #09090b; font-size: 20px; font-weight: 800;
-      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
-    }
-    .brand small { display: block; font-size: 11px; color: var(--gold-bright); letter-spacing: 0.12em; text-transform: uppercase; }
-    .nav-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: 14px;
-      border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
-      cursor: pointer; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-    .btn:hover { transform: translateY(-2px); border-color: var(--gold-bright); }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-      color: #09090b; border-color: transparent;
-      box-shadow: 0 10px 26px rgba(212, 175, 55, 0.28);
-    }
-    .btn-gold:hover { box-shadow: 0 14px 32px rgba(247, 217, 107, 0.42); }
-
-    /* Hero */
-    .hero { padding: 54px 0 36px; }
-    .hero-grid {
-      display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 32px; align-items: center;
-    }
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 999px;
-      background: var(--gold-soft); border: 1px solid var(--border);
-      color: var(--gold-bright); font-size: 13px; font-weight: 700; margin-bottom: 16px;
-    }
-    h1 {
-      font-size: clamp(32px, 5vw, 52px); line-height: 1.08; font-weight: 800;
-      margin-bottom: 16px; letter-spacing: -0.02em;
-    }
-    h1 span {
-      background: linear-gradient(135deg, #fff6cf, var(--gold-bright), var(--gold));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-sub { color: var(--muted); font-size: 17px; max-width: 60ch; margin-bottom: 24px; }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; }
-    .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .stat-box {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 12px 14px;
-    }
-    .stat-box strong { display: block; color: var(--gold-bright); font-size: 17px; }
-    .stat-box span { font-size: 13px; color: var(--muted); }
-
-    /* Rotating 3D Hero Home Icon */
-    .hero-3d-stage {
-      perspective: 900px; display: grid; place-items: center; min-height: 260px;
-    }
-    .hero-3d-card {
-      position: relative;
-      width: 240px; height: 240px; border-radius: 36px;
-      background: radial-gradient(circle at 30% 25%, rgba(247, 217, 107, 0.22), #0a0a0f 70%);
-      border: 2px solid var(--gold);
-      display: grid; place-items: center; text-align: center;
-      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.78), 0 0 48px rgba(212, 175, 55, 0.28), inset 0 0 24px rgba(212, 175, 55, 0.14);
-      transform-style: preserve-3d;
-      animation: heroSpin3D 7s ease-in-out infinite;
-    }
-    .hero-3d-ring {
-      position: absolute; inset: 14px; border-radius: 26px;
-      border: 1px dashed rgba(247, 217, 107, 0.42);
-      transform: translateZ(14px);
-      pointer-events: none;
-    }
-    .hero-3d-icon {
-      width: 126px; height: 126px; margin: 0 auto;
-      transform: translateZ(46px);
-      filter: drop-shadow(0 14px 24px rgba(212, 175, 55, 0.52));
-    }
-    .hero-3d-label {
-      margin-top: 8px; font-size: 12.5px; font-weight: 800; color: var(--gold-bright);
-      letter-spacing: 0.12em; text-transform: uppercase; transform: translateZ(28px);
-    }
-    @keyframes heroSpin3D {
-      0%   { transform: rotateY(-18deg) rotateX(10deg) translateY(0px); }
-      50%  { transform: rotateY(18deg) rotateX(-8deg) translateY(-12px); }
-      100% { transform: rotateY(-18deg) rotateX(10deg) translateY(0px); }
-    }
-
-    /* Running Ticker */
-    .ticker-wrap {
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      background: linear-gradient(90deg, #0d0d12, #17140b, #0d0d12);
-      overflow: hidden; white-space: nowrap; padding: 11px 0;
-    }
-    .ticker-track {
-      display: inline-block; padding-left: 100%;
-      animation: tickerMove 28s linear infinite;
-      color: var(--gold-bright); font-weight: 700; font-size: 14px; letter-spacing: 0.04em;
-    }
-    @keyframes tickerMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* Catalogue */
-    .section { padding: 48px 0; }
-    .section-head {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 16px; flex-wrap: wrap; margin-bottom: 20px;
-    }
-    .section-head h2 { font-size: clamp(24px, 3.2vw, 34px); font-weight: 800; }
-    .section-head p { color: var(--muted); font-size: 15px; }
-    .controls { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
-    .search-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-    .search-input {
-      flex: 1; min-width: 240px; padding: 13px 16px; border-radius: 14px;
-      border: 1px solid var(--border); background: var(--surface); color: var(--text);
-      font-size: 15px; outline: none;
-    }
-    .search-input:focus { border-color: var(--gold-bright); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.16); }
-    .count-badge {
-      padding: 10px 16px; border-radius: 999px; background: var(--gold-soft);
-      border: 1px solid var(--border); color: var(--gold-bright); font-weight: 700; font-size: 14px;
-    }
-    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
-    .filter-btn {
-      padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border);
-      background: var(--surface); color: var(--muted); font-weight: 600; font-size: 13px;
-      cursor: pointer; transition: all .2s ease;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-      color: #09090b; border-color: transparent;
-    }
-
-    /* 3D Filing Service Cards */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-      gap: 20px;
-      perspective: 1200px;
-    }
-    .service-card {
-      position: relative;
-      background: linear-gradient(165deg, var(--surface-2), var(--surface));
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transform-style: preserve-3d;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
-      animation: cardFloat3D 6s ease-in-out infinite;
-      animation-delay: var(--delay, 0s);
-    }
-    .service-card:hover {
-      border-color: var(--gold-bright);
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.7), 0 0 26px rgba(212, 175, 55, 0.24);
-      z-index: 2;
-    }
-    @keyframes cardFloat3D {
-      0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
-      50% { transform: translateY(-4px) rotateX(1.5deg) rotateY(-1.5deg); }
-    }
-    .photo-box {
-      position: relative; width: 100%; aspect-ratio: 16 / 10;
-      background: #0d0d13; overflow: hidden;
-      border-bottom: 1px solid var(--border);
-      transform: translateZ(18px);
-    }
-    .photo-box img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform .45s ease;
-    }
-    .service-card:hover .photo-box img { transform: scale(1.06); }
-    .card-body {
-      padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1;
-      transform: translateZ(12px);
-    }
-    .cat-tag {
-      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--gold-bright);
-    }
-    .card-title { font-size: 18px; font-weight: 800; color: var(--text); }
-    .card-desc { font-size: 13.5px; color: var(--muted); flex: 1; }
-    .card-actions { display: flex; gap: 8px; margin-top: 8px; }
-    .card-actions .btn { flex: 1; padding: 9px 10px; font-size: 13px; border-radius: 12px; }
-
-    /* Booking Section */
-    .booking-wrap {
-      display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px;
-      background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 28px;
-    }
-    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-    .field label { font-size: 13px; font-weight: 700; color: var(--gold-bright); }
-    .field input, .field select, .field textarea {
-      width: 100%; padding: 11px 13px; border-radius: 12px;
-      border: 1px solid var(--border); background: var(--bg); color: var(--text);
-      font-size: 14px; font-family: inherit;
-    }
-    .check-row { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--muted); margin: 10px 0 14px; }
-    .status-msg { margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--gold-bright); min-height: 20px; }
-
-    /* Dialog */
-    dialog {
-      margin: auto; border: 1px solid var(--gold); border-radius: 22px;
-      background: var(--surface); color: var(--text); width: min(480px, 92%); padding: 24px;
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.8);
-    }
-    dialog::backdrop { background: rgba(0, 0, 0, 0.72); backdrop-filter: blur(4px); }
-    .dialog-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .close-btn {
-      background: transparent; border: 1px solid var(--border); color: var(--text);
-      width: 34px; height: 34px; border-radius: 50%; font-size: 18px; cursor: pointer;
-    }
-
-    footer {
-      border-top: 1px solid var(--border); padding: 26px 0 40px;
-      color: var(--muted); font-size: 14px; text-align: center;
-    }
-    @media (max-width: 860px) {
-      .hero-grid, .booking-wrap { grid-template-columns: 1fr; }
-      .hero-3d-stage { min-height: 200px; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav-wrap">
-      <a class="brand" href="#home">
-        <div class="brand-badge">G</div>
-        <div>
-          GLOBAL TECHNOLOGY
-          <small>Service Centre · Hyderabad</small>
-        </div>
-      </a>
-      <div class="nav-actions">
-        <a class="btn" href="#services">Services</a>
-        <a class="btn" href="tel:08048061672">Call IVR</a>
-        <a class="btn" href="https://wa.me/918500618707?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20your%20services." target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn" href="https://www.google.com/maps/place/?q=place_id:ChIJKeDON3WRyzsRBbC0YY152Kk" target="_blank" rel="noopener">Google</a>
-        <button class="btn btn-gold open-inquiry" type="button">Request callback</button>
-      </div>
-    </div>
-  </header>
-
-  <main id="home">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="pill">Hyderabad · Home &amp; Office Services</div>
-          <h1>Every technical service in <span>one reliable call.</span></h1>
-          <p class="hero-sub">Browse all 45 services with matched service photos—AC installation, appliance care, EV chargers, electrical, CCTV, plumbing, tiling, and marble polishing.</p>
-          <div class="hero-cta">
-            <a class="btn btn-gold" href="#services">Browse 45 services ↓</a>
-            <button class="btn open-inquiry" type="button">Request a callback</button>
-            <a class="btn" href="tel:08048061672">IVR 08048061672</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat-box"><strong>45 Services</strong><span>Matched photos</span></div>
-            <div class="stat-box"><strong>Hyderabad</strong><span>Home &amp; office</span></div>
-            <div class="stat-box"><strong>85006 18707</strong><span>WhatsApp &amp; direct</span></div>
-          </div>
-        </div>
-        <div class="hero-3d-stage" aria-hidden="true">
-          <div class="hero-3d-card">
-            <div class="hero-3d-ring"></div>
-            <div>
-              <div class="hero-3d-icon">
-                <svg viewBox="0 0 120 120" width="126" height="126" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="gold3d" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#fff4bf"/>
-                      <stop offset="35%" stop-color="#f7d96b"/>
-                      <stop offset="70%" stop-color="#d4af37"/>
-                      <stop offset="100%" stop-color="#8b6512"/>
-                    </linearGradient>
-                    <linearGradient id="goldSide" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stop-color="#d4af37"/>
-                      <stop offset="100%" stop-color="#5c4208"/>
-                    </linearGradient>
-                    <linearGradient id="blackBody" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#262632"/>
-                      <stop offset="100%" stop-color="#07070b"/>
-                    </linearGradient>
-                  </defs>
-                  <!-- 3D shadow base -->
-                  <ellipse cx="60" cy="108" rx="38" ry="6" fill="rgba(212,175,55,0.28)"/>
-                  <!-- 3D side wall depth -->
-                  <polygon points="88,52 98,58 98,96 88,100" fill="url(#goldSide)" stroke="#f7d96b" stroke-width="1"/>
-                  <!-- Black & gold house body -->
-                  <rect x="26" y="50" width="62" height="50" rx="5" fill="url(#blackBody)" stroke="url(#gold3d)" stroke-width="3"/>
-                  <!-- 3D gold roof -->
-                  <polygon points="14,54 60,18 106,54 96,58 60,30 24,58" fill="url(#gold3d)" stroke="#fff4bf" stroke-width="1.2"/>
-                  <!-- Chimney -->
-                  <rect x="76" y="25" width="10" height="16" rx="2" fill="url(#gold3d)"/>
-                  <!-- Gold arched door -->
-                  <path d="M50,100 L50,74 C50,68 70,68 70,74 L70,100 Z" fill="url(#gold3d)"/>
-                  <circle cx="65" cy="85" r="2.2" fill="#08080c"/>
-                  <!-- Glowing gold windows -->
-                  <rect x="33" y="62" width="11" height="11" rx="2" fill="url(#gold3d)"/>
-                  <rect x="76" y="62" width="11" height="11" rx="2" fill="url(#gold3d)"/>
-                </svg>
-              </div>
-              <div class="hero-3d-label">One Stop Solution</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="ticker-wrap" aria-label="Service highlights">
-      <div class="ticker-track">
-        ★ AC Installation &amp; Repair ★ EV Charger Setup ★ Appliance Care ★ Electrical &amp; Wiring ★ CCTV &amp; Networking ★ Tiles &amp; Marble Polishing ★ Plumbing &amp; Tank Cleaning ★ Call IVR: 08048061672 ★ WhatsApp: 85006 18707 ★
-      </div>
-    </div>
-
-    <section class="section" style="padding:28px 0 0;">
-      <div class="container">
-        <div id="daily-spotlight" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(247,217,107,0.12),var(--surface));border:1px solid var(--gold);border-radius:18px;padding:18px 22px;">
-          <div>
-            <div class="pill" style="margin-bottom:8px;">Daily Service Update · Hyderabad</div>
-            <h3 id="spotlight-title" style="font-size:20px;font-weight:800;color:var(--gold-bright);"></h3>
-            <p id="spotlight-desc" style="color:var(--muted);font-size:14px;margin-top:4px;"></p>
-          </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button id="spotlight-btn" class="btn btn-gold" type="button">Book today's service</button>
-            <a class="btn" href="https://wa.me/918500618707?text=Hello%2C%20I%20would%20like%20to%20book%20today's%20featured%20service." target="_blank" rel="noopener">WhatsApp ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Service Catalogue</h2>
-            <p>Each service card displays its matching photo with 3D depth motion.</p>
-          </div>
-          <button class="btn btn-gold open-inquiry" type="button">Ask for a quote</button>
-        </div>
-
-        <div class="controls">
-          <div class="search-row">
-            <input id="service-search" class="search-input" type="search" placeholder="Search services (e.g., AC installation, EV charger, plumbing, CCTV)..." />
-            <div id="catalog-count" class="count-badge">45 services</div>
-          </div>
-          <div id="category-filters" class="filters"></div>
-        </div>
-
-        <div id="service-grid" class="service-grid"></div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container booking-wrap">
-        <div>
-          <div class="pill">Direct Contact</div>
-          <h2 style="font-size:28px;margin-bottom:10px;">Request a callback</h2>
-          <p style="color:var(--muted);margin-bottom:18px;">Share your service need and our Hyderabad team will call you back, or message us directly on WhatsApp.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;">
-            <a class="btn btn-gold" href="https://wa.me/918500618707?text=Hello%2C%20I%20have%20a%20service%20inquiry." target="_blank" rel="noopener">WhatsApp 85006 18707 ↗</a>
-            <a class="btn" href="tel:08048061672">Call IVR 08048061672</a>
-            <a class="btn" href="tel:+918500618707">Call +91 85006 18707</a>
-            <a class="btn" href="https://www.google.com/maps/place/?q=place_id:ChIJKeDON3WRyzsRBbC0YY152Kk" target="_blank" rel="noopener">Google Business Profile ↗</a>
-          </div>
-        </div>
-        <form class="booking-form" id="appointment-form" action="https://formspree.io/f/xppdwwab" method="POST">
-          <div class="field">
-            <label for="booking-service">Service</label>
-            <select id="booking-service" name="service" required></select>
-          </div>
-          <div class="field">
-            <label for="booking-name">Your name</label>
-            <input id="booking-name" name="name" type="text" required placeholder="Enter your name" />
-          </div>
-          <div class="field">
-            <label for="booking-phone">Mobile number</label>
-            <input id="booking-phone" name="phone" type="tel" required placeholder="10-digit mobile number" />
-          </div>
-          <div class="field">
-            <label for="booking-email">Email address (optional)</label>
-            <input id="booking-email" name="email" type="email" placeholder="you@example.com" />
-          </div>
-          <div class="field">
-            <label for="booking-notes">How can we help?</label>
-            <textarea id="booking-notes" name="message" rows="3" placeholder="Location in Hyderabad and issue details"></textarea>
-          </div>
-          <label class="check-row">
-            <input type="checkbox" required />
-            <span>I agree that Global Technology Service Centre may contact me about this service inquiry.</span>
-          </label>
-          <button class="btn btn-gold" type="submit" style="width:100%;">Send inquiry</button>
-          <div id="booking-status" class="status-msg"></div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      Global Technology Service Centre · Yousufguda, Hyderabad · <a href="https://www.google.com/maps/place/?q=place_id:ChIJKeDON3WRyzsRBbC0YY152Kk" target="_blank" rel="noopener" style="color:var(--gold-bright);">Google Profile</a> · IVR: <a href="tel:08048061672" style="color:var(--gold-bright);">08048061672</a> · WhatsApp: <a href="https://wa.me/918500618707" target="_blank" rel="noopener" style="color:var(--gold-bright);">85006 18707</a>
-    </div>
-  </footer>
-
-  <dialog id="inquiry-dialog">
-    <div class="dialog-head">
-      <h3 style="font-size:20px;">Request a callback</h3>
-      <button class="close-btn" type="button" onclick="closeInquiry()" aria-label="Close">×</button>
-    </div>
-    <form class="popup-form" id="popup-form" action="https://formspree.io/f/xppdwwab" method="POST">
-      <div class="field">
-        <label for="popup-service">Service</label>
-        <select id="popup-service" name="service"></select>
-      </div>
-      <div class="field">
-        <label for="popup-name">Your name</label>
-        <input id="popup-name" name="name" type="text" required placeholder="Your name" />
-      </div>
-      <div class="field">
-        <label for="popup-phone">Mobile number</label>
-        <input id="popup-phone" name="phone" type="tel" required placeholder="Mobile number" />
-      </div>
-      <div class="field">
-        <label for="popup-notes">What do you need?</label>
-        <textarea id="popup-notes" name="message" rows="2" placeholder="Describe your service need"></textarea>
-      </div>
-      <label class="check-row">
-        <input type="checkbox" required />
-        <span>I agree to be contacted about this inquiry.</span>
-      </label>
-      <button class="btn btn-gold" type="submit" style="width:100%;">Send callback request</button>
-      <div id="popup-status" class="status-msg"></div>
-    </form>
-  </dialog>
-
-  <script>
-    const rows = [
-      ['Appliance repair', 'Appliance care', 'Repair and troubleshooting for household appliances.', 'appliance repair,home appliance', 'https://media.istockphoto.com/id/2140183630/photo/repairman-using-a-screwdriver-disassembles-a-washing-machine-for-repair.jpg?s=612x612&w=0&k=20&c=vpLsKVsKm8LEUIBknDNzyrB8jQQHVL2Ib8oG72ymazM=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr1LhNwwDI4rPjxLnpG2iTufM8CHPjwLGOFXRyk5owfXUVpnnd-T9QDxYe&s=10'],
-      ['Refrigerator service', 'Appliance care', 'Inspection and maintenance for refrigerators.', 'fridge,refrigerator,cooling', 'https://5.imimg.com/data5/ANDROID/Default/2025/10/555509902/IG/DT/TY/119525795/product-jpeg-500x500.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk0evNO24AgG8t700UPmFPRmIXo4xTf6ngpEpcYLiWvb69gzpf1wSDuWk&s=10'],
-      ['Washing machine repair', 'Appliance care', 'Diagnosis and repair for washing machines.', 'washing machine,washer', 'https://media.istockphoto.com/id/2140183630/photo/repairman-using-a-screwdriver-disassembles-a-washing-machine-for-repair.jpg?s=612x612&w=0&k=20&c=vpLsKVsKm8LEUIBknDNzyrB8jQQHVL2Ib8oG72ymazM=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr1LhNwwDI4rPjxLnpG2iTufM8CHPjwLGOFXRyk5owfXUVpnnd-T9QDxYe&s=10'],
-      ['Dishwasher service', 'Appliance care', 'Dishwasher inspection, repair and maintenance.', 'dishwasher,kitchen', 'https://img.magnific.com/free-photo/diagnostics-equipment-profile-serious-man-ooking-open-dishwasher-kitchen_259150-58280.jpg?semt=ais_hybrid&w=740&q=80', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThrsBsq6CfsBI-_-g5zPVpn0xumqPWWz74iFwJcLF5CMM5IgaDSJZJzpVb&s=10'],
-      ['Microwave repair', 'Appliance care', 'Microwave appliance repair and checks.', 'microwave,oven', 'https://media.istockphoto.com/id/2232013841/photo/technician-repairs-kitchen-oven-while-crouching-in-modern-home-setting.jpg?s=612x612&w=0&k=20&c=6BnJ-p8BisH03tM2xUuYVyofE_33d7OCOfSI-egpJ-U=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuN5ctmyzNAdqqioYXaQ3gRchlTUviW2XOCUuRv0k9jq4bKPu1DWKU6ZM&s=10'],
-      ['Water purifier service', 'Appliance care', 'Water purifier maintenance and installation.', 'water purifier,ro', 'https://waterpurifiersale.com/wp-content/uploads/2022/11/20220404_123405-scaled.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgvoBFxrIMcC5Pq3QPatKt2SK-svd9Bj0vYbZuKjzA-UxjHaMDlMF-848&s=10'],
-      ['Chimney service', 'Appliance care', 'Kitchen chimney cleaning and maintenance.', 'chimney,kitchen', 'https://branohome.com/cdn/shop/articles/how-to-install-range-hood.png?v=1768379309', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAU3QSsbNJ0J319X1h-hul5tKZhvPGnta9zJeAoSzkjvPNCuT8b1ZSurw0&s=10'],
-      ['Geyser repair', 'Appliance care', 'Geyser installation, repair and maintenance.', 'geyser,water heater', 'https://www.jaquar.com/images/thumbs/0051906_10%20Steps%20to%20Installing%20a%20Water%20Heater%20Yourself.jpeg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNfJ-Nv-SgnKhG-7gYlSeVwBL24_vqTCQ12vR-z9XMjSce5EhBtJV4xW0&s=10'],
-      ['Air conditioner repair', 'Cooling & ventilation', 'AC fault diagnosis and repair.', 'ac repair,air conditioner', 'https://static.vecteezy.com/system/resources/thumbnails/074/236/850/small/professional-air-conditioner-repair-technician-using-screwdriver-for-split-system-maintenance-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7qi_OJzpcxnmWFBvAh8pOoXFaen1kdKfOJz4QBq-rK8ZwRoOsDIsNbvi&s=10'],
-      ['AC installation', 'Cooling & ventilation', 'Air conditioner installation and setup.', 'ac installation,split ac', 'https://static.vecteezy.com/system/resources/thumbnails/074/236/850/small/professional-air-conditioner-repair-technician-using-screwdriver-for-split-system-maintenance-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7qi_OJzpcxnmWFBvAh8pOoXFaen1kdKfOJz4QBq-rK8ZwRoOsDIsNbvi&s=10'],
-      ['AC servicing', 'Cooling & ventilation', 'Routine air conditioner cleaning and servicing.', 'ac service,ac cleaning', 'https://static.vecteezy.com/system/resources/thumbnails/074/236/850/small/professional-air-conditioner-repair-technician-using-screwdriver-for-split-system-maintenance-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7qi_OJzpcxnmWFBvAh8pOoXFaen1kdKfOJz4QBq-rK8ZwRoOsDIsNbvi&s=10'],
-      ['Duct and ventilation service', 'Cooling & ventilation', 'Ventilation and duct inspection and upkeep.', 'duct,ventilation,hvac', 'https://augmintech.com/wp-content/uploads/2026/09/31_1_commercial-hvac-supply-ductwork-ceiling.png', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVroh13nsdwxnMXybEpgpL5w9YDA7DpZVJAgWNzp2WZKgh82aG20Ltfxg&s=10'],
-      ['EV charger installation', 'Electrical & EV', 'EV charger installation and cable routing.', 'ev charger,electric vehicle', 'https://electreefi.com/wp-content/uploads/2026/06/install-ev-charger-at-home.png', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfwxBgYuXAwKx_7tGBlRKPFljdlkWsuafDPuBRuUmdt23vr3legBR5b4Ru&s=10'],
-      ['Electrical fault repair', 'Electrical & EV', 'Electrical fault finding and repair.', 'electrical,fault,mcb', 'https://electricalworkshopservices.com/images/a%20(18).jpeg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh2lEkyTLpsFquSROsO-5eyx7g_O-MU8ouXLpVPsbs9-2upsQkKX-S1bA&s=10'],
-      ['Switch and socket installation', 'Electrical & EV', 'Installation and replacement of switches and sockets.', 'switch,socket', 'https://www.onesto-ep.com/wp-content/uploads/2025/09/The-correct-installation-steps-for-wall-switch-sockets.webp', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReUcaXhOhLPnpIOM6Wy0brfQ9wDPCwiJp_x9UgY0ChADkGOMzQfl2qaHo&s=10'],
-      ['Lighting installation', 'Electrical & EV', 'Indoor and outdoor lighting installation.', 'lighting,lights', 'https://www.homedecorcompany.in/cdn/shop/files/ChatGPTImageApr10_2026_05_59_33PM.png?v=1775823335', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRwXjizJk468RIiQDcSN-T6kzAhxWUEcaOkhfTwe6oUzvr2d2ck6y5XSjr&s=10'],
-      ['Fan installation and repair', 'Electrical & EV', 'Ceiling fan installation, balancing and repair.', 'fan,ceiling fan', 'https://cdn.shopify.com/s/files/1/0749/7125/0925/files/1fb79497-e01e-43c2-932d-d3b9ff9fa478.png?v=1778743467', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkao4T5a94EpkxTY3SV-vdtFtU95N5Mumvt4iUoihrN6IG4vD44SaKgWKP&s=10'],
-      ['Inverter installation', 'Electrical & EV', 'Inverter setup and electrical connection.', 'inverter,battery', 'https://vastuessentials.com/assets/photos/blog/inverter-battery-vastu-utility.webp', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNCWzBdNrXxq-nhNTMTONatrhGXrDfBhRcbPZuuCWiKjW7kH05-p8VOog&s=10'],
-      ['Wiring and rewiring', 'Electrical & EV', 'New wiring and rewiring for home or office.', 'wiring,rewiring,cable', 'https://electricalworkshopservices.com/images/a%20(18).jpeg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh2lEkyTLpsFquSROsO-5eyx7g_O-MU8ouXLpVPsbs9-2upsQkKX-S1bA&s=10'],
-      ['Network and LAN setup', 'Electrical & EV', 'Network points, structured cabling and setup.', 'network,lan,wifi,router', 'https://cdn.prod.website-files.com/5b6df8bb681f89c158b48f6b/5d66b830680a57c8dd278ea1_network-cable-technician.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT90BZrIziSBrWKJoWrp-lXTho3LqNKobOoEptk0G6UiSWw0yjdomudQx73&s=10'],
-      ['CCTV installation', 'Electrical & EV', 'Camera installation and cabling support.', 'cctv,camera,security', 'https://media.istockphoto.com/id/618519466/photo/technician-fixing-camera-on-wall.jpg?s=612x612&w=0&k=20&c=voCEb6B676ZGIAsMnKm1W8OD1iNSL7uiyqvvlLrskWQ=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp20AhnfWc9NLSCkfY3VeyzehrSWk-cHTLJ81Yu7ESxTVUaKgfvFCeN2Ye&s=10'],
-      ['Tile installation', 'Tiles & interiors', 'Tile laying and alignment for floors or walls.', 'tile,tiles,flooring', 'https://static.vecteezy.com/system/resources/previews/080/528/460/large_2x/mason-using-a-trowel-to-spread-cement-mortar-for-floor-tiling-free-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmqXQ31PxidMHcVFbrnGopvccTl9bZ9O1MIZZ1DjmLc8oMCMWGVQdaXHk&s=10'],
-      ['Tile repair and replacement', 'Tiles & interiors', 'Repair or replacement of damaged tiles.', 'tile repair,tiles', 'https://static.vecteezy.com/system/resources/previews/080/528/460/large_2x/mason-using-a-trowel-to-spread-cement-mortar-for-floor-tiling-free-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmqXQ31PxidMHcVFbrnGopvccTl9bZ9O1MIZZ1DjmLc8oMCMWGVQdaXHk&s=10'],
-      ['Grouting and regrouting', 'Tiles & interiors', 'Grout renewal and tile joint finishing.', 'grout,grouting,tile joint', 'https://static.vecteezy.com/system/resources/previews/080/528/460/large_2x/mason-using-a-trowel-to-spread-cement-mortar-for-floor-tiling-free-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmqXQ31PxidMHcVFbrnGopvccTl9bZ9O1MIZZ1DjmLc8oMCMWGVQdaXHk&s=10'],
-      ['Interior painting', 'Tiles & interiors', 'Interior surface painting and finishing.', 'painting,interior paint', 'https://media.istockphoto.com/id/2166844832/photo/couple-people-and-house-wall-or-painting-roller-and-home-renovation-or-together-in-new.jpg?s=612x612&w=0&k=20&c=BjT4PJVdSArlqzp3iwAeP3U0Rs0tBERSL4tOT_Kj-r8=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRcUK9z5CXf7ri5kFiwA0PmNNU6kOy0F1hjVzFIrex1yTc2bi4n_UaH0k&s=10'],
-      ['Carpentry and furniture repair', 'Tiles & interiors', 'Small carpentry jobs and furniture repairs.', 'carpentry,furniture,wood', 'https://media.istockphoto.com/id/2162184026/photo/young-carpenter-clear-scrap-wood-on-the-chair-in-factory.jpg?s=612x612&w=0&k=20&c=mOTvC9Po_JIKG-rQyJ1Y9wpjtphJaPrrbgPnlF18RYA=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPO85Cr8fjKhi3CAKKuuA_WawZMAkCKSe2ORlU6zshiQor8tg1qcDZ684&s=10'],
-      ['Door and lock service', 'Tiles & interiors', 'Door fitting, hardware and lock maintenance.', 'door,lock,latch', 'https://media.istockphoto.com/id/537184148/photo/close-up-carpenter-hands-door-lock-installation.jpg?s=612x612&w=0&k=20&c=KGOX738PFtWm92rUQwONkZyYCI93LbVBq8LKSXUarrc=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb7cHo8yCvEczaGbf6wFec6KvvwVVo2-ocdGyCNhjnYlXIqnJbf7rf_rZg&s=10'],
-      ['Plumbing repair', 'Plumbing', 'Leak detection and common plumbing repairs.', 'plumbing,leak,pipe', 'https://static.vecteezy.com/system/resources/thumbnails/081/891/933/small/professional-plumber-repairing-kitchen-sink-with-pipe-wrench-and-flexible-tubing-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr-f1tuc0I7kLTyhliKRWgTiZCHvWQvY1LI7mf8RxR1iHMgLjSsCbZ2E-R&s=10'],
-      ['Tap and mixer installation', 'Plumbing', 'Tap, faucet and mixer installation or replacement.', 'tap,mixer,faucet', 'https://static.vecteezy.com/system/resources/thumbnails/081/891/933/small/professional-plumber-repairing-kitchen-sink-with-pipe-wrench-and-flexible-tubing-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr-f1tuc0I7kLTyhliKRWgTiZCHvWQvY1LI7mf8RxR1iHMgLjSsCbZ2E-R&s=10'],
-      ['Bathroom fitting installation', 'Plumbing', 'Installation of bathroom fixtures and fittings.', 'bathroom,shower,fitting', 'https://www.jaquar.com/images/thumbs/0051906_10%20Steps%20to%20Installing%20a%20Water%20Heater%20Yourself.jpeg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNfJ-Nv-SgnKhG-7gYlSeVwBL24_vqTCQ12vR-z9XMjSce5EhBtJV4xW0&s=10'],
-      ['Drain cleaning', 'Plumbing', 'Drain and blockage cleaning service.', 'drain,blockage,sink', 'https://static.vecteezy.com/system/resources/thumbnails/081/891/933/small/professional-plumber-repairing-kitchen-sink-with-pipe-wrench-and-flexible-tubing-photo.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr-f1tuc0I7kLTyhliKRWgTiZCHvWQvY1LI7mf8RxR1iHMgLjSsCbZ2E-R&s=10'],
-      ['Water tank cleaning', 'Cleaning & maintenance', 'Cleaning and upkeep for water storage tanks.', 'water tank,cleaning', 'https://content.jdmagicbox.com/v2/comp/hyderabad/m9/040pxx40.xx40.241004112029.k4m9/catalogue/varaha-water-tank-cleaning-services-uppal-hyderabad-water-tank-cleaning-services-i7xxcvpfo1.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyh8_OHYxT_DCxPNEfL4N-pPLxa8-XjYAnDD9GiXtn70raidH49cMyadF8&s=10'],
-      ['Deep home cleaning', 'Cleaning & maintenance', 'Detailed cleaning service for home interiors.', 'home cleaning,deep clean', 'https://techsquadteam.com/assets/profile/blogimages/42b5a1db390e24f435734e8a1d6abcc9.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkVt6SZ9g1AogRDF_XNeQtHh0vj8Cdm5UdXPHuxPLQgsRNb__Cr5QIkUo&s=10'],
-      ['Office cleaning', 'Cleaning & maintenance', 'Cleaning and upkeep for office spaces.', 'office cleaning', 'https://www.nobroker.in/cleaning-services/home-cleaning-tips/images/office-cleaning-services-in-hyderabad.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU9mqA3aHJRBQ8BzxCt7Ysrx4nKLdwSd_VEf6gZH8dICF3GlTPZYi4fV7r&s=10'],
-      ['Marble polishing', 'Stone & polishing', 'Marble floor polishing and surface restoration.', 'marble,polishing', 'https://marblefloorpolishingservices.com/images/about.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO-HNUeJJxNW1F84xfmxDiGj8UEgN56gO8iPpKu4moilrDWDdGN1v7AhXe&s=10'],
-      ['Granite polishing', 'Stone & polishing', 'Granite surface polishing and restoration.', 'granite,polishing', 'https://marblefloorpolishingservices.com/images/about.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO-HNUeJJxNW1F84xfmxDiGj8UEgN56gO8iPpKu4moilrDWDdGN1v7AhXe&s=10'],
-      ['Stone floor restoration', 'Stone & polishing', 'Stone floor repair, honing and finishing.', 'stone,floor restoration', 'https://marblefloorpolishingservices.com/images/about.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO-HNUeJJxNW1F84xfmxDiGj8UEgN56gO8iPpKu4moilrDWDdGN1v7AhXe&s=10'],
-      ['Furniture assembly', 'Installation', 'Assembly and setup for furniture items.', 'furniture assembly', 'https://media.istockphoto.com/id/2162184026/photo/young-carpenter-clear-scrap-wood-on-the-chair-in-factory.jpg?s=612x612&w=0&k=20&c=mOTvC9Po_JIKG-rQyJ1Y9wpjtphJaPrrbgPnlF18RYA=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPO85Cr8fjKhi3CAKKuuA_WawZMAkCKSe2ORlU6zshiQor8tg1qcDZ684&s=10'],
-      ['Curtain and blind installation', 'Installation', 'Curtain rods, blinds and fittings installation.', 'curtain,blinds', 'https://www.theshadestore.com/blog/wp-content/uploads/the-shade-store-cellular-shades-3-4-inch-single-cell-blackout-midnight-modern-window-treatments-bedroom-shades-hero-2021-madison-950x630-1.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSxFUB0BxM0WLHWNSnHLxro5z61O2BVBS0beMZypPLO1FMVc_64XqbDTfa&s=10'],
-      ['TV wall mounting', 'Installation', 'TV mounting and bracket installation.', 'tv mounting,wall mount', 'https://www.cepro.com/wp-content/uploads/2022/11/Swedish-Country-House-Smart-Home-HOTY9.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRENMQY6PdpdUJbAmY2KSpoyWbWYbyApCH_3Iqu9ZB-4g89WkODME6_RWDV&s=10'],
-      ['Appliance installation', 'Installation', 'Setup and installation for home appliances.', 'appliance installation', 'https://media.istockphoto.com/id/2140183630/photo/repairman-using-a-screwdriver-disassembles-a-washing-machine-for-repair.jpg?s=612x612&w=0&k=20&c=vpLsKVsKm8LEUIBknDNzyrB8jQQHVL2Ib8oG72ymazM=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr1LhNwwDI4rPjxLnpG2iTufM8CHPjwLGOFXRyk5owfXUVpnnd-T9QDxYe&s=10'],
-      ['Loading and unloading', 'Moving & handling', 'Careful loading and unloading assistance.', 'loading,unloading,moving', 'https://media.istockphoto.com/id/1499392909/photo/house-move-van-furniture-removal.jpg?s=612x612&w=0&k=20&c=fIeIK_YVrnMCaSjj1N0nWoCpntsuuNS6RzEBNqzJrb0=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Y0bwVpdI6TN73i9u2kSkodAzPt15kA8Imm_8iylXz3ZBc0QDTtGU8Rw&s=10'],
-      ['Furniture shifting', 'Moving & handling', 'In-home furniture movement and repositioning.', 'furniture shifting,moving', 'https://media.istockphoto.com/id/1499392909/photo/house-move-van-furniture-removal.jpg?s=612x612&w=0&k=20&c=fIeIK_YVrnMCaSjj1N0nWoCpntsuuNS6RzEBNqzJrb0=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Y0bwVpdI6TN73i9u2kSkodAzPt15kA8Imm_8iylXz3ZBc0QDTtGU8Rw&s=10'],
-      ['General handyman visit', 'Other', 'A multi-task visit for small household jobs.', 'handyman,general repair', 'https://media.istockphoto.com/id/2162184026/photo/young-carpenter-clear-scrap-wood-on-the-chair-in-factory.jpg?s=612x612&w=0&k=20&c=mOTvC9Po_JIKG-rQyJ1Y9wpjtphJaPrrbgPnlF18RYA=', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPO85Cr8fjKhi3CAKKuuA_WawZMAkCKSe2ORlU6zshiQor8tg1qcDZ684&s=10'],
-      ['Office maintenance visit', 'Other', 'General repair and maintenance for office spaces.', 'office maintenance', 'https://www.nobroker.in/cleaning-services/home-cleaning-tips/images/office-cleaning-services-in-hyderabad.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU9mqA3aHJRBQ8BzxCt7Ysrx4nKLdwSd_VEf6gZH8dICF3GlTPZYi4fV7r&s=10']
-    ];
-
-    const base = rows.map((r, i) => ({
-      id: `base-${i}`, title: r[0], category: r[1], description: r[2], keywords: r[3], image: r[4], fallback: r[5]
-    }));
-
-    const escapeHTML = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    let active = 'All';
-
-    function drawFilters() {
-      const box = document.getElementById('category-filters');
-      const categories = ['All', ...new Set(base.map(s => s.category))];
-      box.innerHTML = categories.map(cat =>
-        `<button class="filter-btn ${cat === active ? 'active' : ''}" type="button" data-category="${escapeHTML(cat)}">${escapeHTML(cat)}</button>`
-      ).join('');
-      box.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => {
-        active = btn.dataset.category;
-        drawFilters();
-        drawServices();
-      }));
-    }
-
-    function drawServices() {
-      const query = document.getElementById('service-search').value.trim().toLowerCase();
-      const matches = base.filter(s =>
-        (active === 'All' || s.category === active) &&
-        (!query || `${s.title} ${s.category} ${s.description} ${s.keywords}`.toLowerCase().includes(query))
-      );
-      document.getElementById('catalog-count').textContent = `${matches.length} service${matches.length === 1 ? '' : 's'}`;
-      const grid = document.getElementById('service-grid');
-      if (!matches.length) {
-        grid.innerHTML = '<p style="color:var(--muted);">No matching services found. Try clearing your search.</p>';
-        return;
-      }
-      grid.innerHTML = matches.map((s, idx) => `
-        <article class="service-card" style="--delay:${(idx % 6) * 0.35}s">
-          <div class="photo-box">
-            <img src="${s.image}" onerror="this.onerror=null;this.src='${s.fallback}'" alt="${escapeHTML(s.title)}" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <span class="cat-tag">${escapeHTML(s.category)}</span>
-            <h3 class="card-title">${escapeHTML(s.title)}</h3>
-            <p class="card-desc">${escapeHTML(s.description)}</p>
-            <div class="card-actions">
-              <button class="btn btn-gold" type="button" onclick="openInquiry('${escapeHTML(s.title)}')">Request callback</button>
-              <a class="btn" href="https://wa.me/918500618707?text=${encodeURIComponent('Hello, I need help with: ' + s.title)}" target="_blank" rel="noopener">WhatsApp ↗</a>
-            </div>
-          </div>
-        </article>
-      `).join('');
-
-      grid.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - 0.5;
-          const y = (e.clientY - r.top) / r.height - 0.5;
-          card.style.animation = 'none';
-          card.style.transform = `rotateX(${(-y * 10).toFixed(2)}deg) rotateY(${(x * 12).toFixed(2)}deg) translateY(-4px)`;
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-          card.style.animation = '';
-        });
-      });
-    }
-
-    function updateSelects() {
-      const options = '<option value="">Choose a service</option>' +
-        base.map(s => `<option value="${escapeHTML(s.title)}">${escapeHTML(s.title)}</option>`).join('');
-      document.getElementById('popup-service').innerHTML = options;
-      document.getElementById('booking-service').innerHTML = options;
-    }
-
-    const dialog = document.getElementById('inquiry-dialog');
-    window.openInquiry = (serviceName = '') => {
-      if (serviceName) document.getElementById('popup-service').value = serviceName;
-      if (!dialog.open) dialog.showModal();
-    };
-    window.closeInquiry = () => dialog.close();
-    document.querySelectorAll('.open-inquiry').forEach(btn => btn.addEventListener('click', () => openInquiry()));
-    dialog.addEventListener('click', e => { if (e.target === dialog) closeInquiry(); });
-
-    const popupForm = document.getElementById('popup-form');
-    const bookingForm = document.getElementById('appointment-form');
-    for (const form of [popupForm, bookingForm]) {
-      form.addEventListener('submit', async event => {
-        event.preventDefault();
-        if (!form.reportValidity()) return;
-        const button = form.querySelector('button[type="submit"]');
-        const original = button.textContent;
-        const status = document.getElementById(form === popupForm ? 'popup-status' : 'booking-status');
-        button.disabled = true;
-        button.textContent = 'Sending…';
-        status.textContent = 'Submitting your inquiry…';
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { Accept: 'application/json' }
-          });
-          if (res.ok) {
-            status.textContent = 'Thank you! Your inquiry was submitted. You can also message us on WhatsApp.';
-            form.reset();
-          } else {
-            status.textContent = 'Could not confirm online submission. Please use WhatsApp or call 08048061672.';
-          }
-        } catch {
-          status.textContent = 'Network error. Please message us on WhatsApp or call 08048061672.';
-        } finally {
-          button.disabled = false;
-          button.textContent = original;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL TECHNOLOGY SERVICE CENTRE | 3D Corporate & Technical Solutions</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --border-glass: rgba(255, 255, 255, 0.12);
+            --primary-glow: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-gold: #f59e0b;
+            --whatsapp: #10b981;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
         }
-      });
-    }
 
-    const dayIdx = Math.floor(Date.now() / 86400000) % base.length;
-    const featured = base[dayIdx];
-    document.getElementById('spotlight-title').textContent = `${featured.title} — ${featured.category}`;
-    document.getElementById('spotlight-desc').textContent = featured.description;
-    document.getElementById('spotlight-btn').addEventListener('click', () => openInquiry(featured.title));
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-    document.getElementById('service-search').addEventListener('input', drawServices);
-    updateSelects();
-    drawFilters();
-    drawServices();
-  </script>
-</body>
-</html>
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
+        }
+
+        /* 3D Floating Glass Header */
+        header {
+            position: sticky;
+            top: 12px;
+            z-index: 1000;
+            max-width: 1280px;
+            margin: 12px auto;
+            padding: 14px 24px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .logo-3d {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5), inset 0 2px 2px rgba(255,255,255,0.4);
+            transform: rotate(-4deg);
+        }
+
+        .brand-text h1 {
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text span {
+            font-size: 0.72rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* 3D Push Buttons */
+        .btn-3d {
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-blue {
+            background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+            color: #fff;
+            box-shadow: 0 5px 0 #1d4ed8, 0 10px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-blue:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #1d4ed8;
+        }
+
+        .btn-green {
+            background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+            color: #fff;
+            box-shadow: 0 5px 0 #047857, 0 10px 20px rgba(16, 185, 129, 0.35);
+        }
+
+        .btn-green:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #047857;
+        }
+
+        .btn-glass {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* 3D Hero Section */
+        .hero {
+            max-width: 1280px;
+            margin: 30px auto;
+            padding: 50px 24px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            color: var(--accent-cyan);
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero h2 {
+            font-size: 3.1rem;
+            font-weight: 800;
+            line-height: 1.12;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 span {
+            background: linear-gradient(135deg, #38bdf8, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 560px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* 3D Floating Cube/Hub Visual */
+        .hero-3d-stage {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-3d-card {
+            width: 310px;
+            padding: 28px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 
+                20px 25px 50px rgba(0, 0, 0, 0.6),
+                inset 0 1px 1px rgba(255, 255, 255, 0.25);
+            transform: rotateY(-12deg) rotateX(8deg);
+            animation: float3D 5s ease-in-out infinite;
+        }
+
+        @keyframes float3D {
+            0%, 100% { transform: rotateY(-12deg) rotateX(8deg) translateY(0px); }
+            50% { transform: rotateY(-6deg) rotateX(4deg) translateY(-14px); }
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(59, 130, 246, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Category Filter Pills */
+        .filter-wrap {
+            max-width: 1280px;
+            margin: 20px auto;
+            padding: 0 24px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill-btn {
+            padding: 9px 18px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .pill-btn.active, .pill-btn:hover {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
+        }
+
+        /* 3D Interactive Services Grid */
+        .grid-3d {
+            max-width: 1280px;
+            margin: 25px auto 70px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            perspective: 1200px;
+        }
+
+        .card-3d {
+            background: linear-gradient(160deg, rgba(30, 41, 59, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.12);
+        }
+
+        .card-3d:hover {
+            transform: translateY(-8px) rotateX(3deg) rotateY(-2deg);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55), 0 0 25px rgba(59, 130, 246, 0.2);
+        }
+
+        .card-top-3d {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .icon-orb-3d {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(6,182,212,0.25));
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
