@@ -1,641 +1,741 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Technology Service Centre | RO, Washing Machine & Fridge Repair</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>GLOBAL TECHNOLOGY SERVICE CENTRE | Enterprise & Home Solutions</title>
+    <!-- Google Fonts: Plus Jakarta Sans for Modern US Corporate Look -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <!-- FontAwesome for Clean Social & Contact Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-dark: #1A1D20;
-            --bg-darker: #131518;
-            --copper: #C89B6E;
-            --copper-light: #DFB78C;
-            --copper-dark: #9E744B;
-            --card-bg: #F6F5F2;
+            --bg-primary: #090d16;
+            --bg-secondary: #111827;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glass: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-dark);
-            color: #FFFFFF;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* 3D Rotating House Animation */
-        .scene-3d {
-            width: 240px;
-            height: 240px;
-            perspective: 900px;
+        /* Top Enterprise Bar */
+        .top-bar {
+            background: #04070d;
+            border-bottom: 1px solid var(--border-glass);
+            padding: 10px 5%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .house-3d-wrapper {
-            width: 170px;
-            height: 170px;
+        .contact-pills a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-pills a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .contact-pills i {
+            color: var(--accent-blue);
+            margin-right: 6px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            margin-left: 15px;
+            font-size: 1rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Navbar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #ffffff, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand span {
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.03);
+        }
+
+        /* 3D Corporate Hero Section */
+        .hero {
             position: relative;
-            transform-style: preserve-3d;
-            animation: floatAndRotate 9s ease-in-out infinite;
+            padding: 90px 5% 80px;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 50%),
+                        linear-gradient(to bottom, rgba(9, 13, 22, 0.85), var(--bg-primary)),
+                        url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        @keyframes floatAndRotate {
-            0% { transform: rotateY(-22deg) rotateX(8deg) translateY(0px); }
-            50% { transform: rotateY(22deg) rotateX(-5deg) translateY(-14px); }
-            100% { transform: rotateY(-22deg) rotateX(8deg) translateY(0px); }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
-        .house-glow {
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            background: radial-gradient(circle, rgba(200, 155, 110, 0.35) 0%, rgba(26, 29, 32, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-            animation: pulseGlow 4s infinite alternate;
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
         }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(0.95); opacity: 0.7; }
-            100% { transform: scale(1.1); opacity: 1; }
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
         }
 
-        /* Running Marquee / Timeline */
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            background: #EAE8E3;
-            color: #2B2E33;
-            border-top: 1px solid rgba(200, 155, 110, 0.4);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .marquee-track {
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
             display: inline-flex;
-            animation: marqueeScroll 32s linear infinite;
+            align-items: center;
+            gap: 8px;
         }
 
-        .marquee-container:hover .marquee-track {
-            animation-play-state: paused;
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        @keyframes marqueeScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Service Cards 3D Hover Effects */
-        .service-card {
-            background: #FFFFFF;
-            border: 1px solid #E5E2DC;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        /* 3D Interactive Showcase Card in Hero */
+        .hero-3d-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
             transform-style: preserve-3d;
+            transition: transform 0.2s ease-out;
+        }
+
+        .hero-3d-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .hero-3d-stats {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .stat h4 {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+        }
+
+        .stat p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* Filter & Search Bar */
+        .services-section {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 40px;
+        }
+
+        .section-header h3 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* 45 Categories 3D Real Photo Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 25px;
+            perspective: 1000px;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            transform-style: preserve-3d;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--copper);
-            box-shadow: 0 20px 35px -10px rgba(26, 29, 32, 0.14);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
         }
 
-        .icon-stage-3d {
-            background: linear-gradient(145deg, #23272B, #17191C);
+        .card-img-wrapper {
             position: relative;
+            height: 185px;
             overflow: hidden;
         }
 
-        .icon-badge-3d {
-            background: linear-gradient(135deg, rgba(200, 155, 110, 0.22), rgba(200, 155, 110, 0.05));
-            border: 1px solid rgba(200, 155, 110, 0.45);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .service-card:hover .icon-badge-3d {
-            transform: scale(1.12) rotateY(15deg) rotateX(10deg);
-            border-color: var(--copper-light);
+        .service-card:hover .card-img-wrapper img {
+            transform: scale(1.08);
         }
 
-        .btn-copper {
-            background-color: var(--copper);
-            color: #16181A;
-            font-weight: 600;
-            transition: all 0.25s ease;
-        }
-        .btn-copper:hover {
-            background-color: var(--copper-light);
-            transform: translateY(-1px);
+        .card-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(9, 13, 22, 0.85);
+            color: var(--accent-cyan);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glass);
         }
 
-        .top-copper-strip {
-            height: 4px;
-            background: linear-gradient(90deg, #9E744B, #DFB78C, #C89B6E);
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-body h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card-body p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .card-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-glass);
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* Automation & Live Feed Hub (GMB, FB, Insta) */
+        .automation-hub {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 70px 5%;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .hub-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .hub-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .live-dot {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .live-dot::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Footer */
+        footer {
+            background: #04070d;
+            padding: 60px 5% 30px;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 50px;
+            }
+            .hero h2 {
+                font-size: 2.3rem;
+            }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-[#C89B6E] selection:text-black">
+<body>
 
-    <div class="top-copper-strip w-full fixed top-0 z-50"></div>
-
-    <!-- Navigation Header -->
-    <header class="sticky top-1 z-40 bg-[#1A1D20]/95 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo with GTS Box -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-12 h-10 rounded-lg bg-gradient-to-br from-[#23272B] to-[#141619] border border-[#C89B6E]/60 flex items-center justify-center text-[#C89B6E] font-black tracking-wider text-lg shadow-lg group-hover:border-[#C89B6E] transition">
-                    GTS
-                </div>
-                <div>
-                    <span class="block text-sm sm:text-base font-extrabold tracking-wider uppercase text-white">
-                        GLOBAL TECHNOLOGY <span class="text-[#C89B6E]">SERVICE CENTRE</span>
-                    </span>
-                    <span class="block text-[10px] tracking-[0.2em] uppercase text-gray-400">
-                        Authorized Doorstep Appliance Experts • Hyderabad
-                    </span>
-                </div>
-            </a>
-
-            <!-- Navigation Links -->
-            <nav class="flex items-center gap-4 sm:gap-8">
-                <a href="#services-catalogue" class="text-xs sm:text-sm font-semibold tracking-wider uppercase text-gray-200 hover:text-[#C89B6E] transition">
-                    Services
-                </a>
-                <a href="tel:+919876543210" class="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold tracking-wider uppercase text-gray-200 hover:text-[#C89B6E] transition">
-                    <i data-lucide="phone-call" class="w-4 h-4 text-[#C89B6E]"></i>
-                    Call IVR
-                </a>
-                <button onclick="openBookingModal('General Service Inquiry')" class="btn-copper px-4 py-2.5 rounded text-xs sm:text-sm tracking-wide shadow-lg">
-                    Request a callback
-                </button>
-            </nav>
+    <!-- Top Enterprise Bar -->
+    <div class="top-bar">
+        <div class="contact-pills">
+            <a href="tel:08048061672"><i class="fas fa-headset"></i> IVR Support: 08048061672</a>
+            <a href="tel:+918500618707"><i class="fas fa-phone-alt"></i> Direct Dispatch: 8500618707</a>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 bg-gradient-to-b from-[#1A1D20] via-[#1E2226] to-[#17191C]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Left Content -->
-                <div class="lg:col-span-8 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#C89B6E]/30 text-[#C89B6E] text-xs font-semibold tracking-widest uppercase">
-                        <span class="w-2 h-2 rounded-full bg-[#C89B6E] animate-ping"></span>
-                        Trusted Hyderabad Service Partner Since 2011
-                    </div>
-
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-                        Professional service. <br>
-                        <span class="text-[#C89B6E]">One clear next step.</span>
-                    </h1>
-
-                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-                        Expert doorstep installation, membrane replacement, and repair for <strong class="text-white">RO Water Purifiers, Washing Machines, and Refrigerators</strong>. Browse 45+ specialized services, then book a technician in seconds.
-                    </p>
-
-                    <!-- Action Buttons -->
-                    <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <a href="#services-catalogue" class="px-6 py-3.5 rounded bg-white text-black font-bold text-sm hover:bg-gray-200 transition shadow-md">
-                            Browse services
-                        </a>
-                        <button onclick="openBookingModal('Callback Request')" class="btn-copper px-6 py-3.5 rounded text-sm shadow-md">
-                            Request a callback
-                        </button>
-                        <a href="tel:+919876543210" class="px-5 py-3.5 rounded border border-white/25 hover:border-[#C89B6E] text-white text-sm font-semibold transition flex items-center gap-2">
-                            <i data-lucide="phone" class="w-4 h-4 text-[#C89B6E]"></i>
-                            Call IVR 080-4806-1672
-                        </a>
-                    </div>
-
-                    <!-- Trust Strip -->
-                    <div class="pt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-gray-300 font-medium">
-                        <span class="flex items-center gap-1.5"><span class="text-[#C89B6E]">•</span> Genuine Spare Parts</span>
-                        <span class="flex items-center gap-1.5"><span class="text-[#C89B6E]">•</span> 90-Day Service Warranty</span>
-                        <span class="flex items-center gap-1.5"><span class="text-[#C89B6E]">•</span> Same-Day Doorstep Team</span>
-                    </div>
-
-                    <!-- Hero Metadata Columns -->
-                    <div class="pt-8 mt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-xl">
-                        <div>
-                            <p class="text-sm font-bold text-white">45+ Services</p>
-                            <p class="text-[11px] uppercase tracking-wider text-gray-400 mt-0.5">Filter & Enquire</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold text-[#C89B6E]">Hyderabad</p>
-                            <p class="text-[11px] uppercase tracking-wider text-gray-400 mt-0.5">Rapid Dispatch</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold text-white">Direct Contact</p>
-                            <p class="text-[11px] uppercase tracking-wider text-gray-400 mt-0.5">Phone or WhatsApp</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Side: 3D Rotating House -->
-                <div class="lg:col-span-4 flex flex-col items-center justify-center relative">
-                    <div class="house-glow"></div>
-                    <div class="scene-3d relative z-10">
-                        <div class="house-3d-wrapper flex items-center justify-center">
-                            <svg viewBox="0 0 220 220" class="w-full h-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.65)]">
-                                <defs>
-                                    <linearGradient id="copperRoof" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#E5C29F" />
-                                        <stop offset="50%" stop-color="#C89B6E" />
-                                        <stop offset="100%" stop-color="#8C6239" />
-                                    </linearGradient>
-                                    <linearGradient id="copperWall" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#D7AE84" />
-                                        <stop offset="100%" stop-color="#9A7047" />
-                                    </linearGradient>
-                                    <linearGradient id="wallSide" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#7D5836" />
-                                        <stop offset="100%" stop-color="#593D23" />
-                                    </linearGradient>
-                                </defs>
-                                <polygon points="155,85 182,98 182,175 155,185" fill="url(#wallSide)" />
-                                <polygon points="110,32 188,82 175,92 110,48" fill="#6E4D2E" />
-                                <polygon points="45,88 110,42 162,88 162,185 45,185" fill="url(#copperWall)" rx="6" />
-                                <polygon points="30,94 110,32 176,94 166,104 110,50 40,104" fill="url(#copperRoof)" />
-                                <rect x="86" y="114" width="36" height="71" rx="3" fill="#1A1D20" stroke="#F3D6B6" stroke-width="3.5" />
-                                <circle cx="104" cy="148" r="5" fill="#C89B6E" />
-                            </svg>
-                        </div>
-                    </div>
-                    <p class="text-[11px] uppercase tracking-[0.25em] text-[#C89B6E]/80 mt-2 font-semibold">
-                        GTS 3D Appliance Ecosystem
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Running Professional Timeline / Marquee Strip -->
-    <div class="marquee-container py-3.5 select-none">
-        <div class="marquee-track text-xs sm:text-sm font-bold tracking-widest uppercase">
-            <span class="mx-6">✦ RO WATER PURIFIER INSTALLATION</span>
-            <span class="mx-6 text-[#8C6239]">✦ MEMBRANE & UV FILTER REPLACEMENT</span>
-            <span class="mx-6">✦ FRONT & TOP LOAD WASHING MACHINE REPAIR</span>
-            <span class="mx-6 text-[#8C6239]">✦ SINGLE & DOUBLE DOOR FRIDGE GAS CHARGING</span>
-            <span class="mx-6">✦ INVERTER PCB & COMPRESSOR SERVICE</span>
-            <span class="mx-6 text-[#8C6239]">✦ COMMERCIAL RO PLANT AMC</span>
-            <span class="mx-6">✦ DRUM & SPIN MOTOR REPLACEMENT</span>
-            <span class="mx-6">✦ RO WATER PURIFIER INSTALLATION</span>
-            <span class="mx-6 text-[#8C6239]">✦ MEMBRANE & UV FILTER REPLACEMENT</span>
-            <span class="mx-6">✦ FRONT & TOP LOAD WASHING MACHINE REPAIR</span>
-            <span class="mx-6 text-[#8C6239]">✦ SINGLE & DOUBLE DOOR FRIDGE GAS CHARGING</span>
-            <span class="mx-6">✦ INVERTER PCB & COMPRESSOR SERVICE</span>
-            <span class="mx-6 text-[#8C6239]">✦ COMMERCIAL RO PLANT AMC</span>
-            <span class="mx-6">✦ DRUM & SPIN MOTOR REPLACEMENT</span>
+        <div class="social-links">
+            <a href="https://g.page/r/YOUR-GMB-LINK" target="_blank" title="Google Business Profile"><i class="fab fa-google"></i></a>
+            <a href="https://facebook.com/YOUR-PAGE" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/YOUR-HANDLE" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 
-    <!-- Main Service Catalogue Section -->
-    <section id="services-catalogue" class="py-16 sm:py-24 bg-[#F5F4F0] text-[#1A1D20]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Section Header -->
-            <div class="max-w-3xl">
-                <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#9E744B]">
-                    Service Catalogue • <span id="service-counter">45</span> Services Available
-                </p>
-                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1A1D20] mt-2">
-                    Choose what you need help with.
-                </h2>
-                <p class="text-gray-600 text-sm sm:text-base mt-3 leading-relaxed">
-                    Search or filter the catalogue below. The 3D-style icons represent specialized appliance categories; transparent prices are confirmed after quick doorstep inspection.
-                </p>
-            </div>
-
-            <!-- Search & Category Filter Controls -->
-            <div class="mt-8 space-y-4">
-                <!-- Search Input -->
-                <div class="relative max-w-xl">
-                    <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
-                    <input 
-                        type="text" 
-                        id="searchInput" 
-                        onkeyup="filterServices()"
-                        placeholder="Search by service or keyword (e.g., RO membrane, fridge gas, drum, spin)..." 
-                        class="w-full pl-12 pr-4 py-3.5 rounded-lg bg-white border border-gray-300 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#C89B6E] focus:ring-2 focus:ring-[#C89B6E]/20 shadow-sm"
-                    >
-                </div>
-
-                <!-- Category Filter Pills -->
-                <div class="flex flex-wrap gap-2.5 pt-1" id="categoryFilters">
-                    <button onclick="setCategory('ALL')" data-cat="ALL" class="filter-btn active px-4 py-2 rounded-md text-xs sm:text-sm font-bold bg-[#1A1D20] text-white transition">
-                        All Services (45)
-                    </button>
-                    <button onclick="setCategory('RO WATER PURIFIER')" data-cat="RO WATER PURIFIER" class="filter-btn px-4 py-2 rounded-md text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-700 hover:border-[#C89B6E] transition">
-                        💧 RO Water Purifier (15)
-                    </button>
-                    <button onclick="setCategory('WASHING MACHINE')" data-cat="WASHING MACHINE" class="filter-btn px-4 py-2 rounded-md text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-700 hover:border-[#C89B6E] transition">
-                        🧺 Washing Machine (15)
-                    </button>
-                    <button onclick="setCategory('REFRIGERATOR CARE')" data-cat="REFRIGERATOR CARE" class="filter-btn px-4 py-2 rounded-md text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-700 hover:border-[#C89B6E] transition">
-                        ❄️ Refrigerator / Fridge (15)
-                    </button>
-                </div>
-            </div>
-
-            <!-- 3D Service Cards Grid -->
-            <div id="servicesGrid" class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Dynamically injected -->
-            </div>
-
-            <!-- Empty Search State -->
-            <div id="noResults" class="hidden text-center py-16 bg-white rounded-xl border border-gray-200 mt-8">
-                <p class="text-lg font-bold text-gray-800">No matching service found</p>
-                <p class="text-sm text-gray-500 mt-1">Try searching another keyword or click "All Services".</p>
-                <button onclick="resetFilters()" class="mt-4 btn-copper px-5 py-2.5 rounded text-xs uppercase tracking-wider">
-                    Reset Search
-                </button>
-            </div>
-
+    <!-- Header -->
+    <header>
+        <div class="brand">
+            <h1>GLOBAL TECHNOLOGY SERVICE CENTRE</h1>
+            <span>Built on Trust and Legacy</span>
         </div>
-    </section>
+        <a href="#services" class="nav-cta">Explore 45 Services</a>
+    </header>
 
-    <!-- Professional Process Timeline Section -->
-    <section id="how-it-works" class="py-16 sm:py-24 bg-[#1A1D20] text-white border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#C89B6E]">Seamless Workflow</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">How Our Service Timeline Works</h2>
-                <p class="text-gray-400 text-sm mt-3">From your first click to complete appliance restoration, every step is transparent.</p>
+    <!-- Hero Section with 3D Interactive Real Photo Card -->
+    <section class="hero">
+        <div>
+            <div class="hero-badge">Enterprise • Commercial • Residential</div>
+            <h2>45 Specialized Engineering & Facility Solutions.</h2>
+            <p>Precision installation, industrial maintenance, smart infrastructure, and turnkey execution delivered by certified technicians.</p>
+            <div class="hero-buttons">
+                <a href="tel:08048061672" class="btn-primary"><i class="fas fa-phone"></i> Call IVR: 08048061672</a>
+                <a href="https://wa.me/918500618707" target="_blank" class="btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp: 8500618707</a>
             </div>
+        </div>
 
-            <div class="mt-14 grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
-                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 01</span>
-                    <h3 class="text-lg font-bold mt-4">Select Service</h3>
-                    <p class="text-gray-400 text-sm mt-2">Choose your RO, Washing Machine, or Fridge issue and click Callback or WhatsApp.</p>
+        <div class="hero-3d-card" id="heroTilt">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80" alt="Industrial & Commercial Engineering">
+            <div class="hero-3d-stats">
+                <div class="stat">
+                    <h4>45+</h4>
+                    <p>Service Divisions</p>
                 </div>
-                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
-                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 02</span>
-                    <h3 class="text-lg font-bold mt-4">Technician Assigned</h3>
-                    <p class="text-gray-400 text-sm mt-2">Nearest certified specialist calls within 10 minutes to confirm your preferred slot.</p>
+                <div class="stat">
+                    <h4>24/7</h4>
+                    <p>IVR Automated Desk</p>
                 </div>
-                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
-                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 03</span>
-                    <h3 class="text-lg font-bold mt-4">Inspection & Quote</h3>
-                    <p class="text-gray-400 text-sm mt-2">Digital TDS/fault checkup with upfront spare part pricing before starting work.</p>
-                </div>
-                <div class="bg-[#22262A] p-6 rounded-xl border border-white/10 hover:border-[#C89B6E]/60 transition relative">
-                    <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-[#C89B6E] text-black">STEP 04</span>
-                    <h3 class="text-lg font-bold mt-4">Repair & 90-Day Warranty</h3>
-                    <p class="text-gray-400 text-sm mt-2">Genuine parts installed, performance tested, and digital warranty receipt issued.</p>
+                <div class="stat">
+                    <h4>100%</h4>
+                    <p>Certified Execution</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#121417] text-gray-400 py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <!-- 45 Categories Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h3>45 Home, Commercial & Industrial Service Categories</h3>
+            <p style="color: var(--text-muted);">Select any division below for immediate scheduling or technical consultation.</p>
+        </div>
+
+        <div class="controls-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="serviceSearch" placeholder="Search across 45 services (e.g., EV Charger, CCTV, Modular Kitchen, Solar)...">
+            </div>
+        </div>
+
+        <div class="grid-container" id="servicesGrid">
+            <!-- Cards are dynamically rendered with Real Photography & 3D Tilt -->
+        </div>
+    </section>
+
+    <!-- Automated Social & Google Business Sync Hub -->
+    <section class="automation-hub" id="live-updates">
+        <div class="section-header">
+            <h3>Live Operations & Social Sync</h3>
+            <p style="color: var(--text-muted);">Connected directly with our Google Business Profile, Instagram, and Facebook channels.</p>
+        </div>
+
+        <div class="hub-grid">
+            <!-- Google Business Profile Auto-Sync Container -->
+            <div class="hub-card">
+                <div class="hub-card-header">
+                    <h4><i class="fab fa-google" style="color:#4285F4; margin-right:8px;"></i> Google Business Updates</h4>
+                    <span class="live-dot">AUTO-SYNC</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
+                    Daily project completions, verified client reviews, and service availability synced automatically from Google My Business.
+                </p>
+                <!-- PASTE EMBED WIDGET SCRIPT (e.g., Elfsight / SociableKIT GMB Feed) HERE FOR ZERO-TOUCH DAILY SYNC -->
+                <div id="gmb-auto-feed">
+                    <a href="https://g.page/r/YOUR-GMB-LINK" target="_blank" class="btn-secondary" style="width:100%; justify-content:center;">View Verified Google Profile</a>
+                </div>
+            </div>
+
+            <!-- Instagram Auto-Sync Container -->
+            <div class="hub-card">
+                <div class="hub-card-header">
+                    <h4><i class="fab fa-instagram" style="color:#E1306C; margin-right:8px;"></i> Instagram Field Feed</h4>
+                    <span class="live-dot">AUTO-SYNC</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
+                    Real-time site installations, before/after transformations, and engineering reels updated automatically.
+                </p>
+                <!-- PASTE INSTAGRAM AUTO-FEED WIDGET SCRIPT HERE -->
+                <div id="insta-auto-feed">
+                    <a href="https://instagram.com/YOUR-HANDLE" target="_blank" class="btn-secondary" style="width:100%; justify-content:center;">Follow on Instagram</a>
+                </div>
+            </div>
+
+            <!-- Facebook Auto-Sync Container -->
+            <div class="hub-card">
+                <div class="hub-card-header">
+                    <h4><i class="fab fa-facebook" style="color:#1877F2; margin-right:8px;"></i> Facebook Enterprise Hub</h4>
+                    <span class="live-dot">AUTO-SYNC</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
+                    Corporate announcements, AMC maintenance packages, and community updates synced live.
+                </p>
+                <!-- PASTE FACEBOOK PAGE PLUGIN IFRAME HERE -->
+                <div id="fb-auto-feed">
+                    <a href="https://facebook.com/YOUR-PAGE" target="_blank" class="btn-secondary" style="width:100%; justify-content:center;">Connect on Facebook</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Footer -->
+    <footer>
+        <div class="footer-grid">
             <div>
-                <p class="text-white font-extrabold tracking-wider uppercase text-sm">
-                    GLOBAL TECHNOLOGY <span class="text-[#C89B6E]">SERVICE CENTRE</span>
-                </p>
-                <p class="text-xs text-gray-500 mt-1">Hyderabad's Trusted RO, Washing Machine & Fridge Specialists</p>
+                <h3 style="margin-bottom: 10px;">GLOBAL TECHNOLOGY SERVICE CENTRE</h3>
+                <p style="color: var(--accent-cyan); font-weight: 700; font-size: 0.9rem; margin-bottom: 12px;">Built on Trust and Legacy.</p>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Complete 45-category residential, commercial, and industrial contracting & technical maintenance enterprise.</p>
             </div>
-            <div class="flex flex-wrap gap-6 text-xs font-semibold uppercase tracking-wider">
-                <a href="#services-catalogue" class="hover:text-[#C89B6E]">Services</a>
-                <a href="#how-it-works" class="hover:text-[#C89B6E]">Process</a>
+            <div>
+                <h4 style="margin-bottom: 15px;">24/7 Dispatch & IVR</h4>
+                <p style="margin-bottom: 8px;"><a href="tel:08048061672" style="color:white; text-decoration:none;"><i class="fas fa-headset" style="color:var(--accent-cyan); margin-right:8px;"></i> IVR: 08048061672</a></p>
+                <p style="margin-bottom: 8px;"><a href="tel:+918500618707" style="color:white; text-decoration:none;"><i class="fas fa-phone" style="color:var(--accent-cyan); margin-right:8px;"></i> Direct: 8500618707</a></p>
             </div>
-            <p class="text-xs text-gray-500">© 2026 Global Technology Service Centre. All rights reserved.</p>
+            <div>
+                <h4 style="margin-bottom: 15px;">Official Channels</h4>
+                <div class="social-links" style="margin-left: -15px;">
+                    <a href="https://g.page/r/YOUR-GMB-LINK" target="_blank"><i class="fab fa-google"></i> Google</a><br>
+                    <a href="https://facebook.com/YOUR-PAGE" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><br>
+                    <a href="https://instagram.com/YOUR-HANDLE" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 GLOBAL TECHNOLOGY SERVICE CENTRE. All Rights Reserved. | Built on Trust and Legacy.
         </div>
     </footer>
 
-    <!-- Interactive Callback Booking Modal -->
-    <div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
-        <div class="bg-[#1E2226] border border-[#C89B6E]/40 rounded-2xl max-w-md w-full p-6 sm:p-8 text-white shadow-2xl relative animate-[fadeIn_0.2s_ease-out]">
-            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <span class="text-[11px] font-bold uppercase tracking-widest text-[#C89B6E]">Instant Doorstep Dispatch</span>
-            <h3 class="text-2xl font-extrabold mt-1">Request a Callback</h3>
-            <p class="text-xs text-gray-400 mt-1">Our service engineer will call you within 10 minutes.</p>
-
-            <form onsubmit="submitBooking(event)" class="mt-6 space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Selected Service</label>
-                    <input type="text" id="modalServiceName" readonly class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-[#C89B6E]/40 text-[#C89B6E] text-sm font-semibold">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Your Name *</label>
-                    <input type="text" id="custName" required placeholder="Enter your full name" class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-white/15 text-white text-sm focus:border-[#C89B6E] focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Mobile Number *</label>
-                    <input type="tel" id="custPhone" required placeholder="Enter 10-digit mobile number" class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-white/15 text-white text-sm focus:border-[#C89B6E] focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Area / Locality</label>
-                    <input type="text" id="custArea" placeholder="e.g., Kukatpally, Madhapur, Banjara Hills" class="w-full px-3.5 py-2.5 rounded bg-[#141619] border border-white/15 text-white text-sm focus:border-[#C89B6E] focus:outline-none">
-                </div>
-                <button type="submit" class="w-full btn-copper py-3 rounded-lg text-sm uppercase tracking-wider mt-2 shadow-lg">
-                    Confirm Callback Request
-                </button>
-            </form>
-
-            <div id="bookingSuccess" class="hidden text-center py-6 space-y-3">
-                <div class="w-12 h-12 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto">
-                    <i data-lucide="check-circle-2" class="w-7 h-7"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white">Request Received!</h4>
-                <p class="text-sm text-gray-300">Thank you! Our senior technician has received your request and will call you shortly.</p>
-                <button onclick="closeBookingModal()" class="mt-2 px-6 py-2 rounded bg-white/10 hover:bg-white/20 text-xs font-bold uppercase tracking-wider">
-                    Done
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript Data & Logic for 45 Services -->
+    <!-- Real Photography Dataset + 3D Tilt Engine -->
     <script>
-        const WHATSAPP_NUMBER = "919876543210"; // Apna WhatsApp Number Yahan Dalein
-
+        // Real High-Resolution Corporate & Industrial Photography Mapped to All 45 Categories
         const servicesData = [
-            // --- 15 RO WATER PURIFIER SERVICES ---
-            { id: 1, category: "RO WATER PURIFIER", title: "RO Purifier New Installation", desc: "Complete wall mounting, inlet valve setup, and TDS calibration for all RO/UV brands.", icon: "droplets" },
-            { id: 2, category: "RO WATER PURIFIER", title: "RO Uninstallation & Shifting", desc: "Safe dismantling, pipe sealing, and re-installation at your new home or office.", icon: "move" },
-            { id: 3, category: "RO WATER PURIFIER", title: "RO Membrane Replacement", desc: "Genuine high-rejection TFC membrane replacement for pure, sweet-tasting water.", icon: "layers" },
-            { id: 4, category: "RO WATER PURIFIER", title: "Complete Filter Kit Service", desc: "Sediment, Pre-Carbon, Post-Carbon, and UF filter replacement with tank sanitization.", icon: "filter" },
-            { id: 5, category: "RO WATER PURIFIER", title: "RO Booster Pump Repair", desc: "Low water flow or high-pressure pump noise diagnosis and motor replacement.", icon: "gauge" },
-            { id: 6, category: "RO WATER PURIFIER", title: "UV Lamp & Choke Replacement", desc: "Replacement of fused UV barrel lamp and electronic ballast for 100% germ protection.", icon: "sun" },
-            { id: 7, category: "RO WATER PURIFIER", title: "SMPS Power Adapter Repair", desc: "24V/36V DC power supply troubleshooting and genuine SMPS replacement.", icon: "zap" },
-            { id: 8, category: "RO WATER PURIFIER", title: "Water Leakage & Elbow Fix", desc: "Fixing dripping taps, auto-shutoff valves, float switches, and pipe connectors.", icon: "wrench" },
-            { id: 9, category: "RO WATER PURIFIER", title: "TDS Controller & Mineralizer", desc: "Adding copper/alkaline mineral cartridge and balancing ideal drinking TDS levels.", icon: "sliders" },
-            { id: 10, category: "RO WATER PURIFIER", title: "Solenoid Valve (SV) Replacement", desc: "Fixing continuous waste water drain issue caused by faulty solenoid valve.", icon: "settings" },
-            { id: 11, category: "RO WATER PURIFIER", title: "RO Storage Tank Deep Clean", desc: "Food-grade anti-bacterial sanitization of internal storage tank and dispensing faucet.", icon: "sparkles" },
-            { id: 12, category: "RO WATER PURIFIER", title: "Pre-Filter Housing & Spun Change", desc: "External pre-filter bowl cleaning and fresh PP spun candle installation.", icon: "refresh-cw" },
-            { id: 13, category: "RO WATER PURIFIER", title: "Under-Sink RO System Setup", desc: "Concealed kitchen counter RO setup with dedicated pressure tank and gooseneck tap.", icon: "home" },
-            { id: 14, category: "RO WATER PURIFIER", title: "Commercial RO Plant Service", desc: "25 LPH to 500 LPH commercial RO servicing for offices, clinics, and restaurants.", icon: "building-2" },
-            { id: 15, category: "RO WATER PURIFIER", title: "RO Annual Maintenance (AMC)", desc: "1-year worry-free plan covering scheduled filter changes and unlimited breakdown visits.", icon: "shield-check" },
-
-            // --- 15 WASHING MACHINE SERVICES ---
-            { id: 16, category: "WASHING MACHINE", title: "Front Load Washing Machine Repair", desc: "Complete diagnostics, error code reset, and repair for all front-load models.", icon: "disc" },
-            { id: 17, category: "WASHING MACHINE", title: "Top Load Automatic Repair", desc: "Water level sensor, wash cycle, and pulsator troubleshooting at your doorstep.", icon: "refresh-ccw" },
-            { id: 18, category: "WASHING MACHINE", title: "Semi-Automatic Washer Repair", desc: "Wash timer, spin timer, buzzer, and dual-tub selector switch repair.", icon: "sliders-horizontal" },
-            { id: 19, category: "WASHING MACHINE", title: "Washing Machine Installation", desc: "Anti-vibration leveling, inlet hose coupling, and drain pipe setup.", icon: "settings-2" },
-            { id: 20, category: "WASHING MACHINE", title: "Drain Pump & Water Blockage Fix", desc: "Fixing water not draining issues, clogged coin traps, and drain motor replacement.", icon: "arrow-down-circle" },
-            { id: 21, category: "WASHING MACHINE", title: "Drum Bearing & Spider Arm", desc: "Heavy noise during spin cycle fixed with precision drum bearing and seal replacement.", icon: "cog" },
-            { id: 22, category: "WASHING MACHINE", title: "Inverter PCB Board Repair", desc: "Chip-level repair and replacement for dead display or unresponsive control panels.", icon: "cpu" },
-            { id: 23, category: "WASHING MACHINE", title: "Door Lock & Gasket Rubber Change", desc: "Front-load door latch error fix and mold-free rubber door boot replacement.", icon: "lock" },
-            { id: 24, category: "WASHING MACHINE", title: "Spin Dryer Motor Replacement", desc: "High-speed spin motor rewinding or replacement for wet clothes issue.", icon: "wind" },
-            { id: 25, category: "WASHING MACHINE", title: "Water Inlet Valve Replacement", desc: "Solving slow water filling or continuous water overflow inside the drum.", icon: "droplet" },
-            { id: 26, category: "WASHING MACHINE", title: "Gearbox & Clutch Assembly", desc: "Top-load agitator gearbox replacement for smooth, noise-free wash rotation.", icon: "wrench" },
-            { id: 27, category: "WASHING MACHINE", title: "Shock Absorber & Suspension", desc: "Fixing excessive machine shaking and walking during high-RPM spin cycles.", icon: "activity" },
-            { id: 28, category: "WASHING MACHINE", title: "Heater Element & Thermostat", desc: "Hot wash water heating failure diagnosis and heating coil replacement.", icon: "thermometer" },
-            { id: 29, category: "WASHING MACHINE", title: "Drum Descaling & Deep Wash", desc: "Removal of detergent limescale, lint buildup, and bad odor from inner tub.", icon: "sparkles" },
-            { id: 30, category: "WASHING MACHINE", title: "Belt & Pulley Replacement", desc: "V-belt tension adjustment and worn drive belt replacement.", icon: "circle-dot" },
-
-            // --- 15 REFRIGERATOR / FRIDGE SERVICES ---
-            { id: 31, category: "REFRIGERATOR CARE", title: "Single Door Fridge Repair", desc: "Cooling loss, thermostat calibration, and freezer ice buildup repair.", icon: "snowflake" },
-            { id: 32, category: "REFRIGERATOR CARE", title: "Double Door Frost-Free Repair", desc: "Air damper, defrost heater, and multi-airflow cooling restoration.", icon: "columns" },
-            { id: 33, category: "REFRIGERATOR CARE", title: "Side-by-Side Luxury Fridge Care", desc: "Specialized diagnostics for smart inverter side-by-side and French door models.", icon: "layout-grid" },
-            { id: 34, category: "REFRIGERATOR CARE", title: "Fridge Gas Charging (R134a / R600a)", desc: "Vacuum pressure testing, leak brazing, and genuine refrigerant gas refill.", icon: "flame" },
-            { id: 35, category: "REFRIGERATOR CARE", title: "Inverter Compressor Replacement", desc: "Genuine energy-efficient compressor installation with overload relay setup.", icon: "cpu" },
-            { id: 36, category: "REFRIGERATOR CARE", title: "Fridge Not Cooling Diagnosis", desc: "Complete thermodynamic and airflow checkup to restore rapid chilling.", icon: "thermometer-snowflake" },
-            { id: 37, category: "REFRIGERATOR CARE", title: "Water Leakage Inside Fridge", desc: "Clearing blocked defrost drain tubes and fixing water tray overflow.", icon: "droplets" },
-            { id: 38, category: "REFRIGERATOR CARE", title: "Defrost Timer, Coil & Bi-Metal", desc: "Fixing heavy frost accumulation blocking cold air vents in frost-free fridges.", icon: "timer" },
-            { id: 39, category: "REFRIGERATOR CARE", title: "Door Gasket Magnetic Seal Change", desc: "Replacing torn or loose door rubber seals to stop cool air escape and power waste.", icon: "square" },
-            { id: 40, category: "REFRIGERATOR CARE", title: "Fridge Main PCB Control Repair", desc: "Digital temperature display and inverter motherboard repair/replacement.", icon: "circuit-board" },
-            { id: 41, category: "REFRIGERATOR CARE", title: "Condenser & Evaporator Fan Motor", desc: "Quiet fan motor replacement to eliminate humming noise and uneven cooling.", icon: "fan" },
-            { id: 42, category: "REFRIGERATOR CARE", title: "Relay & OLP Starter Replacement", desc: "Fixing compressor clicking sound and start-up tripping problems.", icon: "zap" },
-            { id: 43, category: "REFRIGERATOR CARE", title: "Ice Maker & Water Dispenser Fix", desc: "Door water dispenser valve and automatic ice maker tray repair.", icon: "glass-water" },
-            { id: 44, category: "REFRIGERATOR CARE", title: "Deep Freezer & Visi Cooler Service", desc: "Commercial chest freezer and beverage cooler repair for shops and homes.", icon: "box" },
-            { id: 45, category: "REFRIGERATOR CARE", title: "Fridge Condenser Coil Cleaning", desc: "Dust removal and coil tune-up for faster cooling and lower electricity bills.", icon: "sparkles" }
+            { name: "Electrical Services", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" },
+            { name: "Plumbing Services", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80" },
+            { name: "AC Installation & Repair", img: "https://images.unsplash.com/photo-1631545806609-c2b999c8f4c6?auto=format&fit=crop&w=600&q=80" },
+            { name: "EV Charger Installation", img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=600&q=80" },
+            { name: "CCTV Camera Installation", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80" },
+            { name: "Painting Services", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" },
+            { name: "False Ceiling Installation", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" },
+            { name: "Gypsum Ceiling Works", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" },
+            { name: "PVC Ceiling Installation", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" },
+            { name: "Fabrication Works", img: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80" },
+            { name: "Stainless Steel Fabrication", img: "https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=600&q=80" },
+            { name: "Aluminium Fabrication", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" },
+            { name: "Invisible Grill Installation", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80" },
+            { name: "Aluminium Cupboard Installation", img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=600&q=80" },
+            { name: "Modular Kitchen Installation", img: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80" },
+            { name: "Carpentry Services", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80" },
+            { name: "Door & Window Installation", img: "https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?auto=format&fit=crop&w=600&q=80" },
+            { name: "Marble Installation", img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=600&q=80" },
+            { name: "Granite Installation", img: "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=600&q=80" },
+            { name: "Marble Polishing", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" },
+            { name: "Tiles Installation", img: "https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?auto=format&fit=crop&w=600&q=80" },
+            { name: "Civil Construction Works", img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80" },
+            { name: "Demolition Works", img: "https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=600&q=80" },
+            { name: "Ducting Installation", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" },
+            { name: "Refrigerator Repair", img: "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=600&q=80" },
+            { name: "Washing Machine Repair", img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80" },
+            { name: "Water Purifier Installation & Repair", img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&q=80" },
+            { name: "Inverter Installation & Repair", img: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=600&q=80" },
+            { name: "Battery Installation & Replacement", img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" },
+            { name: "Borewell Services", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" },
+            { name: "Water Motor Installation & Repair", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80" },
+            { name: "Solar Panel Installation", img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80" },
+            { name: "RJ45 Jack Installation", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" },
+            { name: "LAN Cabling & Internet Wiring", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" },
+            { name: "Network Installation", img: "https://images.unsplash.com/photo-1520869562399-e772f042f422?auto=format&fit=crop&w=600&q=80" },
+            { name: "Computer & Laptop Services", img: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80" },
+            { name: "Website Creation & Development", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" },
+            { name: "Graphic Design Services", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" },
+            { name: "Printing Services", img: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=600&q=80" },
+            { name: "Digital Printing", img: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?auto=format&fit=crop&w=600&q=80" },
+            { name: "Sign Board & Flex Printing", img: "https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=600&q=80" },
+            { name: "Home Appliance Repair", img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" },
+            { name: "Furniture Installation", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" },
+            { name: "Loading & Unloading Services", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" },
+            { name: "Residential, Commercial & Industrial Maintenance", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" }
         ];
 
-        let activeCategory = "ALL";
+        const grid = document.getElementById('servicesGrid');
+        const searchInput = document.getElementById('serviceSearch');
 
-        function renderServices(list) {
-            const grid = document.getElementById("servicesGrid");
-            const noResults = document.getElementById("noResults");
-            const counter = document.getElementById("service-counter");
-
-            counter.textContent = list.length;
+        function renderServices(filter = "") {
             grid.innerHTML = "";
-
-            if (list.length === 0) {
-                noResults.classList.remove("hidden");
-                return;
-            } else {
-                noResults.classList.add("hidden");
-            }
-
-            list.forEach(item => {
-                const whatsappMsg = encodeURIComponent(`Hello! I want to book: *${item.title}* (${item.category}). Please share technician availability.`);
-                const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
-
-                const card = `
-                    <div class="service-card rounded-xl overflow-hidden flex flex-col justify-between shadow-md">
-                        <div>
-                            <div class="icon-stage-3d h-44 flex items-center justify-center">
-                                <div class="icon-badge-3d w-16 h-16 rounded-2xl flex items-center justify-center text-[#C89B6E]">
-                                    <i data-lucide="${item.icon}" class="w-8 h-8"></i>
-                                </div>
-                                <span class="absolute top-3 right-3 text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded bg-white/10 text-gray-300 backdrop-blur-sm">
-                                    #${String(item.id).padStart(2, '0')}
-                                </span>
-                            </div>
-                            <div class="p-6">
-                                <span class="text-[11px] font-extrabold tracking-[0.18em] uppercase text-[#9E744B]">
-                                    ${item.category}
-                                </span>
-                                <h3 class="text-xl font-extrabold text-[#1A1D20] mt-1.5">
-                                    ${item.title}
-                                </h3>
-                                <p class="text-sm text-gray-600 mt-2 leading-relaxed">
-                                    ${item.desc}
-                                </p>
-                            </div>
+            servicesData.forEach((service, index) => {
+                if (service.name.toLowerCase().includes(filter.toLowerCase())) {
+                    const num = String(index + 1).padStart(2, '0');
+                    const card = document.createElement('div');
+                    card.className = 'service-card';
+                    card.innerHTML = `
+                        <div class="card-img-wrapper">
+                            <span class="card-number">DIV #${num}</span>
+                            <img src="${service.img}" alt="${service.name}" loading="lazy">
                         </div>
-                        <div class="px-6 pb-6 pt-3 border-t border-gray-100 bg-[#FAFAFA]">
-                            <p class="text-xs font-medium text-gray-400 mb-3">Request a quote • Doorstep inspection</p>
-                            <div class="grid grid-cols-2 gap-3">
-                                <button onclick="openBookingModal('${item.title}')" class="py-2.5 px-3 rounded bg-[#23272B] hover:bg-[#141619] text-white text-xs font-bold tracking-wide transition text-center shadow">
-                                    Request callback
-                                </button>
-                                <a href="${whatsappUrl}" target="_blank" class="py-2.5 px-3 rounded border border-gray-300 hover:border-[#C89B6E] hover:bg-[#C89B6E]/10 text-[#1A1D20] text-xs font-bold tracking-wide transition text-center flex items-center justify-center gap-1.5">
-                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-green-600"></i>
-                                    WhatsApp
-                                </a>
+                        <div class="card-body">
+                            <div>
+                                <h4>${service.name}</h4>
+                                <p>Certified enterprise & residential execution with guaranteed safety standards.</p>
                             </div>
+                            <a href="https://wa.me/918500618707?text=Hello%20Global%20Technology%20Service%20Centre,%20I%20need%20service%20for:%20${encodeURIComponent(service.name)}" target="_blank" class="card-action">
+                                <span>Book Dispatch</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
-                    </div>
-                `;
-                grid.innerHTML += card;
-            });
-            lucide.createIcons();
-        }
-
-        function setCategory(cat) {
-            activeCategory = cat;
-            document.querySelectorAll(".filter-btn").forEach(btn => {
-                if (btn.getAttribute("data-cat") === cat) {
-                    btn.classList.remove("bg-white", "text-gray-700", "border", "border-gray-300");
-                    btn.classList.add("bg-[#1A1D20]", "text-white");
-                } else {
-                    btn.classList.add("bg-white", "text-gray-700", "border", "border-gray-300");
-                    btn.classList.remove("bg-[#1A1D20]", "text-white");
+                    `;
+                    // Apply 3D Tilt Physics to each card
+                    apply3DTilt(card);
+                    grid.appendChild(card);
                 }
             });
-            filterServices();
         }
 
-        function filterServices() {
-            const query = document.getElementById("searchInput").value.toLowerCase().trim();
-            const filtered = servicesData.filter(item => {
-                const matchesCat = activeCategory === "ALL" || item.category === activeCategory;
-                const matchesSearch = item.title.toLowerCase().includes(query) || 
-                                      item.desc.toLowerCase().includes(query) || 
-                                      item.category.toLowerCase().includes(query);
-                return matchesCat && matchesSearch;
+        // 3D Tilt Physics Function
+        function apply3DTilt(element) {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
-            renderServices(filtered);
+
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
         }
 
-        function resetFilters() {
-            document.getElementById("searchInput").value = "";
-            setCategory("ALL");
-        }
+        // Apply 3D Tilt to Hero Showcase
+        apply3DTilt(document.getElementById('heroTilt'));
 
-        function openBookingModal(serviceTitle) {
-            const modal = document.getElementById("bookingModal");
-            const form = modal.querySelector("form");
-            const successBox = document.getElementById("bookingSuccess");
-
-            document.getElementById("modalServiceName").value = serviceTitle;
-            form.classList.remove("hidden");
-            successBox.classList.add("hidden");
-
-            modal.classList.remove("hidden");
-            modal.classList.add("flex");
-        }
-
-        function closeBookingModal() {
-            const modal = document.getElementById("bookingModal");
-            modal.classList.add("hidden");
-            modal.classList.remove("flex");
-        }
-
-        function submitBooking(e) {
-            e.preventDefault();
-            const modal = document.getElementById("bookingModal");
-            modal.querySelector("form").classList.add("hidden");
-            document.getElementById("bookingSuccess").classList.remove("hidden");
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            renderServices(servicesData);
-            lucide.createIcons();
+        // Live Search Filter
+        searchInput.addEventListener('input', (e) => {
+            renderServices(e.target.value);
         });
+
+        // Initial Load
+        renderServices();
     </script>
 </body>
 </html>
