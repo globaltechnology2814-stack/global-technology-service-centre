@@ -1,543 +1,1214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTS | Global Technology Service Centre</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-deep-black: #050505;
-            --surface-black: #0c0c0c;
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --gold-dark: #aa8c2c;
-            --text-white: #ffffff;
-            --text-muted: #a3a3a3;
-            --border-gold: rgba(212, 175, 55, 0.3);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTS | Global Technology Service Centre - Hyderabad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #141517;
+      --bg-darker: #0d0e10;
+      --gold: #d4af37;
+      --gold-light: #f3d266;
+      --gold-muted: #c5a467;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+      --text-dark: #111827;
+      --text-muted: #6b7280;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
 
-        body {
-            background-color: var(--bg-deep-black);
-            color: var(--text-white);
-            overflow-x: hidden;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(5, 5, 5, 0.95);
-            border-bottom: 2px solid var(--gold-primary);
-            padding: 18px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(15px);
-        }
+    body {
+      background-color: #f8f9fa;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
-        .brand-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
+    /* ================= NAVBAR ================= */
+    header {
+      background-color: rgba(20, 21, 23, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 16px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        /* GTS Box */
-        .gts-box {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-            color: #000000;
-            font-weight: 800;
-            font-size: 1.7rem;
-            padding: 10px 18px;
-            border-radius: 8px;
-            border: 1px solid var(--gold-light);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
 
-        .brand-titles h1 {
-            font-size: 1.45rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            color: #ffffff;
-            line-height: 1.2;
-        }
+    .gts-badge {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #0d0e10;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 1.5px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    }
 
-        .brand-titles p {
-            font-size: 0.8rem;
-            color: var(--gold-primary);
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            font-weight: 600;
-            margin-top: 3px;
-        }
+    .brand-text h1 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
 
-        .nav-cta {
-            background: transparent;
-            border: 2px solid var(--gold-primary);
-            color: var(--gold-primary);
-            padding: 10px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
+    .brand-text span {
+      color: var(--gold-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
-        .nav-cta:hover {
-            background: var(--gold-primary);
-            color: #000;
-            box-shadow: 0 0 25px var(--gold-primary);
-        }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
 
-        .hero {
-            padding: 90px 5%;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            background-blend-mode: overlay;
-            background-color: var(--bg-deep-black);
-            text-align: center;
-            border-bottom: 1px solid var(--border-gold);
-        }
+    .nav-link {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
 
-        .hero-tag {
-            display: inline-block;
-            color: var(--gold-primary);
-            border: 1px solid var(--gold-primary);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-        }
+    .nav-link:hover {
+      color: var(--gold-light);
+    }
 
-        .hero h2 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 18px;
-            line-height: 1.15;
-            background: linear-gradient(90deg, #fff, var(--gold-primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .btn-nav-gold {
+      background-color: var(--gold-muted);
+      color: #141517;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
 
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 780px;
-            margin: 0 auto 30px;
-        }
+    .btn-nav-gold:hover {
+      background-color: var(--gold-light);
+      transform: translateY(-1px);
+    }
 
-        .services-section {
-            padding: 80px 5%;
-        }
+    /* ================= HERO SECTION WITH 3D ROTATING HOUSE ================= */
+    .hero {
+      background: radial-gradient(circle at 75% 45%, #232730 0%, #141517 65%, #0c0d0f 100%);
+      color: #ffffff;
+      padding: 70px 5% 80px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+    .hero-grid {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+    }
 
-        .section-header h3 {
-            font-size: 2.3rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: #fff;
-        }
+    .hero-tag {
+      display: inline-block;
+      color: var(--gold-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border-left: 3px solid var(--gold);
+      padding-left: 10px;
+    }
 
-        .search-container {
-            max-width: 600px;
-            margin: 25px auto 0;
-            position: relative;
-        }
+    .hero-title {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
 
-        .search-container input {
-            width: 100%;
-            padding: 16px 25px 16px 55px;
-            background: var(--surface-black);
-            border: 2px solid var(--border-gold);
-            border-radius: 50px;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
+    .hero-title span {
+      color: var(--gold-light);
+    }
 
-        .search-container input:focus {
-            border-color: var(--gold-primary);
-        }
+    .hero-desc {
+      color: #b0b7c3;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 580px;
+      margin-bottom: 32px;
+    }
 
-        .search-container i {
-            position: absolute;
-            left: 22px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gold-primary);
-            font-size: 1.15rem;
-        }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 28px;
-        }
+    .btn-primary-light {
+      background-color: #ffffff;
+      color: #141517;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-        .service-card {
-            background: var(--surface-black);
-            border: 1px solid var(--border-gold);
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.35s ease;
-        }
+    .btn-primary-light:hover {
+      background-color: var(--gold-light);
+    }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 18px 35px -15px rgba(212, 175, 55, 0.35);
-        }
+    .btn-outline-dark {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-        .card-img-wrapper {
-            height: 215px;
-            position: relative;
-            overflow: hidden;
-        }
+    .btn-outline-dark:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
 
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
+    .hero-trust {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
 
-        .service-card:hover .card-img-wrapper img {
-            transform: scale(1.07);
-        }
+    .hero-trust span {
+      color: var(--gold-muted);
+    }
 
-        .card-body {
-            padding: 24px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+    /* ================= 3D ROTATING HOUSE ANIMATION ================= */
+    .house-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      perspective: 1100px;
+      min-height: 310px;
+      position: relative;
+    }
 
-        .card-body h4 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #fff;
-        }
+    .house-glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
 
-        .card-body p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
+    .house-3d-wrapper {
+      width: 190px;
+      height: 190px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin3DHouse 11s linear infinite;
+    }
 
-        .book-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--gold-primary);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
+    .house-stage:hover .house-3d-wrapper {
+      animation-play-state: paused;
+    }
 
-        .book-btn:hover {
-            color: var(--gold-light);
-        }
+    @keyframes spin3DHouse {
+      0% { transform: rotateX(-12deg) rotateY(0deg); }
+      100% { transform: rotateX(-12deg) rotateY(360deg); }
+    }
 
-        footer {
-            background-color: #020202;
-            border-top: 3px solid var(--gold-primary);
-            padding: 80px 5% 40px;
-            margin-top: 80px;
-        }
+    .house-face {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backface-visibility: visible;
+    }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .face-front  { transform: translateZ(35px); }
+    .face-back   { transform: rotateY(180deg) translateZ(35px); opacity: 0.85; }
+    .face-right  { transform: rotateY(90deg) translateZ(35px); opacity: 0.7; }
+    .face-left   { transform: rotateY(-90deg) translateZ(35px); opacity: 0.7; }
 
-        .footer-col h5 {
-            font-size: 1.45rem;
-            color: var(--gold-primary);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .house-floor-ring {
+      margin-top: 24px;
+      width: 170px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid rgba(212, 175, 55, 0.45);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+      transform: rotateX(70deg);
+    }
 
-        .footer-col p {
-            color: var(--text-muted);
-            line-height: 1.75;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
+    /* ================= HERO BOTTOM INFO BAR ================= */
+    .hero-bottom-bar {
+      max-width: 1320px;
+      margin: 45px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-        .contact-line {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 18px;
-            font-size: 1.1rem;
-            color: #fff;
-        }
+    .info-pill h4 {
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 700;
+    }
 
-        .contact-line i {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: var(--surface-black);
-            border: 1px solid var(--gold-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold-primary);
-            font-size: 1.1rem;
-        }
+    .info-pill p {
+      font-size: 0.72rem;
+      color: var(--gold-muted);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
 
-        .contact-line a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 600;
-        }
+    /* ================= MARQUEE TICKER ================= */
+    .ticker-bar {
+      background-color: #1c1e22;
+      color: #d1d5db;
+      padding: 12px 0;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 1px solid #2d3036;
+    }
 
-        .contact-line a:hover {
-            color: var(--gold-primary);
-        }
+    .ticker-content {
+      display: inline-block;
+      animation: marquee 28s linear infinite;
+    }
 
-        .social-strip {
-            display: flex;
-            gap: 18px;
-            margin-top: 25px;
-        }
+    .ticker-content span {
+      color: var(--gold);
+      margin: 0 14px;
+    }
 
-        .social-strip a {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: var(--surface-black);
-            border: 1px solid var(--border-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold-primary);
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 1.2rem;
-        }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
 
-        .social-strip a:hover {
-            background: var(--gold-primary);
-            color: #000;
-            transform: translateY(-4px);
-            box-shadow: 0 0 18px var(--gold-primary);
-        }
+    /* ================= CATALOGUE SECTION ================= */
+    .catalogue-section {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 60px 5% 80px;
+    }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 35px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
+    .section-header {
+      margin-bottom: 30px;
+    }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            .brand-wrapper {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .gts-box {
-                font-size: 1.4rem;
-                padding: 8px 16px;
-            }
-            .brand-titles h1 {
-                font-size: 1.2rem;
-            }
-            .hero h2 {
-                font-size: 2.3rem;
-            }
-        }
-    </style>
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #4b5563;
+      font-size: 0.98rem;
+      max-width: 680px;
+    }
+
+    /* Search & Filter Controls */
+    .controls-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 480px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 18px 14px 44px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      background-color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: #141517;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b7280;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-btn {
+      background-color: #ffffff;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: #141517;
+    }
+
+    .filter-btn.active {
+      background-color: #141517;
+      color: var(--gold-light);
+      border-color: #141517;
+    }
+
+    /* ================= SERVICE CARDS GRID (MATCHING YOUR SCREENSHOTS) ================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-media {
+      position: relative;
+      height: 195px;
+      background-color: #1a2230;
+      overflow: hidden;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .card-media img {
+      transform: scale(1.06);
+    }
+
+    .card-media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13, 14, 16, 0.82) 0%, rgba(13, 14, 16, 0.15) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 12px 16px;
+    }
+
+    .media-label {
+      color: #e5e7eb;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .gold-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--gold-light);
+      box-shadow: 0 0 8px var(--gold-light);
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.3;
+    }
+
+    .contact-chip {
+      background-color: #f3f4f6;
+      color: #374151;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      text-decoration: none;
+      border: 1px solid #e5e7eb;
+    }
+
+    .card-cat {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: #4b5563;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .quote-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-callback {
+      background-color: #2b303a;
+      color: #ffffff;
+      border: none;
+      padding: 11px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .btn-callback:hover {
+      background-color: #141517;
+    }
+
+    .btn-whatsapp {
+      background-color: #ffffff;
+      color: #1f2937;
+      border: 1px solid #d1d5db;
+      padding: 11px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .btn-whatsapp:hover {
+      border-color: #16a34a;
+      color: #16a34a;
+      background-color: #f0fdf4;
+    }
+
+    /* ================= MODAL FOR CALLBACK ================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: 14px;
+      max-width: 440px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      border-top: 4px solid var(--gold);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+
+    .btn-submit-modal {
+      width: 100%;
+      background-color: #141517;
+      color: var(--gold-light);
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background-color: #141517;
+      color: #9ca3af;
+      padding: 45px 5%;
+      border-top: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .footer-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-brand strong {
+      color: #ffffff;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-bottom-bar {
+        grid-template-columns: 1fr;
+      }
+      .nav-link {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-wrapper">
-            <div class="gts-box">GTS</div>
-            <div class="brand-titles">
-                <h1>Global Technology Service Centre</h1>
-                <p>Built on Trust and Legacy</p>
-            </div>
+  <!-- TOP NAVIGATION -->
+  <header>
+    <a href="#" class="brand-box">
+      <div class="gts-badge">GTS</div>
+      <div class="brand-text">
+        <h1>Global Technology Service Centre</h1>
+        <span>Hyderabad • Home &amp; Office Services</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="tel:08048061672" class="nav-link">Call IVR</a>
+      <button class="btn-nav-gold" onclick="openModal('General Service Enquiry')">Request a callback</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH 3D ROTATING HOUSE -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">GTS • HYDERABAD • HOME &amp; OFFICE SERVICES</div>
+        <h2 class="hero-title">Professional service.<br><span>One clear next step.</span></h2>
+        <p class="hero-desc">
+          Practical help for home and workplace maintenance. Browse 45+ verified services with real work previews, then request a fast callback from our Hyderabad service team.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#services" class="btn-primary-light">Browse services</a>
+          <button class="btn-outline-dark" onclick="openModal('Priority Callback Request')">Request a callback</button>
+          <a href="tel:08048061672" class="btn-outline-dark">Call IVR 08048061672</a>
         </div>
-        <a href="#services" class="nav-cta">Explore 45 Services</a>
-    </header>
-
-    <section class="hero">
-        <div class="hero-tag">Enterprise • Commercial • Industrial</div>
-        <h2>Precision Engineering & Facility Solutions.</h2>
-        <p>High-caliber technical execution, industrial maintenance, and smart infrastructure delivered with uncompromising corporate excellence.</p>
-    </section>
-
-    <section class="services-section" id="services">
-        <div class="section-header">
-            <h3>45 Home, Commercial & Industrial Divisions</h3>
-            <div class="search-container">
-                <i class="fas fa-search"></i>
-                <input type="text" id="serviceSearch" placeholder="Search exact service...">
-            </div>
+        <div class="hero-trust">
+          <span>✔</span> Professional standards &nbsp;•&nbsp;
+          <span>✔</span> Clear communication &nbsp;•&nbsp;
+          <span>✔</span> Hyderabad service team
         </div>
+      </div>
 
-        <div class="grid-container" id="servicesGrid"></div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h5>GTS Enterprise Desk</h5>
-                <p>Global Technology Service Centre operates as a premier multi-disciplinary engineering and facility maintenance powerhouse. Built on Trust and Legacy.</p>
-            </div>
-            
-            <div class="footer-col" id="contact-dead-end">
-                <h5>Command & Dispatch Center</h5>
-                <div class="contact-line">
-                    <i class="fas fa-headset"></i>
-                    <span>IVR Support: <a href="tel:08048061672">08048061672</a></span>
-                </div>
-                <div class="contact-line">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>Direct Dispatch: <a href="tel:+918500618707">8500618707</a></span>
-                </div>
-                
-                <div class="social-strip">
-                    <a href="https://g.page/r/YOUR-GMB-LINK" target="_blank" title="Google Business"><i class="fab fa-google"></i></a>
-                    <a href="https://facebook.com/YOUR-PAGE" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/YOUR-HANDLE" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+      <!-- 3D ROTATING GOLDEN HOUSE -->
+      <div class="house-stage" title="3D GTS Home & Commercial Solutions">
+        <div class="house-glow"></div>
+        <div class="house-3d-wrapper">
+          <!-- Front Face -->
+          <div class="house-face face-front">
+            <svg width="170" height="170" viewBox="0 0 200 200" fill="none">
+              <defs>
+                <linearGradient id="goldWall" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f3d266"/>
+                  <stop offset="100%" stop-color="#b88928"/>
+                </linearGradient>
+              </defs>
+              <polygon points="100,22 24,86 176,86" fill="url(#goldWall)" stroke="#fff3c4" stroke-width="3"/>
+              <rect x="38" y="86" width="124" height="92" rx="4" fill="url(#goldWall)" stroke="#fff3c4" stroke-width="3"/>
+              <rect x="82" y="114" width="36" height="64" rx="3" fill="#181b20" stroke="#ffffff" stroke-width="4"/>
+            </svg>
+          </div>
+          <!-- Back Face -->
+          <div class="house-face face-back">
+            <svg width="170" height="170" viewBox="0 0 200 200" fill="none">
+              <polygon points="100,22 24,86 176,86" fill="#c59b32" stroke="#f3d266" stroke-width="3"/>
+              <rect x="38" y="86" width="124" height="92" rx="4" fill="#c59b32" stroke="#f3d266" stroke-width="3"/>
+              <rect x="74" y="106" width="52" height="36" rx="3" fill="#181b20" stroke="#f3d266" stroke-width="3"/>
+            </svg>
+          </div>
+          <!-- Right Side -->
+          <div class="house-face face-right">
+            <svg width="170" height="170" viewBox="0 0 200 200" fill="none">
+              <polygon points="100,22 55,86 145,86" fill="#9c751e"/>
+              <rect x="55" y="86" width="90" height="92" fill="#9c751e"/>
+            </svg>
+          </div>
+          <!-- Left Side -->
+          <div class="house-face face-left">
+            <svg width="170" height="170" viewBox="0 0 200 200" fill="none">
+              <polygon points="100,22 55,86 145,86" fill="#9c751e"/>
+              <rect x="55" y="86" width="90" height="92" fill="#9c751e"/>
+            </svg>
+          </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 GTS (Global Technology Service Centre). All Rights Reserved. Built on Trust and Legacy.
+        <div class="house-floor-ring"></div>
+      </div>
+    </div>
+
+    <!-- HERO BOTTOM BAR -->
+    <div class="hero-bottom-bar">
+      <div class="info-pill">
+        <h4>45+ Services</h4>
+        <p>Browse and enquire</p>
+      </div>
+      <div class="info-pill">
+        <h4>Hyderabad</h4>
+        <p>Service location</p>
+      </div>
+      <div class="info-pill">
+        <h4>Direct Contact</h4>
+        <p>Phone or WhatsApp</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-content">
+      EV CHARGER INSTALLATION <span>•</span> ELECTRICAL &amp; WIRING <span>•</span> AC INSTALLATION &amp; REPAIR <span>•</span> TV WALL MOUNTING <span>•</span> CCTV CAMERA SETUP <span>•</span> PLUMBING &amp; WATER TANK <span>•</span> MARBLE &amp; GRANITE POLISHING <span>•</span> DEEP HOME CLEANING <span>•</span>
+      EV CHARGER INSTALLATION <span>•</span> ELECTRICAL &amp; WIRING <span>•</span> AC INSTALLATION &amp; REPAIR <span>•</span> TV WALL MOUNTING <span>•</span> CCTV CAMERA SETUP <span>•</span> PLUMBING &amp; WATER TANK <span>•</span> MARBLE &amp; GRANITE POLISHING <span>•</span> DEEP HOME CLEANING <span>•</span>
+    </div>
+  </div>
+
+  <!-- SERVICE CATALOGUE -->
+  <main class="catalogue-section" id="services">
+    <div class="section-header">
+      <div class="section-eyebrow">Service Catalogue</div>
+      <h2 class="section-title">Choose what you need help with.</h2>
+      <p class="section-subtitle">Search or filter the catalogue. Every service card displays real work photography; prices are confirmed after quick site or phone review.</p>
+    </div>
+
+    <div class="controls-wrapper">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search a service or keyword (e.g. TV, AC, EV, Plumbing)..." onkeyup="filterServices()">
+      </div>
+      <div class="filter-pills" id="categoryFilters">
+        <button class="filter-btn active" onclick="setCategory('ALL', this)">All Services (30)</button>
+        <button class="filter-btn" onclick="setCategory('ELECTRICAL & EV', this)">Electrical &amp; EV</button>
+        <button class="filter-btn" onclick="setCategory('COOLING & APPLIANCES', this)">AC &amp; Appliances</button>
+        <button class="filter-btn" onclick="setCategory('INSTALLATION', this)">TV &amp; Home Installation</button>
+        <button class="filter-btn" onclick="setCategory('PLUMBING', this)">Plumbing</button>
+        <button class="filter-btn" onclick="setCategory('CLEANING & MAINTENANCE', this)">Cleaning &amp; Care</button>
+        <button class="filter-btn" onclick="setCategory('STONE & INTERIORS', this)">Tiles, Stone &amp; Carpentry</button>
+      </div>
+    </div>
+
+    <!-- CARDS RENDERED HERE -->
+    <div class="services-grid" id="servicesGrid"></div>
+  </main>
+
+  <!-- CALLBACK MODAL -->
+  <div class="modal-backdrop" id="callbackModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalServiceTitle">Request a Callback</h3>
+        <button class="close-modal" onclick="closeModal()">&times;</button>
+      </div>
+      <form onsubmit="submitCallback(event)">
+        <div class="form-group">
+          <label>Selected Service</label>
+          <input type="text" id="selectedServiceInput" readonly style="background:#f3f4f6; font-weight:600;">
         </div>
-    </footer>
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="custName" required placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp Number *</label>
+          <input type="tel" id="custPhone" required placeholder="e.g. 98490 XXXXX">
+        </div>
+        <div class="form-group">
+          <label>Area in Hyderabad</label>
+          <input type="text" id="custArea" placeholder="e.g. Borabanda, Jubilee Hills, Madhapur...">
+        </div>
+        <button type="submit" class="btn-submit-modal">Confirm &amp; Send on WhatsApp →</button>
+      </form>
+    </div>
+  </div>
 
-    <script>
-        const exactServicesData = [
-            { name: "Electrical Services", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" },
-            { name: "Plumbing Services", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80" },
-            { name: "AC Installation & Repair", img: "https://images.unsplash.com/photo-1631545806609-c2b999c8f4c6?auto=format&fit=crop&w=800&q=80" },
-            { name: "EV Charger Installation", img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80" },
-            { name: "CCTV Camera Installation", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" },
-            { name: "Painting Services", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" },
-            { name: "False Ceiling Installation", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" },
-            { name: "Gypsum Ceiling Works", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" },
-            { name: "PVC Ceiling Installation", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" },
-            { name: "Fabrication Works", img: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" },
-            { name: "Stainless Steel Fabrication", img: "https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=800&q=80" },
-            { name: "Aluminium Fabrication", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" },
-            { name: "Invisible Grill Installation", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" },
-            { name: "Aluminium Cupboard Installation", img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=800&q=80" },
-            { name: "Modular Kitchen Installation", img: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=80" },
-            { name: "Carpentry Services", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80" },
-            { name: "Door & Window Installation", img: "https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?auto=format&fit=crop&w=800&q=80" },
-            { name: "Marble Installation", img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" },
-            { name: "Granite Installation", img: "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=80" },
-            { name: "Marble Polishing", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" },
-            { name: "Tiles Installation", img: "https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?auto=format&fit=crop&w=800&q=80" },
-            { name: "Civil Construction Works", img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" },
-            { name: "Demolition Works", img: "https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=800&q=80" },
-            { name: "Ducting Installation", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" },
-            { name: "Refrigerator Repair", img: "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80" },
-            { name: "Washing Machine Repair", img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80" },
-            { name: "Water Purifier Installation & Repair", img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Inverter Installation & Repair", img: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=800&q=80" },
-            { name: "Battery Installation & Replacement", img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" },
-            { name: "Borewell Services", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" },
-            { name: "Water Motor Installation & Repair", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" },
-            { name: "Solar Panel Installation", img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" },
-            { name: "RJ45 Jack Installation", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" },
-            { name: "LAN Cabling & Internet Wiring", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" },
-            { name: "Network Installation", img: "https://images.unsplash.com/photo-1520869562399-e772f042f422?auto=format&fit=crop&w=800&q=80" },
-            { name: "Computer & Laptop Services", img: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80" },
-            { name: "Website Creation & Development", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" },
-            { name: "Graphic Design Services", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Printing Services", img: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=800&q=80" },
-            { name: "Digital Printing", img: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?auto=format&fit=crop&w=800&q=80" },
-            { name: "Sign Board & Flex Printing", img: "https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=800&q=80" },
-            { name: "Home Appliance Repair", img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80" },
-            { name: "Furniture Installation", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" },
-            { name: "Loading & Unloading Services", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Residential, Commercial & Industrial Maintenance", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" }
-        ];
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>GTS — Global Technology Service Centre</strong>
+        <span>Swaraj Nagar, Borabanda, Hyderabad, Telangana • IVR: 08048061672</span>
+      </div>
+      <div>© 2026 Global Technology Service Centre. All Rights Reserved.</div>
+    </div>
+  </footer>
 
-        const grid = document.getElementById('servicesGrid');
-        const searchInput = document.getElementById('serviceSearch');
+  <script>
+    // Real Service-Matched High-Resolution Photos
+    const servicesData = [
+      {
+        title: "TV wall mounting",
+        category: "INSTALLATION",
+        mediaTag: "REAL PHOTO • TV WALL MOUNTING",
+        desc: "Precision LED/OLED TV wall bracket installation, leveling, and concealed cable setup.",
+        img: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "AC installation & setup",
+        category: "COOLING & APPLIANCES",
+        mediaTag: "REAL PHOTO • AC INSTALLATION",
+        desc: "Split and window air conditioner indoor/outdoor unit mounting, copper piping, and gas pressure check.",
+        img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "EV charger installation",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • EV CHARGER",
+        desc: "Home and commercial EV wallbox charger installation with dedicated MCB, RCCB protection, and earthing.",
+        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Electrical fault repair",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • ELECTRICAL REPAIR",
+        desc: "Short-circuit troubleshooting, DB box repair, tripping breaker diagnosis, and power restoration.",
+        img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Switch and socket installation",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • SWITCHBOARD",
+        desc: "Modular switchboard installation, heavy-duty 16A power socket fitting, and dimmer replacement.",
+        img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Lighting installation",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • LIGHTING SETUP",
+        desc: "Indoor false-ceiling LED panel lights, chandeliers, profile lights, and outdoor floodlight fitting.",
+        img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Fan installation and repair",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • CEILING FAN",
+        desc: "BLDC and standard ceiling fan installation, downrod balancing, regulator fix, and exhaust fan fitting.",
+        img: "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Inverter & UPS installation",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • INVERTER & BATTERY",
+        desc: "Home inverter and tubular battery setup with clean load wiring and surge protection.",
+        img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Wiring and rewiring",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • HOUSE WIRING",
+        desc: "New concealed conduit wiring and old house copper rewiring with ISI-grade fire-retardant cables.",
+        img: "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Network and LAN setup",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • LAN & NETWORKING",
+        desc: "Cat6 structured cabling, RJ45 jack termination, Wi-Fi router mesh setup, and office rack patching.",
+        img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "CCTV camera installation",
+        category: "ELECTRICAL & EV",
+        mediaTag: "REAL PHOTO • CCTV SECURITY",
+        desc: "HD & IP bullet/dome security camera mounting, DVR/NVR configuration, and mobile live-view setup.",
+        img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Refrigerator & Washing Machine",
+        category: "COOLING & APPLIANCES",
+        mediaTag: "REAL PHOTO • APPLIANCE CARE",
+        desc: "Inspection, cooling check, drain pump repair, and maintenance for household appliances.",
+        img: "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Appliance installation",
+        category: "INSTALLATION",
+        mediaTag: "REAL PHOTO • HOME APPLIANCES",
+        desc: "Setup and electrical/plumbing hookup for geysers, RO water purifiers, kitchen chimneys, and microwaves.",
+        img: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Plumbing repair",
+        category: "PLUMBING",
+        mediaTag: "REAL PHOTO • PLUMBING REPAIR",
+        desc: "Pipe leak detection, concealed valve repair, flush tank fix, and general residential plumbing.",
+        img: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Tap and mixer installation",
+        category: "PLUMBING",
+        mediaTag: "REAL PHOTO • TAP & MIXER",
+        desc: "Kitchen sink tap, wall mixer, diverter, and overhead shower replacement without tile damage.",
+        img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Bathroom fitting installation",
+        category: "PLUMBING",
+        mediaTag: "REAL PHOTO • BATHROOM FITTINGS",
+        desc: "Complete sanitaryware, washbasin, western commode, and bathroom accessories mounting.",
+        img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Drain cleaning",
+        category: "PLUMBING",
+        mediaTag: "REAL PHOTO • DRAIN UNBLOCKING",
+        desc: "Kitchen sink, bathroom floor trap, and balcony drain blockage removal and flow restoration.",
+        img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Water tank cleaning",
+        category: "CLEANING & MAINTENANCE",
+        mediaTag: "REAL PHOTO • WATER TANK CLEANING",
+        desc: "Multi-stage sludge removal, high-pressure jet wash, and anti-bacterial sanitization for overhead/sump tanks.",
+        img: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Deep home cleaning",
+        category: "CLEANING & MAINTENANCE",
+        mediaTag: "REAL PHOTO • DEEP HOME CLEANING",
+        desc: "Detailed floor scrubbing, kitchen degreasing, bathroom descaling, and full home sanitization.",
+        img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Office cleaning",
+        category: "CLEANING & MAINTENANCE",
+        mediaTag: "REAL PHOTO • OFFICE UPKEEP",
+        desc: "Commercial workspace workstation sanitization, glass partition cleaning, and carpet vacuuming.",
+        img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Marble polishing",
+        category: "STONE & INTERIORS",
+        mediaTag: "REAL PHOTO • MARBLE POLISHING",
+        desc: "Diamond pad grinding and mirror-gloss crystallization for Italian and Indian marble floors.",
+        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Granite polishing",
+        category: "STONE & INTERIORS",
+        mediaTag: "REAL PHOTO • GRANITE POLISHING",
+        desc: "Kitchen countertop and granite flooring stain removal, buffing, and shine restoration.",
+        img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Tile installation & repair",
+        category: "STONE & INTERIORS",
+        mediaTag: "REAL PHOTO • TILE WORK",
+        desc: "Floor and wall vitrified tile laying, cracked tile replacement, and epoxy grouting.",
+        img: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Interior painting",
+        category: "STONE & INTERIORS",
+        mediaTag: "REAL PHOTO • INTERIOR PAINTING",
+        desc: "Wall putty leveling, primer coat, and smooth emulsion painting for homes and offices.",
+        img: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Carpentry & furniture assembly",
+        category: "STONE & INTERIORS",
+        mediaTag: "REAL PHOTO • CARPENTRY",
+        desc: "Modular furniture assembly, wardrobe hinge repair, drawer channel fix, and wooden door alignment.",
+        img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Door and lock service",
+        category: "STONE & INTERIORS",
+        mediaTag: "REAL PHOTO • DOOR & SMART LOCK",
+        desc: "Smart digital door lock installation, mortise handle replacement, and door closer fitting.",
+        img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Curtain and blind installation",
+        category: "INSTALLATION",
+        mediaTag: "REAL PHOTO • CURTAIN & BLINDS",
+        desc: "Curtain rod brackets, motorized tracks, and office roller/zebra blind installation.",
+        img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Loading, unloading & shifting",
+        category: "INSTALLATION",
+        mediaTag: "REAL PHOTO • FURNITURE SHIFTING",
+        desc: "Careful in-home furniture repositioning, heavy appliance shifting, and loading assistance.",
+        img: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "General handyman visit",
+        category: "CLEANING & MAINTENANCE",
+        mediaTag: "REAL PHOTO • HANDYMAN VISIT",
+        desc: "Multi-task technician visit for wall drilling, shelf mounting, minor fixes, and home upkeep.",
+        img: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Office maintenance visit",
+        category: "CLEANING & MAINTENANCE",
+        mediaTag: "REAL PHOTO • OFFICE MAINTENANCE",
+        desc: "Scheduled facility maintenance for electrical, lighting, plumbing, and workstation repairs.",
+        img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
 
-        function renderServices(filter = "") {
-            grid.innerHTML = "";
-            exactServicesData.forEach((service) => {
-                if (service.name.toLowerCase().includes(filter.toLowerCase())) {
-                    const card = document.createElement('div');
-                    card.className = 'service-card';
-                    card.innerHTML = `
-                        <div class="card-img-wrapper">
-                            <img src="${service.img}" alt="${service.name}" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <h4>${service.name}</h4>
-                                <p>Certified enterprise & residential execution with guaranteed safety standards.</p>
-                            </div>
-                            <a href="https://wa.me/918500618707?text=Hello%20GTS,%20I%20require%20dispatch%20for:%20${encodeURIComponent(service.name)}" target="_blank" class="book-btn">
-                                <span>Book Dispatch</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                }
-            });
-        }
+    let activeCategory = 'ALL';
+    const whatsappNumber = "918048061672"; // Update with your direct WhatsApp number if different
 
-        searchInput.addEventListener('input', (e) => {
-            renderServices(e.target.value);
-        });
+    function renderServices() {
+      const grid = document.getElementById('servicesGrid');
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      grid.innerHTML = '';
 
-        renderServices();
-    </script>
+      const filtered = servicesData.filter(item => {
+        const matchesCat = activeCategory === 'ALL' || item.category === activeCategory;
+        const matchesSearch = item.title.toLowerCase().includes(query) ||
+                              item.desc.toLowerCase().includes(query) ||
+                              item.category.toLowerCase().includes(query);
+        return matchesCat && matchesSearch;
+      });
+
+      filtered.forEach(service => {
+        const waText = encodeURIComponent(`Hello GTS Team, I need a quote for *${service.title}* in Hyderabad.`);
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.innerHTML = `
+          <div class="card-media">
+            <img src="${service.img}" alt="${service.title}" loading="lazy">
+            <div class="card-media-overlay">
+              <span class="media-label">${service.mediaTag}</span>
+              <span class="gold-dot"></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3 class="card-title">${service.title}</h3>
+              <a href="tel:08048061672" class="contact-chip">Contact us</a>
+            </div>
+            <div class="card-cat">${service.category}</div>
+            <p class="card-desc">${service.desc}</p>
+            <div class="quote-label">Request a quote</div>
+            <div class="card-actions">
+              <button class="btn-callback" onclick="openModal('${service.title}')">Request callback</button>
+              <a href="https://wa.me/${whatsappNumber}?text=${waText}" target="_blank" rel="noopener" class="btn-whatsapp">WhatsApp ↗</a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function setCategory(cat, btn) {
+      activeCategory = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderServices();
+    }
+
+    function filterServices() {
+      renderServices();
+    }
+
+    function openModal(serviceName) {
+      document.getElementById('modalServiceTitle').innerText = serviceName;
+      document.getElementById('selectedServiceInput').value = serviceName;
+      document.getElementById('callbackModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('callbackModal').classList.remove('open');
+    }
+
+    function submitCallback(e) {
+      e.preventDefault();
+      const service = document.getElementById('selectedServiceInput').value;
+      const name = document.getElementById('custName').value;
+      const phone = document.getElementById('custPhone').value;
+      const area = document.getElementById('custArea').value || 'Hyderabad';
+
+      const msg = encodeURIComponent(
+        `*GTS Callback Request*\nService: ${service}\nName: ${name}\nPhone: ${phone}\nLocation: ${area}`
+      );
+      window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
+      closeModal();
+    }
+
+    // Initial render
+    renderServices();
+  </script>
 </body>
 </html>
