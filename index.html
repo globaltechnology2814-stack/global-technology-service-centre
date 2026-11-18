@@ -205,14 +205,16 @@
     }
 
     @media (max-width: 640px) {
-      .nav { flex-wrap: wrap; gap: 10px; }
+      .nav { flex-wrap: wrap; gap: 8px; }
       .topbar {
         width: calc(100% - 16px);
         padding: 10px 12px;
         border-radius: 14px;
       }
-      .brand { flex: 1 1 0%; min-width: 0; gap: 10px; }
-      .brand-title { font-size: clamp(0.74rem, 3.2vw, 0.9rem); }
+      .brand { flex: 1 1 0%; min-width: 0; gap: 8px; }
+      .brand > span:last-child { min-width: 0; flex: 1 1 auto; }
+      .brand-mark-3d { min-width: 56px; height: 34px; padding: 0 9px; font-size: 0.84rem; }
+      .brand-title { white-space: normal; font-size: clamp(0.68rem, 3.1vw, 0.84rem); line-height: 1.2; overflow: visible; text-overflow: clip; }
       .nav-menu-toggle { display: inline-flex; }
       .nav-links {
         display: none;
