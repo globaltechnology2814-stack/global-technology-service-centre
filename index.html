@@ -26,6 +26,7 @@
     "alternateName": "globaltechnologyservicecentre.com",
     "url": "https://www.globaltechnologyservicecentre.com/",
     "telephone": "+918500618707",
+    "email": "email.global@globaltechnologyservicecentre.com",
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -63,13 +64,13 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; overflow-x: clip; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-void);
       color: var(--text);
       line-height: 1.55;
-      overflow-x: hidden;
+      overflow-x: clip;
       background-image:
         radial-gradient(circle at 12% 14%, rgba(199, 164, 106, 0.11) 0%, transparent 38%),
         radial-gradient(circle at 88% 45%, rgba(59, 130, 246, 0.08) 0%, transparent 42%),
@@ -113,13 +114,15 @@
       flex-wrap: nowrap;
     }
     @media (max-width: 900px) {
-      .nav { flex-wrap: wrap; }
+      .nav { flex-wrap: wrap; gap: 10px; }
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .brand-mark-3d {
@@ -173,8 +176,72 @@
     }
     .nav-link { white-space: nowrap; }
     .nav-links .btn-3d { white-space: nowrap; }
+    .nav-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #1b2436 0%, #0f1522 100%);
+      color: var(--gold-bright);
+      border: 1px solid var(--gold-dim);
+      font-size: 1.35rem;
+      line-height: 1;
+      font-weight: 800;
+      box-shadow: 0 4px 0 #05070b, 0 8px 16px rgba(0, 0, 0, 0.35);
+      transition: border-color 0.2s ease, transform 0.15s ease;
+    }
+    .nav-menu-toggle:hover,
+    .nav-menu-toggle[aria-expanded="true"] {
+      border-color: var(--gold);
+      background: rgba(199, 164, 106, 0.14);
+    }
     @media (max-width: 900px) {
-      .nav-links { flex-wrap: wrap; margin-left: 0; justify-content: flex-start; }
+      .brand { flex: 1 1 100%; min-width: 0; }
+      .brand-title { white-space: normal; font-size: clamp(0.76rem, 1.8vw, 0.92rem); line-height: 1.25; }
+      .nav-links {
+        width: 100%;
+        flex-shrink: 1;
+        flex-wrap: wrap;
+        margin-left: 0;
+        justify-content: flex-start;
+        gap: 6px;
+      }
+    }
+    @media (max-width: 640px) {
+      .topbar {
+        width: calc(100% - 16px);
+        padding: 10px 12px;
+        border-radius: 14px;
+      }
+      .brand { flex: 1 1 0%; min-width: 0; gap: 10px; }
+      .brand-title { font-size: clamp(0.74rem, 3.2vw, 0.9rem); }
+      .nav-menu-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        flex-shrink: 1;
+        margin-left: 0;
+        gap: 6px;
+        padding-top: 10px;
+        margin-top: 4px;
+        border-top: 1px solid rgba(199, 164, 106, 0.2);
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links .nav-link {
+        width: 100%;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .nav-links .btn-3d {
+        width: 100%;
+        margin-top: 2px;
+      }
     }
 
     .nav-link {
@@ -887,6 +954,88 @@
       resize: vertical;
     }
 
+    .booking-form input[type="datetime-local"],
+    .popup-form input[type="datetime-local"] {
+      color-scheme: dark;
+    }
+
+    .slot-picker-group {
+      display: grid;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .slot-sub-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .slot-btn-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .slot-chip {
+      padding: 7px 11px;
+      border-radius: 8px;
+      border: 1px solid rgba(199, 164, 106, 0.35);
+      background: rgba(15, 20, 31, 0.9);
+      color: #e2e8f0;
+      font-size: 0.76rem;
+      font-weight: 600;
+      transition: all 0.16s ease;
+    }
+
+    .slot-chip:hover {
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+    }
+
+    .slot-chip.is-active {
+      background: linear-gradient(180deg, #f3d999 0%, #c7a46a 100%);
+      color: #0b0e14;
+      border-color: #f3d999;
+      font-weight: 700;
+    }
+
+    .datetime-picker-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .datetime-picker-row input[type="datetime-local"] {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .slot-pick-btn {
+      flex-shrink: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--gold-dim);
+      background: linear-gradient(180deg, #1b2436 0%, #0f1522 100%);
+      color: var(--gold-bright);
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .slot-pick-btn:hover {
+      border-color: var(--gold-bright);
+    }
+
+    .slot-selected-readout {
+      font-size: 0.74rem;
+      color: var(--gold-bright);
+      font-weight: 600;
+      min-height: 1.1em;
+    }
+
     .consent {
       display: flex !important;
       align-items: flex-start;
@@ -1230,7 +1379,8 @@
           <span class="brand-title">GLOBAL TECHNOLOGY SERVICE CENTRE</span>
         </span>
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
+      <button class="nav-menu-toggle" id="nav-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-links">&#8942;</button>
+      <nav class="nav-links" id="main-nav-links" aria-label="Main navigation">
         <a class="nav-link" href="#services">All Services</a>
         <a class="nav-link" href="#daily-update">Daily Spotlight</a>
         <a class="nav-link" href="tel:08048061672">IVR 08048061672</a>
@@ -1374,12 +1524,14 @@
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
             <a class="btn-3d btn-whatsapp" href="https://wa.me/918500618707?text=Hello%2C%20I%20would%20like%20to%20request%20a%20service%20callback." target="_blank" rel="noopener noreferrer">Message on WhatsApp ↗</a>
             <a class="btn-3d btn-obsidian" href="tel:08048061672">Call 08048061672</a>
+            <a class="btn-3d btn-obsidian" href="mailto:email.global@globaltechnologyservicecentre.com?subject=Service%20Enquiry%20-%20Global%20Technology%20Service%20Centre">Email Enquiry ↗</a>
           </div>
           <p style="font-size:0.8rem;color:var(--muted);">Direct Dispatch: 8500618707 · IVR Support: 08048061672</p>
         </div>
 
         <form class="booking-form" id="appointment-form" action="https://formspree.io/f/xppdwwab" method="POST">
           <input type="hidden" name="_subject" value="New website service inquiry - Global Technology Service Centre" />
+          <input type="hidden" name="_cc" value="email.global@globaltechnologyservicecentre.com" />
           <label>Service
             <select id="booking-service" name="service" required></select>
           </label>
@@ -1392,9 +1544,31 @@
           <label>Email address
             <input name="email" type="email" autocomplete="email" maxlength="160" placeholder="you@example.com" required />
           </label>
-          <label class="wide">Preferred date/time (optional)
-            <input type="datetime-local" name="preferred_datetime" />
-          </label>
+          <div class="wide slot-picker-group" data-slot-group>
+            <label>Preferred date &amp; available slot (optional)</label>
+            <input type="hidden" name="preferred_slot" value="" />
+            <div class="slot-sub-label">Available Dates</div>
+            <div class="slot-btn-grid slot-date-buttons"></div>
+            <div class="slot-sub-label">Available Time Slots (Every 1 Hour)</div>
+            <div class="slot-btn-grid slot-time-buttons">
+              <button type="button" class="slot-chip" data-time="09:00" data-label="09:00 AM">09:00 AM</button>
+              <button type="button" class="slot-chip" data-time="10:00" data-label="10:00 AM">10:00 AM</button>
+              <button type="button" class="slot-chip" data-time="11:00" data-label="11:00 AM">11:00 AM</button>
+              <button type="button" class="slot-chip" data-time="12:00" data-label="12:00 PM">12:00 PM</button>
+              <button type="button" class="slot-chip" data-time="13:00" data-label="01:00 PM">01:00 PM</button>
+              <button type="button" class="slot-chip" data-time="14:00" data-label="02:00 PM">02:00 PM</button>
+              <button type="button" class="slot-chip" data-time="15:00" data-label="03:00 PM">03:00 PM</button>
+              <button type="button" class="slot-chip" data-time="16:00" data-label="04:00 PM">04:00 PM</button>
+              <button type="button" class="slot-chip" data-time="17:00" data-label="05:00 PM">05:00 PM</button>
+              <button type="button" class="slot-chip" data-time="18:00" data-label="06:00 PM">06:00 PM</button>
+              <button type="button" class="slot-chip" data-time="19:00" data-label="07:00 PM">07:00 PM</button>
+              <button type="button" class="slot-chip" data-time="20:00" data-label="08:00 PM">08:00 PM</button>
+              <button type="button" class="slot-chip" data-time="21:00" data-label="09:00 PM">09:00 PM</button>
+              <button type="button" class="slot-chip" data-time="urgent" data-label="24/7 Urgent Dispatch">24/7 Urgent</button>
+            </div>
+            <input type="hidden" name="preferred_datetime" value="" />
+            <div class="slot-selected-readout" aria-live="polite"></div>
+          </div>
           <label class="wide">How can we help?
             <textarea name="reason" rows="3" maxlength="1500" placeholder="Describe the service required and preferred schedule." required></textarea>
           </label>
@@ -1404,7 +1578,7 @@
           </label>
           <p class="form-status" id="booking-status" role="status" aria-live="polite"></p>
           <div class="form-actions">
-            <span class="form-note">Submitting sends your request to Formspree.</span>
+            <span class="form-note">Submitting sends your request to <a href="mailto:email.global@globaltechnologyservicecentre.com" style="color:var(--gold-bright);">email.global@globaltechnologyservicecentre.com</a>.</span>
             <button class="btn-3d btn-gold" type="submit">Send inquiry</button>
           </div>
         </form>
@@ -1418,6 +1592,7 @@
       <span class="footer-links">
           <a href="tel:08048061672">IVR 08048061672</a> ·
           <a href="tel:+918500618707">85006 18707</a> ·
+          <a href="mailto:email.global@globaltechnologyservicecentre.com">email.global@globaltechnologyservicecentre.com</a> ·
           <a href="https://wa.me/918500618707?text=Hello%2C%20I%20have%20a%20service%20inquiry." target="_blank" rel="noopener noreferrer">WhatsApp</a> ·
           <a href="https://www.google.com/maps/search/?api=1&query=Global+Technology+Service+Centre+Hyderabad&query_place_id=ChIJKeDON3WRyzsRBbC0YY152Kk" target="_blank" rel="noopener noreferrer">Google Business Profile</a>
         </span>
@@ -1434,6 +1609,7 @@
     <div class="popup-body">
       <form class="popup-form" id="popup-form" action="https://formspree.io/f/xppdwwab" method="POST">
         <input type="hidden" name="_subject" value="New callback request - Global Technology Service Centre" />
+        <input type="hidden" name="_cc" value="email.global@globaltechnologyservicecentre.com" />
         <label>Your name
           <input name="name" autocomplete="name" maxlength="100" required />
         </label>
@@ -1446,6 +1622,31 @@
         <label>Service (optional)
           <select name="service" id="popup-service"><option value="">Choose a service</option></select>
         </label>
+        <div class="slot-picker-group" data-slot-group>
+          <label>Preferred date &amp; available slot (optional)</label>
+          <input type="hidden" name="preferred_slot" value="" />
+          <div class="slot-sub-label">Available Dates</div>
+          <div class="slot-btn-grid slot-date-buttons"></div>
+          <div class="slot-sub-label">Available Time Slots (Every 1 Hour)</div>
+          <div class="slot-btn-grid slot-time-buttons">
+            <button type="button" class="slot-chip" data-time="09:00" data-label="09:00 AM">09:00 AM</button>
+            <button type="button" class="slot-chip" data-time="10:00" data-label="10:00 AM">10:00 AM</button>
+            <button type="button" class="slot-chip" data-time="11:00" data-label="11:00 AM">11:00 AM</button>
+            <button type="button" class="slot-chip" data-time="12:00" data-label="12:00 PM">12:00 PM</button>
+            <button type="button" class="slot-chip" data-time="13:00" data-label="01:00 PM">01:00 PM</button>
+            <button type="button" class="slot-chip" data-time="14:00" data-label="02:00 PM">02:00 PM</button>
+            <button type="button" class="slot-chip" data-time="15:00" data-label="03:00 PM">03:00 PM</button>
+            <button type="button" class="slot-chip" data-time="16:00" data-label="04:00 PM">04:00 PM</button>
+            <button type="button" class="slot-chip" data-time="17:00" data-label="05:00 PM">05:00 PM</button>
+            <button type="button" class="slot-chip" data-time="18:00" data-label="06:00 PM">06:00 PM</button>
+            <button type="button" class="slot-chip" data-time="19:00" data-label="07:00 PM">07:00 PM</button>
+            <button type="button" class="slot-chip" data-time="20:00" data-label="08:00 PM">08:00 PM</button>
+            <button type="button" class="slot-chip" data-time="21:00" data-label="09:00 PM">09:00 PM</button>
+            <button type="button" class="slot-chip" data-time="urgent" data-label="24/7 Urgent Dispatch">24/7 Urgent</button>
+          </div>
+          <input type="hidden" name="preferred_datetime" value="" />
+          <div class="slot-selected-readout" aria-live="polite"></div>
+        </div>
         <label>What do you need?
           <textarea name="reason" rows="3" maxlength="1500" required placeholder="Describe the service required and preferred schedule."></textarea>
         </label>
@@ -1453,7 +1654,7 @@
           <input type="checkbox" name="contact_consent" value="yes" required />
           <span>I agree that the business may contact me about this inquiry.</span>
         </label>
-        <p class="privacy-note">Your details are used solely to respond to this inquiry.</p>
+        <p class="privacy-note">Enquiries are sent to <a href="mailto:email.global@globaltechnologyservicecentre.com" style="color:var(--gold-bright);">email.global@globaltechnologyservicecentre.com</a> and used solely to respond to this inquiry.</p>
         <p class="popup-status" id="popup-status" role="status" aria-live="polite"></p>
         <div class="popup-actions">
           <button class="btn-3d btn-gold" type="submit">Send callback request</button>
@@ -2536,7 +2737,113 @@
       });
     }
 
+    // Mobile 3-dot navigation menu
+    const navMenuToggle = document.getElementById('nav-menu-toggle');
+    const mainNavLinks = document.getElementById('main-nav-links');
+    if (navMenuToggle && mainNavLinks) {
+      const closeNavMenu = () => {
+        mainNavLinks.classList.remove('is-open');
+        navMenuToggle.setAttribute('aria-expanded', 'false');
+      };
+      navMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = mainNavLinks.classList.toggle('is-open');
+        navMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      mainNavLinks.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', closeNavMenu);
+      });
+      document.addEventListener('click', (e) => {
+        if (!mainNavLinks.contains(e.target) && !navMenuToggle.contains(e.target)) {
+          closeNavMenu();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeNavMenu();
+      });
+    }
+
+    // Available Date & Time Slot Pickers
+    function initSlotPickers() {
+      const now = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      const formatYMD = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      const dayLabels = ['Today', 'Tomorrow'];
+      const dateOptions = Array.from({ length: 4 }, (_, offset) => {
+        const d = new Date(now);
+        d.setDate(now.getDate() + offset);
+        const shortDate = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+        const label = offset < 2 ? `${dayLabels[offset]} (${shortDate})` : d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+        return { value: formatYMD(d), label };
+      });
+
+      document.querySelectorAll('[data-slot-group]').forEach(group => {
+        const dateWrap = group.querySelector('.slot-date-buttons');
+        const timeWrap = group.querySelector('.slot-time-buttons');
+        const dtInput = group.querySelector('input[name="preferred_datetime"]');
+        const slotInput = group.querySelector('input[name="preferred_slot"]');
+        const pickBtn = group.querySelector('.slot-pick-btn');
+        const readout = group.querySelector('.slot-selected-readout');
+        let selectedDate = dateOptions[0].value;
+        let selectedDateLabel = dateOptions[0].label;
+        let selectedTime = '';
+        let selectedTimeLabel = '';
+
+        dateWrap.innerHTML = dateOptions.map(opt =>
+          `<button type="button" class="slot-chip" data-date="${opt.value}" data-label="${opt.label}">${opt.label}</button>`
+        ).join('');
+
+        const syncValue = () => {
+          if (!selectedDate) return;
+          let timeVal = selectedTime;
+          if (!timeVal || timeVal === 'urgent') {
+            const cur = new Date();
+            timeVal = `${pad(cur.getHours())}:${pad(cur.getMinutes())}`;
+          }
+          if (dtInput) dtInput.value = `${selectedDate}T${timeVal}`;
+          const summary = [selectedDateLabel, selectedTimeLabel].filter(Boolean).join(' · ');
+          if (slotInput) slotInput.value = summary;
+          if (readout) readout.textContent = summary ? `Selected slot: ${summary}` : '';
+        };
+
+        dateWrap.querySelectorAll('.slot-chip').forEach(btn => {
+          btn.addEventListener('click', () => {
+            dateWrap.querySelectorAll('.slot-chip').forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+            selectedDate = btn.dataset.date;
+            selectedDateLabel = btn.dataset.label;
+            syncValue();
+          });
+        });
+
+        timeWrap.querySelectorAll('.slot-chip').forEach(btn => {
+          btn.addEventListener('click', () => {
+            timeWrap.querySelectorAll('.slot-chip').forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+            selectedTime = btn.dataset.time;
+            selectedTimeLabel = btn.dataset.label;
+            if (!dateWrap.querySelector('.slot-chip.is-active')) {
+              const firstDateBtn = dateWrap.querySelector('.slot-chip');
+              if (firstDateBtn) firstDateBtn.classList.add('is-active');
+            }
+            syncValue();
+          });
+        });
+
+        if (pickBtn && dtInput) {
+          pickBtn.addEventListener('click', () => {
+            if (typeof dtInput.showPicker === 'function') {
+              try { dtInput.showPicker(); } catch (_) { dtInput.focus(); }
+            } else {
+              dtInput.focus();
+            }
+          });
+        }
+      });
+    }
+
     // Initialize
+    initSlotPickers();
     renderSpotlight();
     drawFilters();
     drawServices();
