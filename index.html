@@ -110,34 +110,37 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: nowrap;
-    }
-    @media (max-width: 900px) {
-      .nav { flex-wrap: wrap; gap: 10px; }
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex: 0 1 auto;
       min-width: 0;
       max-width: 100%;
     }
 
     .brand-mark-3d {
-      width: 42px;
-      height: 42px;
+      width: auto;
+      min-width: 66px;
+      height: 38px;
+      padding: 0 12px;
       border-radius: 12px;
       background: linear-gradient(145deg, #f0d494 0%, #c7a46a 55%, #8a6a35 100%);
       color: #090c12;
       font-family: 'Manrope', sans-serif;
       font-weight: 800;
-      font-size: 1.15rem;
-      display: grid;
+      font-size: 0.94rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-grid;
       place-items: center;
       box-shadow: 0 8px 22px rgba(199, 164, 106, 0.38), inset 0 2px 2px rgba(255, 255, 255, 0.5);
-      transform: perspective(400px) rotateY(-12deg) rotateX(6deg);
+      transform: perspective(400px) rotateY(-10deg) rotateX(6deg);
       transition: transform 0.3s ease;
     }
 
@@ -148,11 +151,13 @@
     .brand-title {
       display: block;
       font-weight: 800;
-      font-size: clamp(0.76rem, 1.1vw, 0.94rem);
-      letter-spacing: 0.05em;
+      font-size: clamp(0.68rem, 0.92vw, 0.88rem);
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--ink);
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       line-height: 1.15;
     }
 
@@ -169,13 +174,13 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 8px;
+      gap: 4px;
       flex-wrap: nowrap;
       margin-left: auto;
       flex-shrink: 0;
     }
     .nav-link { white-space: nowrap; }
-    .nav-links .btn-3d { white-space: nowrap; }
+    .nav-links .btn-3d { white-space: nowrap; padding: 8px 13px; font-size: clamp(0.74rem, 0.85vw, 0.82rem); }
     .nav-menu-toggle {
       display: none;
       align-items: center;
@@ -198,19 +203,9 @@
       border-color: var(--gold);
       background: rgba(199, 164, 106, 0.14);
     }
-    @media (max-width: 900px) {
-      .brand { flex: 1 1 100%; min-width: 0; }
-      .brand-title { white-space: normal; font-size: clamp(0.76rem, 1.8vw, 0.92rem); line-height: 1.25; }
-      .nav-links {
-        width: 100%;
-        flex-shrink: 1;
-        flex-wrap: wrap;
-        margin-left: 0;
-        justify-content: flex-start;
-        gap: 6px;
-      }
-    }
+
     @media (max-width: 640px) {
+      .nav { flex-wrap: wrap; gap: 10px; }
       .topbar {
         width: calc(100% - 16px);
         padding: 10px 12px;
@@ -245,9 +240,9 @@
     }
 
     .nav-link {
-      padding:  8px 10px;
+      padding: 7px 8px;
       border-radius: 10px;
-      font-size: 0.82rem;
+      font-size: clamp(0.74rem, 0.85vw, 0.82rem);
       font-weight: 600;
       color: #d6deea;
       border: 1px solid transparent;
@@ -502,13 +497,42 @@
       margin-top: 28px;
       padding-top: 22px;
       border-top: 1px solid var(--border);
+      perspective: 900px;
+    }
+
+    @keyframes statFloat3D {
+      0%, 100% {
+        transform: perspective(700px) rotateX(4deg) rotateY(-3deg) translateY(0px);
+      }
+      50% {
+        transform: perspective(700px) rotateX(-3deg) rotateY(4deg) translateY(-5px);
+      }
     }
 
     .stat-box {
-      padding: 12px 16px;
+      display: block;
+      padding: 14px 16px;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(155deg, rgba(22, 29, 44, 0.92), rgba(10, 14, 22, 0.95));
+      border: 1px solid rgba(199, 164, 106, 0.24);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+      transform-style: preserve-3d;
+      animation: statFloat3D 5.5s ease-in-out infinite;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stat-box:nth-child(2) { animation-delay: 0.7s; }
+    .stat-box:nth-child(3) { animation-delay: 1.4s; }
+
+    .stat-box:hover {
+      animation-play-state: paused;
+      transform: perspective(700px) rotateX(8deg) rotateY(-5deg) translateY(-6px) scale(1.02);
+      border-color: var(--gold-bright);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.6), 0 0 18px rgba(199, 164, 106, 0.22);
+    }
+
+    .stat-box:active {
+      transform: perspective(700px) translateY(1px) scale(0.99);
     }
 
     .stat-box strong {
@@ -1364,7 +1388,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .ticker-track, .orbit-ring, .hero-cube-card { animation: none; }
+      .ticker-track, .orbit-ring, .hero-cube-card, .stat-box { animation: none; }
       .service-card, .card-media img { transition: none; }
     }
   </style>
@@ -1374,7 +1398,7 @@
   <header class="topbar">
     <div class="nav">
       <a class="brand" href="#home">
-        <span class="brand-mark-3d" aria-hidden="true" style="width:auto;min-width:46px;padding:0 11px;font-size:0.88rem;letter-spacing:0.09em;">GTS</span>
+        <span class="brand-mark-3d" aria-hidden="true">GTSC</span>
         <span>
           <span class="brand-title">GLOBAL TECHNOLOGY SERVICE CENTRE</span>
         </span>
@@ -1382,8 +1406,8 @@
       <button class="nav-menu-toggle" id="nav-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-links">&#8942;</button>
       <nav class="nav-links" id="main-nav-links" aria-label="Main navigation">
         <a class="nav-link" href="#services">All Services</a>
-        <a class="nav-link" href="#daily-update">Daily Spotlight</a>
-        <a class="nav-link" href="tel:08048061672">IVR 08048061672</a>
+        <a class="nav-link" href="#daily-update">Featured Services</a>
+        <a class="nav-link" href="tel:08048061672">08048061672</a>
         <button class="btn-3d btn-gold open-inquiry" type="button">Request a callback</button>
       </nav>
     </div>
@@ -1403,21 +1427,21 @@
             <button class="btn-3d btn-obsidian open-inquiry" type="button">Request a callback</button>
             <a class="btn-3d btn-whatsapp" href="https://wa.me/918500618707?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20a%20service." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
           </div>
-          <div class="trustline">Certified technicians · Enterprise-grade standards · Direct 8500618707 &amp; IVR 08048061672</div>
+          <div class="trustline">Certified technicians · Enterprise-grade standards · Direct 8500618707 &amp; 08048061672</div>
 
           <div class="stats-bar">
-            <div class="stat-box">
+            <a class="stat-box" href="#services">
               <strong>All Services</strong>
-              <span>All 10 categories</span>
-            </div>
-            <div class="stat-box">
+              <span>24/7 technical support</span>
+            </a>
+            <a class="stat-box" href="#book-appointment">
               <strong>Hyderabad</strong>
-              <span>Home &amp; office visits</span>
-            </div>
-            <div class="stat-box">
+              <span>Residential &amp; commercial services</span>
+            </a>
+            <a class="stat-box" href="tel:+918500618707">
               <strong>85006 18707</strong>
-              <span>WhatsApp &amp; IVR 08048061672</span>
-            </div>
+              <span>WhatsApp &amp; 08048061672</span>
+            </a>
           </div>
         </div>
 
@@ -1496,7 +1520,7 @@
         <div style="display:grid;gap:10px;justify-items:end;">
           <div class="social-links">
             <a class="btn-3d btn-whatsapp" href="https://wa.me/918500618707?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20your%20services." target="_blank" rel="noopener noreferrer">WhatsApp 85006 18707 ↗</a>
-            <a class="btn-3d btn-obsidian" href="tel:08048061672">Call IVR 08048061672</a>
+            <a class="btn-3d btn-obsidian" href="tel:08048061672">Call 08048061672</a>
             <a class="btn-3d btn-obsidian" href="https://www.google.com/maps/search/?api=1&query=Global+Technology+Service+Centre+Hyderabad&query_place_id=ChIJKeDON3WRyzsRBbC0YY152Kk" target="_blank" rel="noopener noreferrer">Google Business Profile ↗</a>
           </div>
           <div class="social-icon-row" aria-label="Social media and share links">
@@ -1588,9 +1612,9 @@
 
   <footer>
     <div class="container footer-inner">
-      <div><span>globaltechnologyservicecentre.com · Global Technology Service Centre</span><div style="margin-top:4px;color:#fff;font-weight:700;">Copyright © 2026. All rights reserved</div></div>
+      <div><span>Global Technology Service Centre</span><div style="margin-top:4px;color:#fff;font-weight:700;">Copyright © 2026. All rights reserved</div></div>
       <span class="footer-links">
-          <a href="tel:08048061672">IVR 08048061672</a> ·
+          <a href="tel:08048061672">08048061672</a> ·
           <a href="tel:+918500618707">85006 18707</a> ·
           <a href="mailto:email.global@globaltechnologyservicecentre.com">email.global@globaltechnologyservicecentre.com</a> ·
           <a href="https://wa.me/918500618707?text=Hello%2C%20I%20have%20a%20service%20inquiry." target="_blank" rel="noopener noreferrer">WhatsApp</a> ·
