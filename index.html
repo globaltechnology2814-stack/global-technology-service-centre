@@ -41,10 +41,7 @@
         "availableLanguage": ["English"]
       }
     ],
-    "openingHours": "Mo-Su 00:00-23:59",
-    "sameAs": [
-      "https://www.google.com/maps/search/?api=1&query=Global+Technology+Service+Centre&query_place_id=ChIJKeDON3WRyzsRBbC0YY152Kk"
-    ]
+    "openingHours": "Mo-Su 00:00-23:59"
   }
   </script>
   <style>
@@ -1393,6 +1390,264 @@
       .ticker-track, .orbit-ring, .hero-cube-card, .stat-box { animation: none; }
       .service-card, .card-media img { transition: none; }
     }
+
+    /* Social Media Post Composer Modal */
+    .social-post-dialog {
+      width: min(680px, calc(100% - 24px));
+      max-height: 90vh;
+      margin: auto;
+      padding: 0;
+      border-radius: 20px;
+      border: 1px solid var(--gold-dim);
+      background: #0d121d;
+      color: #fff;
+      box-shadow: 0 32px 90px rgba(0, 0, 0, 0.86);
+      overflow-y: auto;
+    }
+
+    .social-post-dialog::backdrop {
+      background: rgba(4, 6, 10, 0.82);
+      backdrop-filter: blur(6px);
+    }
+
+    .sp-body {
+      padding: 18px 22px 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .sp-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .sp-field label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .sp-field input,
+    .sp-field textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #070a11;
+      color: #fff;
+      font: inherit;
+      font-size: 0.88rem;
+    }
+
+    .sp-field textarea {
+      min-height: 110px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    .sp-field input:focus,
+    .sp-field textarea:focus {
+      outline: none;
+      border-color: var(--gold-bright);
+    }
+
+    .sp-targets-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sp-targets-head span {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .sp-select-all {
+      border: 1px solid rgba(212, 175, 55, 0.38);
+      background: rgba(212, 175, 55, 0.08);
+      color: var(--gold-bright);
+      border-radius: 999px;
+      padding: 4px 11px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .sp-platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 8px;
+    }
+
+    .sp-check-card {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .sp-check-card:hover {
+      border-color: rgba(212, 175, 55, 0.5);
+      background: rgba(212, 175, 55, 0.06);
+    }
+
+    .sp-check-card input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #d4af37;
+      cursor: pointer;
+    }
+
+    .sp-quick-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .sp-quick-btn {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .sp-quick-btn:hover {
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+      transform: translateY(-1px);
+    }
+
+    .sp-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .sp-status {
+      min-height: 1.2em;
+      font-size: 0.8rem;
+      color: #86efac;
+    }
+
+
+    /* Owner-only controls (hidden from customers by default) */
+    .owner-only {
+      display: none !important;
+    }
+
+    body.owner-mode .owner-only {
+      display: inline-flex !important;
+    }
+
+    .owner-footer-trigger {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font-size: 0.72rem;
+      opacity: 0.45;
+      cursor: pointer;
+      padding: 2px 6px;
+      margin-left: 6px;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .owner-footer-trigger:hover {
+      opacity: 1;
+      color: var(--gold-bright);
+    }
+
+    body.owner-mode .owner-footer-trigger {
+      opacity: 1;
+      color: #86efac;
+    }
+
+    .owner-pin-dialog {
+      width: min(380px, calc(100% - 24px));
+      margin: auto;
+      padding: 0;
+      border-radius: 16px;
+      border: 1px solid var(--gold-dim);
+      background: #0d121d;
+      color: #fff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.86);
+    }
+
+    .owner-pin-dialog::backdrop {
+      background: rgba(4, 6, 10, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .kw-list {
+      display: grid;
+      gap: 10px;
+      max-height: 46vh;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .kw-item {
+      display: grid;
+      gap: 6px;
+      padding: 11px 13px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .kw-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .kw-item-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+    }
+
+    .kw-item-tags {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
   </style>
 </head>
 <body>
@@ -1477,7 +1732,7 @@
           </div>
           <div class="spotlight-actions">
             <button class="btn-3d btn-gold" type="button" id="spotlight-book">Book spotlight</button>
-          <button class="btn-3d btn-obsidian" type="button" id="spotlight-details">View details</button>
+            <button class="btn-3d btn-obsidian" type="button" id="spotlight-details">View details</button>
             <button class="btn-3d btn-obsidian" type="button" id="spotlight-next">Next service →</button>
           </div>
         </div>
@@ -1517,13 +1772,14 @@
       <div class="container social-inner">
         <div>
           <h2>Connect with Global Technology Service Centre</h2>
-          <p>Reach us on WhatsApp, call our IVR, or view our verified Google Business Profile.</p>
+          <p>Reach us on WhatsApp or call our IVR for immediate service support.</p>
         </div>
         <div style="display:grid;gap:10px;justify-items:end;">
           <div class="social-links">
             <a class="btn-3d btn-whatsapp" href="https://wa.me/918500618707?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20your%20services." target="_blank" rel="noopener noreferrer">WhatsApp 85006 18707 ↗</a>
             <a class="btn-3d btn-obsidian" href="tel:08048061672">Call 08048061672</a>
-            <a class="btn-3d btn-obsidian" href="https://www.google.com/maps/search/?api=1&query=Global+Technology+Service+Centre+Hyderabad&query_place_id=ChIJKeDON3WRyzsRBbC0YY152Kk" target="_blank" rel="noopener noreferrer">Google Business Profile ↗</a>
+            <button class="btn-3d btn-gold owner-only" type="button" id="connect-social-post">Update / Post to Socials ↗</button>
+            <button class="btn-3d btn-obsidian owner-only" type="button" id="connect-keywords-btn">Keywords ↗</button>
           </div>
           <div class="social-icon-row" aria-label="Social media and share links">
             <a class="social-icon-btn ig" href="https://www.instagram.com/globaltechnologyservicecentre/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm9.1 1.45a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z"/></svg></a>
@@ -1612,15 +1868,16 @@
     </section>
   </main>
 
+  <section class="sr-only" aria-hidden="true" id="seo-keywords-hidden"></section>
+
   <footer>
     <div class="container footer-inner">
-      <div><span>Global Technology Service Centre</span><div style="margin-top:4px;color:#fff;font-weight:700;">Copyright © 2026. All rights reserved</div></div>
+      <div><span>Global Technology Service Centre</span><div style="margin-top:4px;color:#fff;font-weight:700;"><span id="owner-access-btn" style="cursor:default;">Copyright © 2026. All rights reserved</span></div></div>
       <span class="footer-links">
           <a href="tel:08048061672">08048061672</a> ·
           <a href="tel:+918500618707">85006 18707</a> ·
           <a href="mailto:email.global@globaltechnologyservicecentre.com">email.global@globaltechnologyservicecentre.com</a> ·
-          <a href="https://wa.me/918500618707?text=Hello%2C%20I%20have%20a%20service%20inquiry." target="_blank" rel="noopener noreferrer">WhatsApp</a> ·
-          <a href="https://www.google.com/maps/search/?api=1&query=Global+Technology+Service+Centre+Hyderabad&query_place_id=ChIJKeDON3WRyzsRBbC0YY152Kk" target="_blank" rel="noopener noreferrer">Google Business Profile</a>
+          <a href="https://wa.me/918500618707?text=Hello%2C%20I%20have%20a%20service%20inquiry." target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </span>
     </div>
   </footer>
@@ -1719,6 +1976,104 @@
         <button class="btn-3d btn-obsidian" type="button" id="detail-share-btn">Share service ↗</button>
         <button class="skip-button" type="button" id="detail-close-footer">Close details</button>
       </div>
+    </div>
+  </dialog>
+
+  <!-- Social Media Post Composer Modal -->
+  <dialog class="social-post-dialog" id="social-post-dialog" aria-labelledby="sp-dialog-title">
+    <div class="popup-head">
+      <button class="popup-dismiss" type="button" id="sp-close-btn" aria-label="Close social post composer">&times;</button>
+      <div class="eyebrow">All Social Media Post</div>
+      <h2 id="sp-dialog-title">Post Update to All Social Media</h2>
+      <p>Edit your update, choose platforms (X, Facebook, Google Business Profile, Instagram, LinkedIn, WhatsApp, YouTube), and post now.</p>
+    </div>
+    <div class="sp-body">
+      <div class="sp-field">
+        <label for="sp-title">Post Title</label>
+        <input id="sp-title" type="text" placeholder="Enter post title…" />
+      </div>
+      <div class="sp-field">
+        <label for="sp-caption">Update Text / Caption</label>
+        <textarea id="sp-caption" placeholder="Write your service update…"></textarea>
+      </div>
+      <div>
+        <div class="sp-targets-head" style="margin-bottom:8px;">
+          <span>Also send this to:</span>
+          <button type="button" class="sp-select-all" id="sp-toggle-all">Select / Deselect All</button>
+        </div>
+        <div class="sp-platform-grid" id="sp-platform-grid">
+          <label class="sp-check-card"><input type="checkbox" name="sp-platform" value="x" checked /> X (Twitter) Page</label>
+          <label class="sp-check-card"><input type="checkbox" name="sp-platform" value="fb" checked /> Facebook Page</label>
+          <label class="sp-check-card"><input type="checkbox" name="sp-platform" value="gmb" checked /> Google Business (GMB)</label>
+          <label class="sp-check-card"><input type="checkbox" name="sp-platform" value="ig" checked /> Instagram Page</label>
+          <label class="sp-check-card"><input type="checkbox" name="sp-platform" value="li" checked /> LinkedIn Page</label>
+          <label class="sp-check-card"><input type="checkbox" name="sp-platform" value="wa" checked /> WhatsApp</label>
+          <label class="sp-check-card"><input type="checkbox" name="sp-platform" value="yt" /> YouTube</label>
+        </div>
+      </div>
+      <div>
+        <div class="sp-targets-head" style="margin-bottom:8px;">
+          <span>1-Click Individual Post Buttons:</span>
+        </div>
+        <div class="sp-quick-row">
+          <button type="button" class="sp-quick-btn" data-sp-single="x">Post on X ↗</button>
+          <button type="button" class="sp-quick-btn" data-sp-single="fb">Post on Facebook ↗</button>
+          <button type="button" class="sp-quick-btn" data-sp-single="gmb">Post on GMB ↗</button>
+          <button type="button" class="sp-quick-btn" data-sp-single="ig">Post on Instagram ↗</button>
+          <button type="button" class="sp-quick-btn" data-sp-single="li">Post on LinkedIn ↗</button>
+          <button type="button" class="sp-quick-btn" data-sp-single="wa">Post on WhatsApp ↗</button>
+          <button type="button" class="sp-quick-btn" data-sp-single="yt">Post on YouTube ↗</button>
+        </div>
+      </div>
+      <div class="sp-actions">
+        <button class="btn-3d btn-gold" type="button" id="sp-post-now">Post Now (Open Selected) ↗</button>
+        <button class="btn-3d btn-obsidian" type="button" id="sp-copy-btn">Copy Post Text</button>
+        <button class="skip-button" type="button" id="sp-cancel-btn">Close</button>
+      </div>
+      <p class="sp-status" id="sp-status" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+
+  <!-- Owner Access Modal -->
+  <dialog class="owner-pin-dialog" id="owner-pin-dialog" aria-labelledby="owner-pin-title">
+    <div class="popup-head">
+      <button class="popup-dismiss" type="button" id="owner-pin-close" aria-label="Close owner login">&times;</button>
+      <div class="eyebrow">Update</div>
+      <h2 id="owner-pin-title" style="font-size:1.15rem;">Update Access</h2>
+      <p>Enter PIN to unlock social media update buttons on this device.</p>
+    </div>
+    <div class="sp-body">
+      <div class="sp-field">
+        <label for="owner-pin-input">PIN</label>
+        <input id="owner-pin-input" type="password" inputmode="numeric" placeholder="Enter PIN…" autocomplete="off" />
+      </div>
+      <div class="sp-actions">
+        <button class="btn-3d btn-gold" type="button" id="owner-pin-submit">Unlock Update</button>
+        <button class="btn-3d btn-obsidian" type="button" id="owner-lock-btn" style="display:none;">Lock (Hide)</button>
+      </div>
+      <p class="sp-status" id="owner-pin-status" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+
+  <!-- Owner-Only All Services Keywords Modal -->
+  <dialog class="social-post-dialog" id="keywords-dialog" aria-labelledby="kw-dialog-title">
+    <div class="popup-head">
+      <button class="popup-dismiss" type="button" id="kw-close-btn" aria-label="Close keywords manager">&times;</button>
+      <div class="eyebrow">All Services SEO Keywords</div>
+      <h2 id="kw-dialog-title">All Services &amp; "Near Me" Keywords</h2>
+      <p>Hidden from customers. Search or copy local "near me" keywords for every service.</p>
+    </div>
+    <div class="sp-body">
+      <div class="sp-field">
+        <label for="kw-filter-input">Filter Services / Keywords</label>
+        <input id="kw-filter-input" type="search" placeholder="e.g. AC installation near me, plumber, EV charger…" />
+      </div>
+      <div class="sp-actions">
+        <button class="btn-3d btn-gold" type="button" id="kw-copy-all-btn">Copy All Keywords</button>
+        <button class="skip-button" type="button" id="kw-cancel-btn">Close</button>
+      </div>
+      <p class="sp-status" id="kw-status" role="status" aria-live="polite"></p>
+      <div class="kw-list" id="kw-list"></div>
     </div>
   </dialog>
 
@@ -2455,7 +2810,7 @@
       title: r[0],
       category: r[1],
       description: r[2],
-      keywords: r[3],
+      keywords: `${r[3]}, ${r[0].toLowerCase()} near me, ${r[0].toLowerCase()} in hyderabad, best ${r[0].toLowerCase()} near me, ${r[0].toLowerCase()} service near me`,
       image: IMG_MAP[r[4]],
       details: SERVICE_DETAILS[r[0]]
     }));
@@ -2865,6 +3220,265 @@
             }
           });
         }
+      });
+    }
+
+    // Social Media Post Composer (All Social Media Post Button)
+    const socialPostDialog = document.getElementById('social-post-dialog');
+    const spTitleInput = document.getElementById('sp-title');
+    const spCaptionInput = document.getElementById('sp-caption');
+    const spStatus = document.getElementById('sp-status');
+    const SITE_URL = 'https://www.globaltechnologyservicecentre.com/';
+    const GMB_URL = 'https://www.google.com/maps/search/?api=1&query=Global+Technology+Service+Centre+Hyderabad&query_place_id=ChIJKeDON3WRyzsRBbC0YY152Kk';
+    const IG_URL = 'https://www.instagram.com/globaltechnologyservicecentre/';
+    const YT_URL = 'https://studio.youtube.com/';
+
+    async function copyTextToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch (_) {}
+      }
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    function buildSocialPostPayload(serviceObj) {
+      const s = serviceObj || services[spotlightIdx];
+      const title = `${s.title} — Global Technology Service Centre`;
+      const caption = [
+        `${s.title} in Hyderabad — ${s.description}`,
+        '',
+        'Call IVR: 08048061672 | WhatsApp: +91 85006 18707',
+        `Book online: ${SITE_URL}`,
+        '#GlobalTechnologyServiceCentre #Hyderabad #HomeServices #CommercialMaintenance'
+      ].join('\n');
+      return { title, caption };
+    }
+
+    function openSocialPostModal(serviceObj) {
+      const payload = buildSocialPostPayload(serviceObj);
+      spTitleInput.value = payload.title;
+      spCaptionInput.value = payload.caption;
+      spStatus.textContent = '';
+      socialPostDialog.showModal();
+    }
+
+    function getPlatformShareUrl(platform, title, caption) {
+      const fullText = `${title}\n\n${caption}`;
+      switch (platform) {
+        case 'x':
+          return `https://twitter.com/intent/tweet?text=${encodeURIComponent(title + ' — ' + SITE_URL)}&url=${encodeURIComponent(SITE_URL)}`;
+        case 'fb':
+          return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL)}&quote=${encodeURIComponent(fullText)}`;
+        case 'gmb':
+          return GMB_URL;
+        case 'ig':
+          return IG_URL;
+        case 'li':
+          return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL)}`;
+        case 'wa':
+          return `https://wa.me/?text=${encodeURIComponent(fullText)}`;
+        case 'yt':
+          return YT_URL;
+        default:
+          return SITE_URL;
+      }
+    }
+
+    async function launchSocialPlatforms(platformList) {
+      const title = spTitleInput.value.trim() || 'Global Technology Service Centre';
+      const caption = spCaptionInput.value.trim() || SITE_URL;
+      const fullText = `${title}\n\n${caption}`;
+      const copied = await copyTextToClipboard(fullText);
+      const names = { x: 'X', fb: 'Facebook', gmb: 'Google Business Profile', ig: 'Instagram', li: 'LinkedIn', wa: 'WhatsApp', yt: 'YouTube' };
+      const opened = [];
+      for (const p of platformList) {
+        const url = getPlatformShareUrl(p, title, caption);
+        window.open(url, '_blank', 'noopener,noreferrer');
+        opened.push(names[p] || p);
+      }
+      if (!opened.length) {
+        spStatus.textContent = 'Please select at least one social media platform.';
+        return;
+      }
+      spStatus.textContent = `Opened ${opened.join(', ')}.${copied ? ' Post text copied to clipboard (ready to paste on Instagram, GMB, or YouTube).' : ''}`;
+    }
+
+    document.getElementById('connect-social-post').addEventListener('click', () => {
+      openSocialPostModal(services[spotlightIdx]);
+    });
+
+    document.getElementById('sp-close-btn').addEventListener('click', () => socialPostDialog.close());
+    document.getElementById('sp-cancel-btn').addEventListener('click', () => socialPostDialog.close());
+    socialPostDialog.addEventListener('click', e => { if (e.target === socialPostDialog) socialPostDialog.close(); });
+
+    document.getElementById('sp-toggle-all').addEventListener('click', () => {
+      const boxes = Array.from(document.querySelectorAll('#sp-platform-grid input[name="sp-platform"]'));
+      const allChecked = boxes.every(b => b.checked);
+      boxes.forEach(b => { b.checked = !allChecked; });
+    });
+
+    document.getElementById('sp-copy-btn').addEventListener('click', async () => {
+      const title = spTitleInput.value.trim();
+      const caption = spCaptionInput.value.trim();
+      const ok = await copyTextToClipboard(`${title}\n\n${caption}`);
+      spStatus.textContent = ok ? 'Post title & caption copied to clipboard!' : 'Could not copy automatically. Please select and copy the text.';
+    });
+
+    document.getElementById('sp-post-now').addEventListener('click', () => {
+      const selected = Array.from(document.querySelectorAll('#sp-platform-grid input[name="sp-platform"]:checked')).map(b => b.value);
+      launchSocialPlatforms(selected);
+    });
+
+    document.querySelectorAll('[data-sp-single]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        launchSocialPlatforms([btn.dataset.spSingle]);
+      });
+    });
+
+    // Owner-Only Mode (hidden from customers by default)
+    const OWNER_PIN = '9502335347';
+    const OWNER_STORAGE_KEY = 'gtsc_owner_mode';
+    const ownerAccessBtn = document.getElementById('owner-access-btn');
+    const ownerPinDialog = document.getElementById('owner-pin-dialog');
+    const ownerPinInput = document.getElementById('owner-pin-input');
+    const ownerPinStatus = document.getElementById('owner-pin-status');
+    const ownerLockBtn = document.getElementById('owner-lock-btn');
+
+    function setOwnerMode(enabled, persist = true) {
+      document.body.classList.toggle('owner-mode', Boolean(enabled));
+
+      if (ownerLockBtn) {
+        ownerLockBtn.style.display = enabled ? 'inline-flex' : 'none';
+      }
+      if (persist) {
+        try {
+          if (enabled) localStorage.setItem(OWNER_STORAGE_KEY, '1');
+          else localStorage.removeItem(OWNER_STORAGE_KEY);
+        } catch (_) {}
+      }
+    }
+
+    (function initOwnerMode() {
+      let enabled = false;
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('update') === '1' || params.get('owner') === '1' || params.get('owner') === 'true' || params.get('admin') === '1') {
+          enabled = true;
+        } else if (params.get('owner') === '0') {
+          enabled = false;
+          localStorage.removeItem(OWNER_STORAGE_KEY);
+        } else {
+          enabled = localStorage.getItem(OWNER_STORAGE_KEY) === '1';
+        }
+      } catch (_) {}
+      setOwnerMode(enabled, enabled);
+    })();
+
+    if (ownerAccessBtn && ownerPinDialog) {
+      ownerAccessBtn.addEventListener('dblclick', () => {
+        ownerPinInput.value = '';
+        ownerPinStatus.textContent = document.body.classList.contains('owner-mode')
+          ? 'Update mode is active on this device.'
+          : '';
+        ownerPinDialog.showModal();
+      });
+      document.getElementById('owner-pin-close').addEventListener('click', () => ownerPinDialog.close());
+      ownerPinDialog.addEventListener('click', e => { if (e.target === ownerPinDialog) ownerPinDialog.close(); });
+
+      const tryUnlock = () => {
+        if (ownerPinInput.value.trim() === OWNER_PIN) {
+          setOwnerMode(true, true);
+          ownerPinStatus.style.color = '#86efac';
+          ownerPinStatus.textContent = 'Update buttons unlocked!';
+          setTimeout(() => ownerPinDialog.close(), 500);
+        } else {
+          ownerPinStatus.style.color = '#fca5a5';
+          ownerPinStatus.textContent = 'Incorrect PIN. Please try again.';
+        }
+      };
+
+      document.getElementById('owner-pin-submit').addEventListener('click', tryUnlock);
+      ownerPinInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          tryUnlock();
+        }
+      });
+
+      ownerLockBtn.addEventListener('click', () => {
+        setOwnerMode(false, true);
+        ownerPinStatus.style.color = '#86efac';
+        ownerPinStatus.textContent = 'Update buttons hidden.';
+        setTimeout(() => ownerPinDialog.close(), 400);
+      });
+    }
+
+    // Hidden SEO Keywords & Owner Keywords Modal
+    const seoKeywordsHidden = document.getElementById('seo-keywords-hidden');
+    if (seoKeywordsHidden) {
+      seoKeywordsHidden.textContent = services
+        .map(s => `${s.title} near me, ${s.title} in Hyderabad, ${s.keywords}`)
+        .join(' · ');
+    }
+
+    const keywordsDialog = document.getElementById('keywords-dialog');
+    const kwListEl = document.getElementById('kw-list');
+    const kwFilterInput = document.getElementById('kw-filter-input');
+    const kwStatus = document.getElementById('kw-status');
+    const connectKeywordsBtn = document.getElementById('connect-keywords-btn');
+
+    function renderKeywordsModal() {
+      if (!kwListEl) return;
+      const q = (kwFilterInput ? kwFilterInput.value : '').trim().toLowerCase();
+      const filtered = services.filter(s =>
+        !q || `${s.title} ${s.category} ${s.keywords}`.toLowerCase().includes(q)
+      );
+      kwListEl.innerHTML = filtered.map(s => `
+        <div class="kw-item">
+          <div class="kw-item-head">
+            <span class="kw-item-title">${escapeHTML(s.title)}</span>
+            <button type="button" class="sp-quick-btn" data-copy-kw="${escapeHTML(s.keywords)}">Copy Keywords</button>
+          </div>
+          <div class="kw-item-tags">${escapeHTML(s.keywords)}</div>
+        </div>
+      `).join('') || '<p style="color:var(--muted);font-size:0.84rem;">No matching keywords found.</p>';
+
+      kwListEl.querySelectorAll('[data-copy-kw]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const ok = await copyTextToClipboard(btn.dataset.copyKw);
+          if (kwStatus) kwStatus.textContent = ok ? 'Service keywords copied!' : 'Could not copy automatically.';
+        });
+      });
+    }
+
+    if (connectKeywordsBtn && keywordsDialog) {
+      connectKeywordsBtn.addEventListener('click', () => {
+        if (kwStatus) kwStatus.textContent = '';
+        renderKeywordsModal();
+        keywordsDialog.showModal();
+      });
+      document.getElementById('kw-close-btn').addEventListener('click', () => keywordsDialog.close());
+      document.getElementById('kw-cancel-btn').addEventListener('click', () => keywordsDialog.close());
+      keywordsDialog.addEventListener('click', e => { if (e.target === keywordsDialog) keywordsDialog.close(); });
+      if (kwFilterInput) kwFilterInput.addEventListener('input', renderKeywordsModal);
+      document.getElementById('kw-copy-all-btn').addEventListener('click', async () => {
+        const allKw = services.map(s => `${s.title}: ${s.keywords}`).join('\n');
+        const ok = await copyTextToClipboard(allKw);
+        if (kwStatus) kwStatus.textContent = ok ? 'All service keywords copied!' : 'Could not copy automatically.';
       });
     }
 
