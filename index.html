@@ -4032,6 +4032,289 @@
     updateSelects();
   </script>
 
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>24/7 Enterprise & Home Technical Hub</title>  
+  <style>  
+    :root {  
+      --bg-dark: #0a0a0c;  
+      --card-bg: #141418;  
+      --gold: #d4af37;  
+      --gold-light: #f3e5ab;  
+      --text-main: #ffffff;  
+      --text-muted: #a1a1aa;  
+      --border-gold: rgba(212, 175, 55, 0.25);  
+    }  * {  
+  box-sizing: border-box;  
+  margin: 0;  
+  padding: 0;  
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;  
+}  
 
+body {  
+  background-color: var(--bg-dark);  
+  color: var(--text-main);  
+  line-height: 1.6;  
+  padding: 40px 20px;  
+}  
+
+.container {  
+  max-width: 1200px;  
+  margin: 0 auto;  
+}  
+
+/* Hero Header */  
+.hub-header {  
+  text-align: center;  
+  margin-bottom: 50px;  
+  padding: 40px 20px;  
+  border: 1px solid var(--border-gold);  
+  border-radius: 16px;  
+  background: radial-gradient(circle at top, #1c1a14 0%, var(--bg-dark) 70%);  
+}  
+
+.badge {  
+  display: inline-block;  
+  padding: 6px 16px;  
+  font-size: 12px;  
+  font-weight: 600;  
+  letter-spacing: 1.5px;  
+  text-transform: uppercase;  
+  color: var(--gold);  
+  border: 1px solid var(--gold);  
+  border-radius: 50px;  
+  margin-bottom: 16px;  
+}  
+
+.hub-header h1 {  
+  font-size: 2.5rem;  
+  font-weight: 700;  
+  margin-bottom: 10px;  
+  background: linear-gradient(90deg, #fff, var(--gold-light));  
+  -webkit-background-clip: text;  
+  -webkit-text-fill-color: transparent;  
+}  
+
+.hub-header .tagline {  
+  color: var(--gold);  
+  font-size: 1.1rem;  
+  font-weight: 500;  
+  margin-bottom: 18px;  
+}  
+
+.hub-header p {  
+  max-width: 800px;  
+  margin: 0 auto;  
+  color: var(--text-muted);  
+  font-size: 1rem;  
+}  
+
+/* Filter Tabs (Dynamic) */  
+.filter-bar {  
+  display: flex;  
+  justify-content: center;  
+  flex-wrap: wrap;  
+  gap: 10px;  
+  margin-bottom: 35px;  
+}  
+
+.filter-btn {  
+  background: var(--card-bg);  
+  color: var(--text-muted);  
+  border: 1px solid var(--border-gold);  
+  padding: 8px 18px;  
+  border-radius: 8px;  
+  cursor: pointer;  
+  font-size: 0.9rem;  
+  transition: all 0.3s ease;  
+}  
+
+.filter-btn:hover,  
+.filter-btn.active {  
+  background: var(--gold);  
+  color: #000;  
+  font-weight: 600;  
+}  
+
+/* Dynamic Grid */  
+.services-grid {  
+  display: grid;  
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  
+  gap: 24px;  
+}  
+
+.service-card {  
+  background: var(--card-bg);  
+  border: 1px solid var(--border-gold);  
+  border-radius: 14px;  
+  padding: 28px;  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.service-card:hover {  
+  transform: translateY(-6px);  
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.12);  
+  border-color: var(--gold);  
+}  
+
+.category-tag {  
+  font-size: 0.75rem;  
+  text-transform: uppercase;  
+  letter-spacing: 1px;  
+  color: var(--gold);  
+  margin-bottom: 8px;  
+  display: block;  
+}  
+
+.service-card h3 {  
+  font-size: 1.35rem;  
+  margin-bottom: 12px;  
+  color: #fff;  
+}  
+
+.service-list {  
+  list-style: none;  
+  margin-top: 15px;  
+}  
+
+.service-list li {  
+  color: var(--text-muted);  
+  padding: 6px 0;  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);  
+  display: flex;  
+  align-items: center;  
+  gap: 10px;  
+  font-size: 0.95rem;  
+}  
+
+.service-list li::before {  
+  content: "✦";  
+  color: var(--gold);  
+  font-size: 0.8rem;  
+}  
+
+.hub-footer {  
+  text-align: center;  
+  margin-top: 50px;  
+  padding-top: 25px;  
+  border-top: 1px solid var(--border-gold);  
+  color: var(--gold-light);  
+  font-weight: 600;  
+  letter-spacing: 0.5px;  
+}
+
+  </style>  
+</head>  
+<body>    <div class="container">  
+    <!-- Dynamic Header Section -->  
+    <header class="hub-header" id="hero-section"></header>  <!-- Dynamic Category Filters -->  
+<div class="filter-bar" id="filter-bar"></div>  
+
+<!-- Dynamic Services Grid -->  
+<main class="services-grid" id="services-grid"></main>  
+
+<!-- Dynamic Footer -->  
+<footer class="hub-footer" id="hub-footer"></footer>
+
+  </div>    <script>  
+    // ==========================================  
+    // 1. MASTER DATA (यहाँ से सब कुछ कंट्रोल होगा)  
+    // ==========================================  
+    const siteConfig = {  
+      badge: "24/7 Support • Corporate & Residential",  
+      title: "24/7 Enterprise & Home Technical Hub",  
+      tagline: "Enterprise & Residential Technical Services. Engineered for Reliability. Built on Trust.",  
+      description: "Explore our complete technical service division, delivering professional solutions for corporate, commercial, industrial, and residential properties — from electrical, plumbing, HVAC, CCTV, and EV charger installations to appliance repairs, networking, tiling, fabrication, and architectural stone restoration.",  
+      footerText: "One Destination. Complete Technical Solutions."  
+    };  
+  
+    const serviceDivisions = [  
+      {  
+        category: "Power & Security",  
+        title: "Infrastructure & Power",  
+        items: [  
+          "Electrical Installations & Maintenance",  
+          "EV Charger Setup & Load Management",  
+          "IP CCTV Surveillance & Biometrics",  
+          "Structured Networking & Server Racks"  
+        ]  
+      },  
+      {  
+        category: "Climate & Utilities",  
+        title: "Climate & Utilities",  
+        items: [  
+          "HVAC Systems & Duct Cleaning",  
+          "Commercial & Residential Plumbing",  
+          "Home & Industrial Appliance Repairs",  
+          "Preventive Annual Maintenance (AMC)"  
+        ]  
+      },  
+      {  
+        category: "Build & Interiors",  
+        title: "Build & Restoration",  
+        items: [  
+          "Heavy & Custom Metal Fabrication",  
+          "Precision Tiling & False Ceilings",  
+          "Architectural Stone & Marble Restoration",  
+          "Modular Kitchens & Invisible Grills"  
+        ]  
+      }  
+    ];  
+  
+    // ==========================================  
+    // 2. DYNAMIC RENDER ENGINE (ऑटोमैटिक कोड)  
+    // ==========================================  
+    function renderHeaderAndFooter() {  
+      document.getElementById("hero-section").innerHTML = `  
+        <span class="badge">${siteConfig.badge}</span>  
+        <h1>${siteConfig.title}</h1>  
+        <div class="tagline">${siteConfig.tagline}</div>  
+        <p>${siteConfig.description}</p>  
+      `;  
+      document.getElementById("hub-footer").textContent = siteConfig.footerText;  
+    }  
+  
+    function renderFilters() {  
+      const filterBar = document.getElementById("filter-bar");  
+      const categories = ["All", ...new Set(serviceDivisions.map(s => s.category))];  
+  
+      filterBar.innerHTML = categories.map((cat, index) => `  
+        <button class="filter-btn ${index === 0 ? 'active' : ''}" onclick="filterServices('${cat}', this)">  
+          ${cat}  
+        </button>  
+      `).join("");  
+    }  
+  
+    function renderServices(filter = "All") {  
+      const grid = document.getElementById("services-grid");  
+      const filteredData = filter === "All"  
+        ? serviceDivisions  
+        : serviceDivisions.filter(item => item.category === filter);  
+  
+      grid.innerHTML = filteredData.map(division => `  
+        <div class="service-card">  
+          <span class="category-tag">${division.category}</span>  
+          <h3>${division.title}</h3>  
+          <ul class="service-list">  
+            ${division.items.map(service => `<li>${service}</li>`).join("")}  
+          </ul>  
+        </div>  
+      `).join("");  
+    }  
+  
+    function filterServices(category, btnElement) {  
+      document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));  
+      btnElement.classList.add("active");  
+      renderServices(category);  
+    }  
+  
+    // Initialize Website  
+    renderHeaderAndFooter();  
+    renderFilters();  
+    renderServices();  
+  </script>  </body>  
+</html>  
 </body>
 </html>
