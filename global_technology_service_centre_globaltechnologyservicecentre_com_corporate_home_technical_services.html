@@ -74,21 +74,6 @@
         radial-gradient(circle at 50% 95%, rgba(199, 164, 106, 0.08) 0%, transparent 40%);
     }
 
-    #bg-3d-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      display: block;
-    }
-
-    main, footer {
-      position: relative;
-      z-index: 1;
-    }
-
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font: inherit; }
     button { cursor: pointer; }
@@ -100,6 +85,20 @@
     .container {
       width: min(1240px, calc(100% - 32px));
       margin-inline: auto;
+    }
+
+    #bg-3d-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    main, footer {
+      position: relative;
+      z-index: 1;
     }
 
     /* 3D Glass Header */
@@ -449,92 +448,51 @@
       animation: heroFloat 5.5s ease-in-out infinite;
     }
 
-    .hero-reel {
+    .hero-3d-showcase {
       position: relative;
-      width: 100%;
-      height: 156px;
+      width: 148px;
+      height: 108px;
       margin: 0 auto 14px;
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      border: 1px solid rgba(240, 212, 148, 0.35);
-      background: #070a11;
-      transform: translateZ(24px);
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55);
-      cursor: pointer;
+      border: 1px solid rgba(240, 212, 148, 0.45);
+      background: linear-gradient(145deg, #161d2c, #0a0e17);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.65), 0 0 22px rgba(199, 164, 106, 0.2);
+      transform: translateZ(28px);
+      transform-style: preserve-3d;
     }
 
-    .hero-reel-img {
+    .hero-3d-pic {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      opacity: 0.92;
-      transition: opacity 0.45s ease;
-      animation: heroKenBurns 7s ease-in-out infinite alternate;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
+      transform: rotateY(0deg) scale(1);
     }
 
-    .hero-reel::after {
-      content: '';
+    .hero-3d-pic.is-flipping {
+      opacity: 0.25;
+      transform: rotateY(22deg) scale(0.92);
+    }
+
+    .hero-3d-label {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(6, 8, 13, 0.15) 0%, rgba(6, 8, 13, 0.86) 100%);
-      pointer-events: none;
-    }
-
-    .hero-reel-meta {
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      bottom: 9px;
-      z-index: 2;
-      text-align: left;
-      pointer-events: none;
-    }
-
-    .hero-reel-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 2px 8px;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+      padding: 3px 7px;
       border-radius: 999px;
-      background: rgba(199, 164, 106, 0.22);
-      border: 1px solid rgba(240, 212, 148, 0.45);
+      background: rgba(8, 11, 18, 0.84);
+      border: 1px solid rgba(240, 212, 148, 0.32);
       color: var(--gold-bright);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .hero-reel-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
-      animation: pulseDot 1.6s ease-in-out infinite;
-    }
-
-    .hero-reel-title {
-      display: block;
-      color: #fff;
-      font-size: 0.84rem;
-      font-weight: 700;
-      line-height: 1.25;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-
-    @keyframes heroKenBurns {
-      0% { transform: scale(1) translate3d(0, 0, 0); }
-      100% { transform: scale(1.12) translate3d(-2%, -2%, 0); }
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.45; transform: scale(0.8); }
+      backdrop-filter: blur(6px);
     }
 
     .hero-cube-card h3 {
@@ -1478,7 +1436,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .ticker-track, .orbit-ring, .hero-cube-card, .stat-box, .hero-reel-img, .hero-reel-dot { animation: none; }
+      .ticker-track, .orbit-ring, .hero-cube-card, .stat-box { animation: none; }
       .service-card, .card-media img { transition: none; }
     }
 
@@ -2126,10 +2084,13 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">One Destination Complete Technical Solutions</div>
+          <div class="eyebrow">24/7 Enterprise &amp; Home Technical Hub</div>
           <h1>Enterprise &amp; Residential Technical Services.<br /><span class="gold-gradient">Engineered for Reliability. Built on Trust.</span></h1>
           <p class="hero-copy">
             Explore our complete technical service division, delivering professional solutions for corporate, commercial, industrial, and residential properties — from electrical, plumbing, HVAC, CCTV, and EV charger installations to appliance repairs, networking, tiling, fabrication, and architectural stone restoration.
+          </p>
+          <p class="hero-copy" style="margin-top:-12px;color:var(--gold-bright);font-weight:600;">
+            One Destination. Complete Technical Solutions.
           </p>
           <div class="hero-actions">
             <a class="btn-3d btn-gold" href="#services">Explore services ↓</a>
@@ -2156,15 +2117,12 @@
           <div class="orbit-ring"></div>
           <div class="orbit-ring inner"></div>
           <div class="hero-cube-card" id="hero-cube">
-            <div class="hero-reel" id="hero-reel" title="Click to view service details">
-              <img class="hero-reel-img" id="hero-reel-img" src="" alt="All Home Services Showcase" />
-              <div class="hero-reel-meta">
-                <span class="hero-reel-pill"><span class="hero-reel-dot" aria-hidden="true"></span><span id="hero-reel-cat">All Home Services</span></span>
-                <span class="hero-reel-title" id="hero-reel-title">Complete Home &amp; Technical Care</span>
-              </div>
+            <div class="hero-3d-showcase" aria-hidden="true">
+              <img class="hero-3d-pic" id="hero-3d-pic" src="" alt="" />
+              <span class="hero-3d-label" id="hero-3d-label">All Services</span>
             </div>
             <h3>Global Technology Service Centre</h3>
-            <p>All Home &amp; Enterprise Services · 24/7 Dispatch</p>
+            <p>Interactive 3D Service Catalogue · Verified Offerings</p>
           </div>
         </div>
       </div>
@@ -4262,10 +4220,10 @@
     // ==========================================
     const siteConfig = {
       badge: "24/7 Support • Corporate & Residential",
-      title: "",
+      title: "24/7 Enterprise & Home Technical Hub",
       tagline: "Enterprise & Residential Technical Services. Engineered for Reliability. Built on Trust.",
       description: "Explore our complete technical service division, delivering professional solutions for corporate, commercial, industrial, and residential properties — from electrical, plumbing, HVAC, CCTV, and EV charger installations to appliance repairs, networking, tiling, fabrication, and architectural stone restoration.",
-      footerText: "One Destination Complete Technical Solutions"
+      footerText: "One Destination. Complete Technical Solutions."
     };
 
     const serviceDivisions = [
@@ -4310,14 +4268,13 @@
       if (heroEl) {
         heroEl.innerHTML = `
           <span class="badge">${siteConfig.badge}</span>
-          ${siteConfig.title ? `<h2>${siteConfig.title}</h2>` : ''}
+          <h2>${siteConfig.title}</h2>
           <div class="tagline">${siteConfig.tagline}</div>
           <p>${siteConfig.description}</p>
         `;
       }
       if (footerEl) {
         footerEl.textContent = siteConfig.footerText;
-        footerEl.style.display = siteConfig.footerText ? '' : 'none';
       }
     }
 
@@ -4367,241 +4324,376 @@
   </script>
 
   <script>
-    (function () {
-      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // ==========================================
+    // 3. HERO 3D SERVICE PIC & BACKGROUND 3D NAMES
+    // ==========================================
+    (function initHero3DShowcase() {
+      const picEl = document.getElementById('hero-3d-pic');
+      const labelEl = document.getElementById('hero-3d-label');
+      if (!picEl || !labelEl || typeof services === 'undefined' || !services.length) return;
 
-      // 1. Hero All-Home-Services Live Reel (replaces 3D home icon)
-      const reelWrap = document.getElementById('hero-reel');
-      const reelImg = document.getElementById('hero-reel-img');
-      const reelCat = document.getElementById('hero-reel-cat');
-      const reelTitle = document.getElementById('hero-reel-title');
-      if (reelWrap && reelImg && typeof services !== 'undefined' && services.length > 0) {
-        let reelIdx = 0;
-        const showReelItem = (idx) => {
-          const item = services[idx % services.length];
-          if (!item) return;
-          reelImg.style.opacity = '0.25';
-          setTimeout(() => {
-            reelImg.src = item.image;
-            reelImg.alt = item.title;
-            if (reelCat) reelCat.textContent = item.category || 'All Home Services';
-            if (reelTitle) reelTitle.textContent = item.title;
-            reelImg.style.opacity = '0.92';
-          }, 180);
-        };
-        showReelItem(reelIdx);
-        if (!reducedMotion) {
-          setInterval(() => {
-            reelIdx = (reelIdx + 1) % services.length;
-            showReelItem(reelIdx);
-          }, 2800);
-        }
-        reelWrap.addEventListener('click', () => {
-          const item = services[reelIdx % services.length];
-          if (item && typeof openServiceDetail === 'function') {
-            openServiceDetail(item.id);
-          }
-        });
+      let idx = 0;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function showService(i) {
+        const s = services[i % services.length];
+        if (!s) return;
+        picEl.src = s.image;
+        picEl.alt = s.title;
+        labelEl.textContent = s.title;
       }
 
-      // 2. Background Video-Style 3D Animation (All Home Services Theme)
+      showService(0);
+      if (reducedMotion) return;
+
+      setInterval(() => {
+        if (document.hidden) return;
+        picEl.classList.add('is-flipping');
+        setTimeout(() => {
+          idx = (idx + 1) % services.length;
+          showService(idx);
+          picEl.classList.remove('is-flipping');
+        }, 260);
+      }, 2400);
+    })();
+
+    (function initBg3DAnimation() {
       const canvas = document.getElementById('bg-3d-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
 
-      let w = 0, h = 0, dpr = 1;
-      const resize = () => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const serviceNames = (typeof services !== 'undefined' && services.length)
+        ? services.map(s => s.title)
+        : [
+            'Appliance repair', 'AC & ducting', 'EV charger setup',
+            'Electrical & LAN', 'CCTV installation', 'Plumbing repair',
+            'Marble polishing', 'Metal fabrication', 'Office maintenance'
+          ];
+
+      let width = 0;
+      let height = 0;
+      let dpr = 1;
+      let mouseX = 0;
+      let mouseY = 0;
+      let scrollY = window.scrollY || 0;
+      let nameCursor = 0;
+
+      function nextServiceName() {
+        const name = serviceNames[nameCursor % serviceNames.length];
+        nameCursor = (nameCursor + 1) % serviceNames.length;
+        return name;
+      }
+
+      function resize() {
         dpr = Math.min(window.devicePixelRatio || 1, 2);
-        w = window.innerWidth;
-        h = window.innerHeight;
-        canvas.width = Math.floor(w * dpr);
-        canvas.height = Math.floor(h * dpr);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      };
+      }
+
       resize();
-      window.addEventListener('resize', resize);
+      window.addEventListener('resize', resize, { passive: true });
+      window.addEventListener('mousemove', e => {
+        mouseX = (e.clientX / Math.max(width, 1) - 0.5) * 2;
+        mouseY = (e.clientY / Math.max(height, 1) - 0.5) * 2;
+      }, { passive: true });
+      window.addEventListener('scroll', () => {
+        scrollY = window.scrollY || 0;
+      }, { passive: true });
 
-      let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
-      window.addEventListener('pointermove', (e) => {
-        targetX = (e.clientX / Math.max(w, 1) - 0.5) * 2;
-        targetY = (e.clientY / Math.max(h, 1) - 0.5) * 2;
-      });
-
-      const SERVICE_TAGS = [
-        'AC & HVAC', 'Electrical', 'Plumbing', 'Appliances',
-        'EV Charger', 'CCTV & LAN', 'Marble Care', 'Tiling',
-        'Fabrication', 'Handyman', 'Solar & UPS', 'Home Care'
-      ];
-
-      // 3D particles
-      const particles = Array.from({ length: 72 }, (_, i) => ({
-        x: (Math.random() - 0.5) * 2.2,
-        y: (Math.random() - 0.5) * 2.2,
-        z: Math.random() * 1.8 + 0.2,
-        r: Math.random() * 2.1 + 0.9,
-        gold: i % 3 !== 0,
-        speed: 0.0014 + Math.random() * 0.0022
+      const PARTICLE_COUNT = 48;
+      const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+        x: (Math.random() - 0.5) * 1600,
+        y: (Math.random() - 0.5) * 1200,
+        z: Math.random() * 900 + 120,
+        vx: (Math.random() - 0.5) * 0.32,
+        vy: (Math.random() - 0.5) * 0.28,
+        vz: (Math.random() - 0.5) * 0.36,
+        size: Math.random() * 2.1 + 1.1,
+        gold: Math.random() > 0.28
       }));
 
-      // Floating 3D service nodes
-      const serviceNodes = SERVICE_TAGS.map((label, i) => ({
-        label,
-        x: ((i % 4) - 1.5) * 0.58 + (Math.random() - 0.5) * 0.22,
-        y: (Math.floor(i / 4) - 1) * 0.52 + (Math.random() - 0.5) * 0.18,
-        z: 0.35 + (i / SERVICE_TAGS.length) * 1.45,
-        phase: i * 0.7,
-        speed: 0.0011 + (i % 3) * 0.00035
+      const ICON_TYPES = ['gear', 'bolt', 'cube', 'wrench', 'shield', 'network'];
+      const ICON_COUNT = 12;
+      const icons = Array.from({ length: ICON_COUNT }, (_, i) => ({
+        type: ICON_TYPES[i % ICON_TYPES.length],
+        x: (Math.random() - 0.5) * 1500,
+        y: (Math.random() - 0.5) * 1100,
+        z: Math.random() * 720 + 220,
+        vx: (Math.random() - 0.5) * 0.24,
+        vy: -0.14 - Math.random() * 0.2,
+        vz: (Math.random() - 0.5) * 0.2,
+        rot: Math.random() * Math.PI * 2,
+        vRot: (Math.random() - 0.5) * 0.008,
+        tilt: Math.random() * Math.PI,
+        vTilt: (Math.random() - 0.5) * 0.006,
+        scale: 17 + Math.random() * 13,
+        alpha: 0.14 + Math.random() * 0.12
       }));
 
-      let t = 0;
-      let gridOffset = 0;
+      // Floating 3D service name labels that cycle across all services
+      const LABEL_COUNT = 12;
+      const labels = Array.from({ length: LABEL_COUNT }, () => ({
+        text: nextServiceName(),
+        x: (Math.random() - 0.5) * 1450,
+        y: (Math.random() - 0.5) * 1050,
+        z: Math.random() * 680 + 240,
+        vx: (Math.random() - 0.5) * 0.26,
+        vy: -0.18 - Math.random() * 0.22,
+        vz: (Math.random() - 0.5) * 0.25,
+        tilt: (Math.random() - 0.5) * 0.14,
+        age: Math.random() * 220
+      }));
 
-      function drawFrame() {
-        t += 0.014;
-        gridOffset = (gridOffset + 0.012) % 1;
-        mouseX += (targetX - mouseX) * 0.04;
-        mouseY += (targetY - mouseY) * 0.04;
+      function project(x, y, z) {
+        const fov = 620;
+        const depth = Math.max(z, 80);
+        const factor = fov / (fov + depth);
+        const px = width * 0.5 + (x - mouseX * 45) * factor;
+        const py = height * 0.5 + (y - mouseY * 35 - (scrollY * 0.08) % 300) * factor;
+        return { x: px, y: py, scale: factor };
+      }
 
-        ctx.clearRect(0, 0, w, h);
+      function drawServiceIcon(icon, px, py, pScale) {
+        const s = icon.scale * pScale;
+        if (s < 3) return;
+        const depthScaleX = 0.55 + 0.45 * Math.abs(Math.cos(icon.tilt));
 
-        // Volumetric flowing aurora ribbons (gold + deep navy)
-        for (let wave = 0; wave < 3; wave++) {
-          ctx.beginPath();
-          const baseY = h * (0.28 + wave * 0.24);
-          const amp = 38 + wave * 16;
-          ctx.moveTo(0, baseY);
-          for (let x = 0; x <= w; x += 40) {
-            const y = baseY + Math.sin(x * 0.0035 + t * (0.7 + wave * 0.2) + wave * 1.6) * amp
-                             + Math.cos(x * 0.002 - t * 0.45) * 22;
-            ctx.lineTo(x, y);
-          }
-          ctx.lineTo(w, h);
-          ctx.lineTo(0, h);
-          ctx.closePath();
-          const grad = ctx.createLinearGradient(0, baseY - amp, 0, h);
-          if (wave === 1) {
-            grad.addColorStop(0, 'rgba(59, 130, 246, 0.045)');
-            grad.addColorStop(1, 'rgba(6, 8, 13, 0)');
-          } else {
-            grad.addColorStop(0, 'rgba(199, 164, 106, 0.055)');
-            grad.addColorStop(1, 'rgba(6, 8, 13, 0)');
-          }
-          ctx.fillStyle = grad;
-          ctx.fill();
-        }
-
-        // 3D perspective architectural floor grid
-        const horizonY = h * 0.56 + mouseY * 18;
-        const vanishX = w * 0.5 + mouseX * 36;
         ctx.save();
-        ctx.strokeStyle = 'rgba(199, 164, 106, 0.09)';
-        ctx.lineWidth = 1;
-        for (let i = -8; i <= 8; i++) {
+        ctx.translate(px, py);
+        ctx.rotate(icon.rot);
+        ctx.scale(depthScaleX, 1);
+
+        ctx.strokeStyle = `rgba(240, 212, 148, ${icon.alpha.toFixed(3)})`;
+        ctx.fillStyle = `rgba(199, 164, 106, ${(icon.alpha * 0.22).toFixed(3)})`;
+        ctx.lineWidth = Math.max(1, 1.3 * pScale);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        if (icon.type === 'gear') {
+          const teeth = 8;
           ctx.beginPath();
-          ctx.moveTo(vanishX + i * 26, horizonY);
-          ctx.lineTo(vanishX + i * (w * 0.16), h + 40);
+          for (let i = 0; i < teeth * 2; i++) {
+            const ang = (i * Math.PI) / teeth;
+            const r = i % 2 === 0 ? s : s * 0.74;
+            const gx = Math.cos(ang) * r;
+            const gy = Math.sin(ang) * r;
+            if (i === 0) ctx.moveTo(gx, gy);
+            else ctx.lineTo(gx, gy);
+          }
+          ctx.closePath();
+          ctx.fill();
           ctx.stroke();
-        }
-        for (let row = 0; row < 10; row++) {
-          const p = (row + gridOffset) / 10;
-          const y = horizonY + Math.pow(p, 2.15) * (h - horizonY + 40);
-          ctx.strokeStyle = `rgba(199, 164, 106, ${(p * 0.13).toFixed(3)})`;
           ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(w, y);
+          ctx.arc(0, 0, s * 0.34, 0, Math.PI * 2);
           ctx.stroke();
+        } else if (icon.type === 'bolt') {
+          ctx.beginPath();
+          ctx.moveTo(s * 0.15, -s * 0.95);
+          ctx.lineTo(-s * 0.52, s * 0.05);
+          ctx.lineTo(-s * 0.05, s * 0.05);
+          ctx.lineTo(-s * 0.22, s * 0.95);
+          ctx.lineTo(s * 0.55, -s * 0.12);
+          ctx.lineTo(s * 0.06, -s * 0.12);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+        } else if (icon.type === 'cube') {
+          const r = s * 0.78;
+          ctx.beginPath();
+          for (let i = 0; i < 6; i++) {
+            const a = (i * Math.PI) / 3 - Math.PI / 6;
+            const cx = Math.cos(a) * r;
+            const cy = Math.sin(a) * r;
+            if (i === 0) ctx.moveTo(cx, cy);
+            else ctx.lineTo(cx, cy);
+          }
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(0, 0); ctx.lineTo(0, r);
+          ctx.moveTo(0, 0); ctx.lineTo(Math.cos(-Math.PI / 6) * r, Math.sin(-Math.PI / 6) * r);
+          ctx.moveTo(0, 0); ctx.lineTo(Math.cos(-5 * Math.PI / 6) * r, Math.sin(-5 * Math.PI / 6) * r);
+          ctx.stroke();
+        } else if (icon.type === 'wrench') {
+          ctx.beginPath();
+          ctx.arc(0, -s * 0.48, s * 0.36, 0.35 * Math.PI, 2.15 * Math.PI);
+          ctx.moveTo(0, -s * 0.12);
+          ctx.lineTo(0, s * 0.85);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(0, s * 0.85, s * 0.14, 0, Math.PI * 2);
+          ctx.stroke();
+        } else if (icon.type === 'shield') {
+          ctx.beginPath();
+          ctx.moveTo(0, -s * 0.9);
+          ctx.lineTo(s * 0.72, -s * 0.52);
+          ctx.quadraticCurveTo(s * 0.72, s * 0.35, 0, s * 0.92);
+          ctx.quadraticCurveTo(-s * 0.72, s * 0.35, -s * 0.72, -s * 0.52);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+        } else if (icon.type === 'network') {
+          const pts = [[0, -s * 0.72], [s * 0.68, s * 0.45], [-s * 0.68, s * 0.45]];
+          ctx.beginPath();
+          ctx.moveTo(pts[0][0], pts[0][1]);
+          ctx.lineTo(pts[1][0], pts[1][1]);
+          ctx.lineTo(pts[2][0], pts[2][1]);
+          ctx.closePath();
+          ctx.stroke();
+          pts.forEach(([nx, ny]) => {
+            ctx.beginPath();
+            ctx.arc(nx, ny, s * 0.18, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+          });
         }
         ctx.restore();
+      }
 
-        // 3D Particles & Constellation links
-        const projected = [];
+      function drawServiceLabel(lbl, px, py, pScale) {
+        const fontSize = Math.max(9, Math.round(13.5 * pScale));
+        const alpha = Math.min(0.28, Math.max(0.11, pScale * 0.32));
+        ctx.save();
+        ctx.translate(px, py);
+        ctx.rotate(lbl.tilt);
+        ctx.font = `600 ${fontSize}px Inter, -apple-system, sans-serif`;
+        const textWidth = ctx.measureText(lbl.text).width;
+        const padX = 10 * pScale;
+        const boxW = textWidth + padX * 2;
+        const boxH = fontSize + 10 * pScale;
+
+        ctx.fillStyle = `rgba(12, 16, 26, ${(alpha * 1.4).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(240, 212, 148, ${(alpha * 0.85).toFixed(3)})`;
+        ctx.lineWidth = Math.max(0.75, pScale);
+
+        const r = boxH * 0.5;
+        const x0 = -boxW * 0.5;
+        const y0 = -boxH * 0.5;
+        ctx.beginPath();
+        ctx.roundRect(x0, y0, boxW, boxH, r);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = `rgba(240, 212, 148, ${(alpha * 1.15).toFixed(3)})`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(lbl.text, 0, 0.5);
+        ctx.restore();
+      }
+
+      function renderFrame() {
+        ctx.clearRect(0, 0, width, height);
+
+        const projectedParticles = [];
         for (const p of particles) {
-          p.z -= p.speed;
-          if (p.z <= 0.12) {
-            p.z = 2.0;
-            p.x = (Math.random() - 0.5) * 2.2;
-            p.y = (Math.random() - 0.5) * 2.2;
+          if (!reducedMotion) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.z += p.vz;
+            if (p.x > 850) p.x = -850;
+            if (p.x < -850) p.x = 850;
+            if (p.y > 650) p.y = -650;
+            if (p.y < -650) p.y = 650;
+            if (p.z > 1050) p.z = 120;
+            if (p.z < 120) p.z = 1050;
           }
-          const scale = 1 / p.z;
-          const sx = w * 0.5 + (p.x - mouseX * 0.15) * w * 0.42 * scale;
-          const sy = h * 0.5 + (p.y - mouseY * 0.15) * h * 0.42 * scale;
-          const alpha = Math.min(0.8, Math.max(0.08, (2.0 - p.z) * 0.42));
-          projected.push({ sx, sy, alpha, r: p.r * scale, gold: p.gold });
-
-          ctx.beginPath();
-          ctx.arc(sx, sy, Math.min(4.2, p.r * scale), 0, Math.PI * 2);
-          ctx.fillStyle = p.gold
-            ? `rgba(240, 212, 148, ${alpha.toFixed(2)})`
-            : `rgba(148, 163, 184, ${(alpha * 0.65).toFixed(2)})`;
-          ctx.fill();
+          const proj = project(p.x, p.y, p.z);
+          projectedParticles.push({ ...proj, size: p.size * proj.scale, gold: p.gold });
         }
 
-        // Subtle connecting lines between nearby particles
-        ctx.lineWidth = 0.7;
-        for (let i = 0; i < projected.length; i++) {
-          for (let j = i + 1; j < projected.length; j++) {
-            const dx = projected[i].sx - projected[j].sx;
-            const dy = projected[i].sy - projected[j].sy;
+        ctx.lineWidth = 0.75;
+        for (let i = 0; i < projectedParticles.length; i++) {
+          const a = projectedParticles[i];
+          for (let j = i + 1; j < projectedParticles.length; j++) {
+            const b = projectedParticles[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
             const distSq = dx * dx + dy * dy;
-            if (distSq < 15000) {
-              const lineAlpha = (1 - distSq / 15000) * 0.14;
-              ctx.strokeStyle = `rgba(199, 164, 106, ${lineAlpha.toFixed(3)})`;
+            if (distSq < 15500) {
+              const alpha = (1 - distSq / 15500) * 0.13;
+              ctx.strokeStyle = `rgba(199, 164, 106, ${alpha.toFixed(3)})`;
               ctx.beginPath();
-              ctx.moveTo(projected[i].sx, projected[i].sy);
-              ctx.lineTo(projected[j].sx, projected[j].sy);
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
               ctx.stroke();
             }
           }
         }
 
-        // Floating 3D "All Home Services" badges drifting forward
-        ctx.font = '600 11px Inter, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        for (const node of serviceNodes) {
-          node.z -= node.speed;
-          if (node.z <= 0.25) {
-            node.z = 1.85;
-          }
-          const scale = 0.85 / node.z;
-          const floatY = Math.sin(t * 1.4 + node.phase) * 0.04;
-          const sx = w * 0.5 + (node.x - mouseX * 0.18) * w * 0.44 * scale;
-          const sy = h * 0.5 + (node.y + floatY - mouseY * 0.18) * h * 0.38 * scale;
-          const alpha = Math.min(0.22, Math.max(0.04, (1.85 - node.z) * 0.14));
-
-          if (sx < -80 || sx > w + 80 || sy < -40 || sy > h + 40) continue;
-
-          const padX = 12;
-          const textW = ctx.measureText(node.label).width;
-          const boxW = (textW + padX * 2) * Math.min(1.15, Math.max(0.65, scale));
-          const boxH = 24 * Math.min(1.15, Math.max(0.65, scale));
-
-          ctx.save();
-          ctx.globalAlpha = alpha;
-          ctx.fillStyle = 'rgba(15, 20, 31, 0.72)';
-          ctx.strokeStyle = 'rgba(240, 212, 148, 0.55)';
-          ctx.lineWidth = 1;
+        for (const p of projectedParticles) {
           ctx.beginPath();
-          if (ctx.roundRect) {
-            ctx.roundRect(sx - boxW / 2, sy - boxH / 2, boxW, boxH, 999);
-          } else {
-            ctx.rect(sx - boxW / 2, sy - boxH / 2, boxW, boxH);
-          }
+          ctx.arc(p.x, p.y, Math.max(0.8, p.size), 0, Math.PI * 2);
+          ctx.fillStyle = p.gold
+            ? 'rgba(240, 212, 148, 0.38)'
+            : 'rgba(148, 163, 184, 0.25)';
           ctx.fill();
-          ctx.stroke();
-
-          ctx.fillStyle = '#f0d494';
-          ctx.fillText(node.label, sx, sy);
-          ctx.restore();
         }
 
-        if (!reducedMotion) {
-          requestAnimationFrame(drawFrame);
+        for (const icon of icons) {
+          if (!reducedMotion) {
+            icon.x += icon.vx;
+            icon.y += icon.vy;
+            icon.z += icon.vz;
+            icon.rot += icon.vRot;
+            icon.tilt += icon.vTilt;
+            if (icon.y < -650) {
+              icon.y = 650;
+              icon.x = (Math.random() - 0.5) * 1500;
+            }
+            if (icon.x > 850) icon.x = -850;
+            if (icon.x < -850) icon.x = 850;
+            if (icon.z > 960) icon.z = 220;
+            if (icon.z < 220) icon.z = 960;
+          }
+          const proj = project(icon.x, icon.y, icon.z);
+          drawServiceIcon(icon, proj.x, proj.y, proj.scale);
+        }
+
+        for (const lbl of labels) {
+          if (!reducedMotion) {
+            lbl.x += lbl.vx;
+            lbl.y += lbl.vy;
+            lbl.z += lbl.vz;
+            lbl.age += 1;
+            if (lbl.age > 320) {
+              lbl.text = nextServiceName();
+              lbl.age = 0;
+            }
+            if (lbl.y < -620) {
+              lbl.y = 620;
+              lbl.x = (Math.random() - 0.5) * 1450;
+              lbl.text = nextServiceName();
+              lbl.age = 0;
+            }
+            if (lbl.x > 820) lbl.x = -820;
+            if (lbl.x < -820) lbl.x = 820;
+            if (lbl.z > 920) lbl.z = 240;
+            if (lbl.z < 240) lbl.z = 920;
+          }
+          const proj = project(lbl.x, lbl.y, lbl.z);
+          drawServiceLabel(lbl, proj.x, proj.y, proj.scale);
         }
       }
 
-      drawFrame();
+      function tick() {
+        if (!document.hidden) {
+          renderFrame();
+        }
+        if (!reducedMotion) {
+          window.requestAnimationFrame(tick);
+        }
+      }
+
+      renderFrame();
+      if (!reducedMotion) {
+        window.requestAnimationFrame(tick);
+      }
     })();
   </script>
 </body>
